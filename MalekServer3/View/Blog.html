@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>مقاله</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Index.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+
+</head>
+<body>
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <!-- Top -->
+        <div class="stripe"></div>
+        <div class="top row">
+            <div class="left row">
+                <a href="Cart.html" class="uk-icon" uk-icon="icon: cart"></a>
+                <!-- agar karbar login shodeh bashad, be jaye kalame حساب name karbar neveshte shavad -->
+                <button class="button-icon uk-margin-left login row" type="button" onclick="window.location = 'Login.html';">
+                    <span class="text">حساب</span>
+                    <span class="uk-icon" uk-icon="icon: user"></span>
+                </button>
+                <!-- #region Agar karbar login shodeh bashad in ghesmat neshan dadeh SHAVAD -->
+                <div mode="hover" delay-hide="400" uk-drop="pos: bottom" class="uk-navbar-dropdown uk-position-fixed">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active">
+                            <a href="User/UsProfile.html">حساب</a>
+                        </li>
+                        <li><hr class="uk-margin-small-top" /></li>
+                        <li>
+                            <a class="row">
+                                <span>خروج</span>
+                                <span uk-icon="icon: sign-out"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="row">
+                                <span>سبد خرید</span>
+                                <span uk-icon="icon: cart"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- #endregion -->
+            </div>
+            <!--  -->
+            <div class="right uk-margin-small-top row">
+                <div class="uk-margin uk-margin-medium-right">
+                    <form class="uk-search uk-search-default">
+                        <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                        <input class="uk-search-input" type="search" placeholder="...جستجو">
+                    </form>
+                </div>
+                <a class="logo" href="">
+                    <img src="/Resources/Vector/Logo.svg" />
+                </a>
+            </div>
+        </div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <button class="menu-item" type="button">
+                <span class="uk-icon" uk-icon="icon: menu"></span>
+                <span class="text">دسته بندی ها</span>
+            </button>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-left;duration: 300"
+                 class="uk-navbar-dropdown uk-width-large uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <div>
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li class="uk-active"><a href="#">Active</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Item</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li class="uk-active"><a href="#">Active</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Item</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--the about page, uncomment when needed-->
+            <!--<a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: info"></span>
+                <span class="text">درباره</span>
+            </a>-->
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: world"></span>
+                <span class="text">تماس با ما</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="space-nav"></div>
+
+    <!-- #endregion -->
+
+    <div class="space-double"></div>
+
+    <content class="blog clipped uk-margin-auto">
+
+    </content>
+
+    <div class="space-double"></div>
+
+    <footer class="uk-margin-top">
+        <div class="row">
+            <!--Contacts-->
+            <ul class="contacts column">
+                <li>
+                    <a class="row">
+                        <img src="/Resources/Vector/Social/Gmail.svg" />
+                        <label>info@malekserver.com</label>
+                    </a>
+                </li>
+                <li>
+                    <a class="row">
+                        <img src="/Resources/Vector/Social/Instagram.svg" />
+                        <label>malekserver</label>
+                    </a>
+                </li>
+                <li>
+                    <a class="row">
+                        <img src="/Resources/Vector/Social/Telegram.svg" />
+                        <label>malekserver</label>
+                    </a>
+                </li>
+                <li>
+                    <a class="row">
+                        <img src="/Resources/Vector/Social/WhatsApp.svg" />
+                        <label>09190995384</label>
+                    </a>
+                </li>
+            </ul>
+            <!-- Links -->
+            <div class="links row uk-margin-top">
+                <ul class="column">
+                    <li>
+                        <a href="">سادگی</a>
+                    </li>
+                    <li>
+                        <a href="">صنعت</a>
+                    </li>
+                    <li>
+                        <a href="">طراحان</a>
+
+                    </li>
+                    <li>
+                        <a href="">گرافیک</a>
+
+                    </li>
+                </ul>
+                <ul class="column">
+                    <li>
+                        <a href="">تولید</a>
+                    </li>
+                    <li>
+                        <a href="">چاپ</a>
+                    </li>
+                    <li>
+                        <a href="">استفاده</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Map -->
+            <div class="map column">
+                <h3 class="uk-margin-remove">آدرس ما</h3>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d970740.7025419878!2d-77.83662459349034!3d18.119829040895944!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eda2a1bc6cf719d%3A0x59a0d1c0b5120efa!2sJamaica!5e0!3m2!1sen!2sus!4v1596438531035!5m2!1sen!2sus"
+                        class="uk-border-rounded uk-margin-small-top"
+                        frameborder="0" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+                <p class="uk-margin-auto-left uk-margin-small-top">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است
+                </p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

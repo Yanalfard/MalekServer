@@ -1,0 +1,81 @@
+﻿@using MalekServer3.Models
+@model MalekServer3.Product_Galleries
+@{
+    ViewBag.Title = "گالری تصاویر محصول";
+}
+
+
+
+
+<!-- Project CSS -->
+<link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+<div class="gallery-card uk-margin-auto uk-margin-medium-top uk-margin-medium-bottom ">
+
+    <h3 class="uk-margin-bottom">گالری تصاویر محصول</h3>
+
+    @using (Html.BeginForm("Gallery", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ProductID)
+        <div class="col-md-4">
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @*@Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                    <div class="js-upload uk-placeholder uk-text-center">
+                        <div uk-form-custom>
+                            <input type="file" name="imgUp">
+                            <span class="uk-link">اینجا کلیک کنید</span>
+                        </div>
+                        <span class="uk-text-middle">برای انتخاب عکس خود</span>
+                        <span uk-icon="icon: cloud-upload"></span>
+                    </div>
+                    @*<div class="col-md-10">
+                            <input type="file" name="imgUp" class="" />
+                            @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                        </div>*@
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="ثبت تصویر" class="uk-button uk-button-primary" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="admin-image-holder uk-padding uk-padding-remove-right" dir="rtl">
+            @{
+                List<TblImage> list = ViewBag.Galleries;
+
+                foreach (var item in list)
+                {
+                    <div class="admin-image column">
+                        <div class="row uk-margin-small-bottom">
+                            <a uk-icon="icon: trash ; ratio:1" dir="ltr" href="/Admin/Home/DeleteGallery/@item.id">
+                                حذف عکس
+
+                            </a>
+                        </div>
+                        <img src="/Resources/Images/Thumb/@item.Image" class="thumbnail" />
+                    </div>
+                }
+            }
+        </div>
+    }
+    <a href="/Admin/Home/Products"
+       class="uk-button uk-button-primary uk-margin-auto-left">انجام</a>
+
+</div>
+
+
+@section Scripts{
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+
+}
+

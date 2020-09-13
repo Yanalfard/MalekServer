@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>سبد خرید</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit-rtl.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Profile.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="/Scripts/General.js"></script>
+
+</head>
+<body class="column">
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="../Index.html" class="menu-item">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+            </a>
+            <div class="menu-item unselectable">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">نام کاربر</span>
+            </div>
+            <hr class="uk-divider-vertical" />
+            <a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: cart"></span>
+                <span class="text">سبد خرید</span>
+            </a>
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: history"></span>
+                <span class="text">سابقه</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+    <div class="clipped column uk-margin-top uk-margin-auto">
+        <label>سبد خرید شما</label>
+        <hr class="uk-margin-small-top " />
+    </div>
+    <content class="uk-card clipped uk-margin-bottom">
+        <table class="history uk-table uk-table-striped uk-margin-small-top">
+            <thead>
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        ردیف
+                    </th>
+                    <th>
+                        عکس
+                    </th>
+                    <th>
+                        کد
+                    </th>
+                    <th>
+                        نام
+                    </th>
+                    <th>
+                        دسته بندی
+                    </th>
+                    <th>
+                        فی
+                    </th>
+                    <th>
+                        تعداد
+                    </th>
+                    <th>
+                        قیمت
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                <tr>
+                    <td><a uk-icon="icon: trash"></a></td>
+                    <td>1</td>
+                    <td>
+                        <div class="row" uk-lightbox>
+                            <a href="/Resources/Raster/dark.jpg">
+                                <img class="mini-img" src="/Resources/Raster/dark.jpg" alt="">
+                            </a>
+                            <a href="/Resources/Raster/light.jpg">
+                            </a>
+                            <a href="/Resources/Raster/photo.jpg">
+                            </a>
+                        </div>
+                    </td>
+                    <td>150</td>
+                    <td>باتری</td>
+                    <td>لوازم جانبی</td>
+                    <td>5000</td>
+                    <td>2</td>
+                    <td>10000</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>8 عدد</td>
+                    <td>
+                        40000 تومان
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </content>
+
+    <hr class="uk-margin-auto clipped uk-divider-icon uk-margin-remove-vertical"/>
+
+    <div class="clipped row uk-margin-auto">
+        <button class="uk-margin-auto-left uk-margin-top uk-button uk-button-primary">تکمیل سفارش</button>
+    </div>
+
+    <div class="space-double"></div>
+    <div class="space-double"></div>
+
+</body>
+</html>

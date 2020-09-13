@@ -1,0 +1,22 @@
+﻿
+@model IEnumerable<MalekServer3.Models.TblBlog>
+
+@{
+    ViewBag.Title = "مقالات";
+}
+
+<div class="space-half"></div>
+<div class="space-mobile"></div>
+
+<content id="cards" class="browse gray uk-margin-remove-top">
+    @foreach (var item in Model)
+    {
+        <article class="blog-block column uk-margin-auto uk-padding-remove">
+            <img src="~/Resources/Images/@item.MainImage" class="uk-margin-remove" alt="" />
+            <div class="column">
+                <h3 class="uk-margin-remove uk-margin-small-bottom">@item.Title</h3>
+                <a href="/Home/Blog/@item.id" class="uk-margin-top">بیشتر بخوانید...</a>
+            </div>
+        </article>
+    }
+</content>

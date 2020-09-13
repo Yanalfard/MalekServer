@@ -1,0 +1,32 @@
+﻿@model MalekServer3.Models.TblCatagory
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form uk-margin-auto uk-margin-bottom uk-margin-medium-top">
+
+        @Html.ValidationSummary(true, "", new { @class = "uk-text-danger" })
+        @Html.HiddenFor(model => model.id)
+        <div class="row">
+            <a onclick="UpdateZirCatagory();" class="uk-button uk-button-primary uk-margin-right">ویرایش</a>
+            <input type="text" id="ZirCatagoryName" value="@Model.Name" class="uk-input uk-margin-small-right" placeholder="دسته جدید" />
+        </div>
+        <div class="row uk-margin-small-top" dir="rtl">
+            @if (Model.IsOnFirstPage == true)
+            {
+                <input id="IsOnFirstPage" type="checkbox" class="uk-checkbox uk-margin-top" checked />
+            }
+            else
+            {
+                <input id="IsOnFirstPage" type="checkbox" class="uk-checkbox uk-margin-top" />
+            }
+            <label class="uk-margin-small-right uk-margin-auto-top">صفحه اصلی نمایش داده شود</label>
+        </div>
+        <input type="hidden" name="IdCatagory" id="IdCatagory" value="@Model.id" />
+    </div>
+}
+
+

@@ -1,0 +1,99 @@
+﻿@model MalekServer3.Models.ViewModel.UpdateRegisterViewModle
+
+@{
+    ViewBag.Title = "مشاهده و ویرایش اطلاعات";
+}
+
+<link href="~/Styles/Profile.min.css" rel="stylesheet" />
+
+@if (Request.QueryString["recovery"] != null)
+{
+    <div class="alert alert-success">
+        <h4>ویرایش با موفقیت تغییر کرد .<h4 />
+    </div>
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form uk-margin-auto uk-margin-bottom uk-margin-medium-top">
+
+        @Html.ValidationSummary(true, "", new { @class = "uk-text-danger" })
+        @Html.HiddenFor(model => model.id)
+        @Html.HiddenFor(model => model.Auth)
+        @Html.HiddenFor(model => model.IsActive)
+        @Html.HiddenFor(model => model.Address)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control uk-input" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdentificationNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.IdentificationNo, new { htmlAttributes = new { @class = "form-control uk-input" } })
+                @Html.ValidationMessageFor(model => model.IdentificationNo, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TellNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TellNo, new { htmlAttributes = new { @class = "form-control  uk-input" } })
+                @Html.ValidationMessageFor(model => model.TellNo, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control  uk-input" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control  uk-input" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.OldPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.OldPassword, new { htmlAttributes = new { @class = "form-control  uk-input" } })
+                @Html.ValidationMessageFor(model => model.OldPassword, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control uk-input" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RePassword, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.RePassword, new { htmlAttributes = new { @class = "form-control uk-input" } })
+                @Html.ValidationMessageFor(model => model.RePassword, "", new { @class = "uk-text-danger" })
+            </div>
+        </div>
+        <button type="submit" class="uk-button uk-button-primary uk-margin-small-top">
+            <span>ویرایش</span>
+            <span uk-icon="icon: file-edit"></span>
+        </button>
+    </div>
+}
+
+@section Scripts{
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.slim.min.js"></script>
+  
+}

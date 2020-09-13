@@ -1,0 +1,43 @@
+﻿
+
+@{
+    ViewBag.Title = "Index";
+}
+<p>
+    @*<a class="btn btn-success" onclick="Create()">افزودن سرگروه جدید</a>*@
+    <!-- This is a button toggling the modal -->
+    <button class="uk-button uk-button-primary" onclick="Create()" uk-toggle="target: #myModal" type="button">
+        افزودن سرگروه جدید
+    </button>
+</p>
+
+<div id="listGroup">
+    @Html.Action("ListGroups")
+</div>
+
+
+
+<!-- This is the modal -->
+<div id="myModal" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <div class="modal-header">
+            <button class="uk-modal-close-default" type="button" uk-close></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body" id="myModalBody">
+            ...
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.slim.min.js"></script>
+    <script src="~/Scripts/jquery-3.5.1.min.js"></script>
+    <script src="~/Scripts/modal.js"></script>
+    <script src="~/Scripts/Admin/Product_Groups.js"></script>
+
+}

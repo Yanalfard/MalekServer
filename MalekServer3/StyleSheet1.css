@@ -1,0 +1,43 @@
+﻿
+.div3 {
+}
+
+.div2 {
+}
+
+.div4 {
+}
+
+.div5 {
+}
+
+.div1 > div {
+    float: left;
+}
+
+@media only screen and (max-width : 480px) {
+    .div1 > div {
+        clear: left;
+    }
+
+    .div3 {
+        float: right;
+        clear: left;
+    }
+
+    .div2 {
+        float: left;
+        clear: left;
+    }
+
+        .div2 > div {
+            float: left;
+        }
+
+    .div4 {
+    }
+
+    .div5 {
+    }
+}
+

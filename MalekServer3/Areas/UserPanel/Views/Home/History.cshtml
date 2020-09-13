@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MalekServer3.Models.ViewModel.ShowProduct>
+@{
+    ViewBag.Title = "سابقه خرید";
+}
+
+<div class="clipped column uk-margin-top uk-margin-auto">
+    <label>خرید های شما</label>
+    <hr class="uk-margin-small-top " />
+</div>
+<content id="cartTable" class="uk-card clipped uk-margin-bottom">
+    <table class="history uk-table uk-table-striped uk-margin-small-top">
+        <thead>
+            <tr>
+                <th>
+                    ردیف
+                </th>
+                <th>
+                    کد
+                </th>
+                <th>
+                    نام
+                </th>
+                <th>
+                    دسته بندی
+                </th>
+                <th>
+                    تاریخ
+                </th>
+                <th>
+                    فی
+                </th>
+                <th>
+                    تعداد
+                </th>
+                <th>
+                    قیمت
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@item.id</td>
+                    <td>@item.product</td>
+                    <td>@item.cat</td>
+                    <td>@item.Date</td>
+                    <td>@item.AfterDiscount</td>
+                    <td>@item.Count</td>
+                    <td>@item.TotalAfterDiscount</td>
+                </tr>
+            }
+
+
+        </tbody>
+        <tfoot>
+
+        </tfoot>
+    </table>
+
+</content>
+
+<div class="space-double"></div>

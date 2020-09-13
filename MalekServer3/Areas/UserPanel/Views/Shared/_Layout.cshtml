@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+
+
+    <!-- UIkit CSS -->
+    <link href="~/Styles/UIKit/uikit-rtl.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="~/Styles/Profile.min.css" rel="stylesheet" />
+</head>
+<body class="column">
+    <!-- #region Nav -->
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+
+        <div class="bottom row">
+            <a class="menu-item" href="/LogOff">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="/Home/Index" class="menu-item">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+            </a>
+            <a class="menu-item hide-icon unselectable" href="/UserPanel/Home/Index">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">@User.Identity.Name.Split('|')[0]</span>
+            </a>
+            <a class="menu-item hide-icon" href="/UserPanel/Home/Cart">
+                <span class="uk-icon" uk-icon="icon: cart"></span>
+                <span class="text">سبد خرید</span>
+            </a>
+            <a class="menu-item hide-icon" href="/UserPanel/Home/History">
+                <span class="uk-icon" uk-icon="icon: history"></span>
+                <span class="text">سابقه</span>
+            </a>
+            <a class="menu-item hide-icon" href="/UserPanel/Home/Order">
+                <span class="uk-icon" uk-icon="icon: cart"></span>
+                <span class="text">ثبت سفارش </span>
+            </a>
+        </div>
+
+
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+
+
+
+    @RenderBody()
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- UIkit JS -->
+    <script src="~/Scripts/UIKit/uikit.min.js"></script>
+    <script src="~/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="~/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+
+
+
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,128 @@
+﻿@model MalekServer3.Models.ObjectClass.OcProduct
+
+@{
+    ViewBag.Title = "ویرایش محصول";
+}
+
+
+<!-- Project CSS -->
+<link href="/Styles/Product.min.css" rel="stylesheet" />
+
+
+<!-- #endregion -->
+<!-- #region product -->
+<section class="column product uk-card ">
+    <div class="alternate">
+        <div class="column">
+            <label class="uk-margin-small-bottom">
+                دسته کالا
+            </label>
+            <div class="row">
+
+                <div class="row">
+                    <button onclick="addCatagory();" class="uk-button uk-button-primary uk-margin-right">اضافه</button>
+                    <input type="tel" id="CatagoryName" class="uk-input uk-margin-small-right" placeholder="دسته جدید" />
+                </div>
+
+                <select onchange="SelectCatagory()" id="SelectCatagory" class="uk-select uk-width-medium uk-margin-auto-left">
+
+                    @foreach (var item in Model.AllCatagorys.Where(i => i.CatagoryId == null))
+                    {
+                        <option>@item.Name</option>
+
+                    }
+
+                </select>
+            </div>
+            <label class="uk-margin-small-bottom uk-margin-top">
+                زیر دسته
+            </label>
+            <div class="row">
+                <div class="row">
+                    <button onclick="addZirCatagory()" class="uk-button uk-button-primary uk-margin-right">اضافه</button>
+                    <input type="tel" id="ZirCatagoryName" class="uk-input uk-margin-small-right" placeholder="زیر دسته جدید" />
+                </div>
+                <select id="NameCatagoryAdd" class="uk-select uk-width-medium uk-margin-auto-left">
+                    @foreach (var item in Model.AllCatagorys.Where(i => i.CatagoryId == null))
+                    {
+                        <option>@item.Name</option>
+
+                    }
+                </select>
+                <select id="SelectZirCatagory" class="uk-select uk-width-medium uk-margin-auto-left">
+
+                    <option>@Model.Catagory.Name</option>
+
+                </select>
+            </div>
+
+            <label class="uk-margin-small-bottom uk-margin-medium-top">
+                نام کالا
+            </label>
+            <input type="text" name="nameKala" id="nameKala" class="uk-textarea" contenteditable value="@Model.Name" />
+            <label class="uk-margin-medium-top uk-margin-small-bottom">
+                توضیحات
+            </label>
+
+            <textarea id="description" name="editor" rows="4" cols="50" class="uk-textarea uk-padding-small" contenteditable>
+             @Model.DescriptionHtml
+    </textarea>
+            <div class="row uk-margin-medium-top">
+                <div class="column uk-margin-right ">
+                    <label class="uk-margin-small-bottom">
+                        درصد تخفیف
+                    </label>
+                    <input type="number" name="name" value="@Model.Discount" id="discount" class="uk-textarea" contenteditable />
+                </div>
+                <div class="column uk-margin-remove">
+                    <label class="uk-margin-small-bottom">
+                        قیمت به تومان
+                    </label>
+                    <input type="number" name="name" value="@Model.Price" id="price" class="uk-textarea" contenteditable />
+                </div>
+            </div>
+
+            <div class="row uk-margin-small-top" dir="rtl">
+                @if (Model.IsSuggested == true)
+                {
+                    <input id="IsSuggested" type="checkbox" class="uk-checkbox uk-margin-top" checked />
+                }
+                else
+                {
+                    <input id="IsSuggested" type="checkbox" class="uk-checkbox uk-margin-top" />
+                }
+                <label class="uk-margin-small-right uk-margin-auto-top">پیشنهاد شده</label>
+            </div>
+            <label class="uk-margin-medium-top uk-margin-small-bottom">
+                کلمات کلیدی
+            </label>
+            <input type="text" name="keywords" value="@Model.AllKeywords" id="keywords" class="uk-textarea" contenteditable />
+
+
+
+        </div>
+    </div>
+
+    <hr class="uk-divider-icon uk-margin-medium-top" />
+
+    <div class="row uk-margin-auto-left  ">
+        <a href="/Admin/Home/Products" class="uk-button uk-button-danger uk-margin-right">بازگشت</a>
+        <button onclick="EditProductToData()" class="uk-button uk-button-primary ">ویرایش کردن کالا</button>
+    </div>
+
+</section>
+<!-- #endregion -->
+
+<div class="space-half"></div>
+
+<div class="space-double"></div>
+
+<input type="hidden" name="DateSubmited" id="DateSubmited" value="@Model.DateSubmited" />
+<input type="hidden" name="Raiting" id="Raiting" value="@Model.Raiting" />
+<input type="hidden" name="hiddenId" id="hiddenId" value="@Model.id" />
+@section Scripts{
+    <script src="~/Scripts/UiScripts/ProductAdder.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Scripts/Admin/EditProduct.js"></script>
+}

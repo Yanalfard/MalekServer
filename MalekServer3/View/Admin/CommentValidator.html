@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>نظرات کاربران</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/Admin.min.css" rel="stylesheet" />
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+
+    <!-- Project CSS -->
+    <link href="/Styles/Admin.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="/Scripts/General.js"></script>
+
+</head>
+<body>
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="../Index.html" class="menu-item">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+            </a>
+            <div class="menu-item unselectable">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">نام ادمین</span>
+            </div>
+            <hr class="uk-divider-vertical" />
+            <a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: comments"></span>
+                <span class="text">نظرات کاربران</span>
+            </a>
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: hashtag"></span>
+                <span class="text">کد های تخفیف</span>
+            </a>
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: database"></span>
+                <span class="text">جدول ها</span>
+            </a>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="TblClients.html">مشتریان</a></li>
+                        <li><a href="TblProducts.html">کالا ها</a></li>
+                        <li><a href="TblComments.html">نظرات</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+    <section class="holder column uk-margin-auto uk-margin-medium-bottom uk-margin-medium-top">
+
+        <header class="uk-margin-auto-left uk-margin-bottom">
+            <span class="uk-badge">6</span>
+            <span>نظرات باقی مانده</span>
+        </header>
+
+        <!-- #region Comment -->
+
+        <article class="uk-comment uk-comment-primary">
+            <header class="uk-comment-header">
+                <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                        <h4 class="uk-comment-title uk-margin-remove">حسن حسن زاده</h4>
+                        <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                            <li>12 روز پیش</li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div class="uk-comment-body">
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+                </p>
+            </div>
+            <div class="row uk-margin-top">
+                <button class="uk-button uk-button-danger uk-margin-auto-left">
+                    <span>حذف</span>
+                    <span uk-icon="icon: trash"></span>
+                </button>
+                <button class="uk-button uk-button-primary uk-margin-left">
+                    <span>تایید</span>
+                    <span uk-icon="icon: check"></span>
+                </button>
+            </div>
+        </article>
+
+        <!-- #endregion -->
+
+    </section>
+
+</body>
+</html>

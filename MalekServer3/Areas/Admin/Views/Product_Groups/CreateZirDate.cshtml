@@ -1,0 +1,26 @@
+﻿@model MalekServer3.Models.TblCatagory
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+
+    <div class="form uk-margin-auto uk-margin-bottom uk-margin-medium-top">
+
+        @Html.ValidationSummary(true, "", new { @class = "uk-text-danger" })
+        @Html.HiddenFor(model => model.CatagoryId)
+        <div class="row">
+            <a onclick="addZirCatagory()" class="uk-button uk-button-primary uk-margin-right">اضافه</a>
+            <input type="text" id="ZirCatagoryName" class="uk-input uk-margin-small-right" placeholder="زیر دسته جدید" />
+        </div>
+        <div class="row uk-margin-small-top" dir="rtl">
+            <input id="IsOnFirstPage" type="checkbox" class="uk-checkbox uk-margin-top" />
+            <label class="uk-margin-small-right uk-margin-auto-top">صفحه اصلی نمایش داده شود</label>
+        </div>
+    </div>
+
+    <input type="hidden" id="NameCatagoryAdd" name="NameCatagoryAdd" value="@Model.CatagoryId" />
+
+
+}

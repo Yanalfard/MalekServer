@@ -1,0 +1,26 @@
+﻿.img-banner {
+    width: 100vw;
+    height: 24vw;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    overflow-y: hidden !important;
+    -ms-align-content: flex-start;
+    -webkit-align-content: flex-start;
+    align-content: flex-start;
+}
+
+img-banner > img {
+    align-self: flex-start;
+    margin:0 auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    width: 100vw !important;
+    height: 24vw !important;
+    -o-object-fit: contain;
+    object-fit: contain;
+    -o-object-position: top !important;
+    object-position: top !important;
+    overflow-y: hidden !important;
+}

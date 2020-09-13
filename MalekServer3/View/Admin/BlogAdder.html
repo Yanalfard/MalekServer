@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>مقاله جدید</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="../../Scripts/UiScripts/ProductAdder.js"></script>
+
+</head>
+<body>
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="../Index.html" class="menu-item">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+            </a>
+            <div class="menu-item unselectable">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">نام ادمین</span>
+            </div>
+            <hr class="uk-divider-vertical" />
+            <a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: comments"></span>
+                <span class="text">نظرات کاربران</span>
+            </a>
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: hashtag"></span>
+                <span class="text">کد های تخفیف</span>
+            </a>
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: database"></span>
+                <span class="text">جدول ها</span>
+            </a>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="TblClients.html">مشتریان</a></li>
+                        <li><a href="TblProducts.html">کالا ها</a></li>
+                        <li><a href="TblComments.html">نظرات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: file-text"></span>
+                <span class="text">مقاله ها</span>
+            </a>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="BlogAdder.html">مقاله جدید</a></li>
+                        <li><a href="Blogs.html">مشاهده مقالات</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+    <div class="blog-adder uk-margin-medium-top uk-margin-medium-bottom uk-margin-auto uk-card">
+
+        <h3 class="uk-margin-bottom">
+            مقاله جدید
+        </h3>
+
+        <h4 class="uk-margin-top">تیتر</h4>
+        <input type="text" class="uk-input" />
+
+        <div class="row uk-margin-bottom " dir="rtl">
+            <div class="js-upload" uk-form-custom>
+                <input id="inputImage" type="file" onchange="ImageAddItToADiv('addedImages')" accept="image/*">
+                <button class="uk-margin-top uk-button uk-button-primary" type="button" tabindex="-1">
+                    <span class="text">انتخاب عکس</span>
+                    <span class="uk-icon" uk-icon="icon: image"></span>
+                </button>
+            </div>
+        </div>
+
+        <div id="addedImages" class="row" dir="rtl">
+            
+        </div>
+
+        <p id="editor" class="uk-input uk-margin-top" contenteditable>
+
+        </p>
+
+
+        <hr class="uk-divider-icon uk-margin-medium-top" />
+
+        <div class="row ">
+            <button class="uk-button uk-button-danger uk-margin-auto-left uk-margin-right" onclick="window.location = 'AdminPanel.html'">بازگشت</button>
+            <button class="uk-button uk-button-primary ">اضافه کردن مقاله</button>
+        </div>
+    </div>
+
+</body>
+</html>

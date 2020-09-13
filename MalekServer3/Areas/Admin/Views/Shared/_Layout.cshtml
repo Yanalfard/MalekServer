@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+
+    <!-- UIkit CSS -->
+    <link href="~/Styles/Admin.min.css" rel="stylesheet" />
+    <link href="~/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+
+    <!-- Project CSS -->
+    <link href="~/Styles/Admin.min.css" rel="stylesheet" />
+
+    <!-- Loading CSS -->
+    <link href="~/Styles/Load.css" rel="stylesheet" />
+</head>
+<body>
+
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            @*<a class="menu-item" href="">
+                <span class="uk-icon" uk-icon="icon: menu"></span>
+            </a>*@
+            <a class="menu-item" href="/LogOff">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="/Home/Index" class="menu-item">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+            </a>
+            <a href="/Admin/Home/Index" class="menu-item unselectable">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">@User.Identity.Name.Split('|')[0]</span>
+            </a>
+            <hr class="uk-divider-vertical" />
+            <a class="menu-item" href="/Admin/Home/Products">
+                @*<span class="uk-icon" uk-icon="icon: database"></span>*@
+                <span class="text">کالاها</span>
+            </a>
+            <div mode="click" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="/Admin/Product_Groups/Index">دسته بندی ها</a></li>
+                        <li><a href="/Admin/Home/ProductAdder">کالای جدید</a></li>
+                        <li><a href="/Admin/Home/Products">مشاهده کالاها</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="menu-item" href="/Admin/Ad/Ads">
+                @*<span class="uk-icon" uk-icon="icon: database"></span>*@
+                <span class="text">تبلیغات</span>
+            </a>
+            <div mode="click" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="/Admin/Ad/AddAd">تبلیغ جدید</a></li>
+                        <li><a href="/Admin/Ad/Ads">مشاهده تبلیغات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="menu-item">
+                @*<span class="uk-icon" uk-icon="icon: database"></span>*@
+                <span class="text">جدول ها</span>
+            </a>
+            <div mode="click" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="/Admin/Home/Clients">مشتریان</a></li>
+                        <li><a href="/Admin/Home/Products">کالا ها</a></li>
+                        <li><a href="/Admin/Home/Comments">نظرات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/Admin/Home/Blogs" class="menu-item">
+                @*<span class="uk-icon" uk-icon="icon: file-text"></span>*@
+                <span class="text">مقاله ها</span>
+            </a>
+            <div mode="click" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="/Admin/Home/BlogAdder">مقاله جدید</a></li>
+                        <li><a href="/Admin/Home/Blogs">مشاهده مقالات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a href="/Admin/Home/CommentValidator" class="menu-item">
+                @*<span class="uk-icon" uk-icon="icon: comments"></span>*@
+                <span class="text">نظرات کاربران</span>
+            </a>
+            <a class="menu-item" href="/Admin/Home/PromocodeAdder">
+                @*<span class="uk-icon" uk-icon="icon: hashtag"></span>*@
+                <span class="text">کد های تخفیف</span>
+            </a>
+            <a class="menu-item" href="/Admin/SaleReport/SaleReports">
+                @*<span class="uk-icon" uk-icon="icon: hashtag"></span>*@
+                <span class="text">گزارش های فروش</span>
+            </a>
+            <a class="menu-item" href="/Admin/Order/Orders">
+                @*<span class="uk-icon" uk-icon="icon: hashtag"></span>*@
+                <span class="text">فروش آنلاین</span>
+            </a>
+
+        </div>
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+    <!-- #Loadin -->
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+    @RenderBody()
+
+
+    <!-- UIkit JS -->
+    <script src="~/Scripts/UIKit/uikit.min.js"></script>
+    <script src="~/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="~/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="~/Scripts/General.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        jQuery(function ($) {
+            $(document).ajaxSend(function () {
+                $("#overlay").fadeIn(300);
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,13 @@
+﻿@import "colors";
+@import "controls";
+@import "general";
+
+thead {
+    tr {
+        th {
+            direction: rtl!important;
+            text-align: right!important;
+            margin-left: auto!important;
+        }
+    }
+}

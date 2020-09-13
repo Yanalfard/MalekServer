@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30320.27
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MalekServer3", "MalekServer3\MalekServer3.csproj", "{0E2ADC6D-1295-479A-84EC-BA655D8E6F9B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MalekServerTests", "MalekServerTests\MalekServerTests.csproj", "{629EFB8E-AFB7-4ED2-B894-217360213770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0E2ADC6D-1295-479A-84EC-BA655D8E6F9B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E2ADC6D-1295-479A-84EC-BA655D8E6F9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E2ADC6D-1295-479A-84EC-BA655D8E6F9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E2ADC6D-1295-479A-84EC-BA655D8E6F9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{629EFB8E-AFB7-4ED2-B894-217360213770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{629EFB8E-AFB7-4ED2-B894-217360213770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{629EFB8E-AFB7-4ED2-B894-217360213770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{629EFB8E-AFB7-4ED2-B894-217360213770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8B9A9096-0B5B-4A0B-9381-E6AA71700584}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://dev.azure.com/ArvinTav
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = MalekServer3\\MalekServer3.csproj
+		SccProjectName1 = MalekServer3
+		SccLocalPath1 = MalekServer3
+		SccProjectUniqueName2 = MalekServerTests\\MalekServerTests.csproj
+		SccProjectName2 = MalekServerTests
+		SccLocalPath2 = MalekServerTests
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,134 @@
+﻿@{
+    ViewBag.Title = "ملک سرور";
+}
+
+<div class="space-mobile"></div>
+<br />
+
+<link href="~/Styles/Index.min.css" rel="stylesheet" />
+<link href="~/Styles/OwlCarousel/owl.carousel.min.css" rel="stylesheet" />
+<link href="~/Styles/img-banner.css" rel="stylesheet" />
+<!-- #region Slider -->
+
+<div class="slider-alternate uk-border-rounded">
+
+    <div class="slider-holder">
+
+        @* This is a comment *@
+        @* This is a comment *@
+        @* This is a comment *@
+        <div class="slider-mini uk-margin-auto uk-border-rounded gray div4"
+             uk-slideshow="animation: push; autoplay: true; autoplay-interval: 5000">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slideshow-items">
+                    @Html.Action("Ads2", "Home")
+                </ul>
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            </div>
+        </div>
+
+        <div class="space "></div>
+
+        <div class="slider-mini uk-margin-auto uk-border-rounded gray div5"
+             uk-slideshow="animation: push; autoplay: true; autoplay-interval: 3000">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slideshow-items">
+                    @Html.Action("Ads3", "Home")
+                </ul>
+
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="slider uk-margin-auto uk-border-rounded gray "
+         uk-slideshow="animation: push; autoplay: true; autoplay-interval: 3500">
+
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+            <ul class="uk-slideshow-items">
+                @Html.Action("Ads1", "Home")
+            </ul>
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- #endregion -->
+<!-- #region Suggestion -->
+
+<header class="blue uk-margin-top uk-margin-remove-bottom">
+    <h4 class="uk-margin-top uk-margin-medium-right">پیشنهاد های ویژه</h4>
+</header>
+
+<ul id="Suggestion" class="blue uk-padding-bottom carousel owl-carousel uk-margin-remove-top">
+    @Html.Action("Suggestion", "Home")
+</ul>
+
+
+<!-- #endregion -->
+<!-- #region Banner#1 -->
+
+@Html.Action("Ads4", "Home")
+<!-- #endregion -->
+<!-- #region ProductHub -->
+@Html.Action("IsOnFirstPage", "Home")
+
+<header class="blue uk-margin-top uk-margin-remove-bottom">
+    <h4 class="uk-margin-top uk-margin-medium-right">جدیدترین محصولات</h4>
+</header>
+
+<ul id="NewProducts" class="blue uk-padding-bottom carousel owl-carousel uk-margin-remove-top">
+
+    @Html.Action("NewProduct", "Home")
+
+</ul>
+<!-- #region Blogs -->
+@Html.Action("Ads5", "Home")
+
+<header class="blue uk-margin-top">
+    <h4 class="uk-margin-top uk-card uk-margin-medium-right">مقاله ها</h4>
+</header>
+
+<ul id="blogs" class="gray uk-padding-bottom carousel owl-carousel uk-margin-remove-top">
+
+    @Html.Action("Blogs", "Home")
+
+</ul>
+<!-- #region Banner#2 -->
+<!-- #endregion -->
+<!-- #endregion -->
+<!-- #region NewProduct-->
+<header class="blue uk-margin-top uk-margin-remove-bottom">
+    <h4 class="uk-margin-top uk-margin-medium-right"> محصولات</h4>
+</header>
+
+<ul id="ProductHub" class="blue uk-padding-bottom carousel owl-carousel uk-margin-remove-top">
+
+    @Html.Action("ProductHub", "Home")
+
+</ul>
+
+<!-- #endregion -->
+<!-- #region Banner#3 -->
+
+@Html.Action("Ads6", "Home")
+<!-- #endregion -->
+
+@section Scripts{
+    <script src="~/Scripts/OwlCarousel/owl.carousel.min.js"></script>
+    <script src="~/Scripts/Home/Index.js"></script>
+} 

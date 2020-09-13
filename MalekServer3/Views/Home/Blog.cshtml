@@ -1,0 +1,22 @@
+﻿@model MalekServer3.Models.TblBlog
+
+@{
+    ViewBag.Title = @Model.Title;
+
+}
+
+<link href="~/Styles/Blog.min.css" rel="stylesheet" />
+
+<content class="blog-view uk-card clipped uk-margin-auto column" dir="rtl">
+    <ul class="uk-breadcrumb" dir="rtl">
+        <li><a href="/Home/Index">خانه</a></li>
+        <li><a href="">@Model.Title</a></li>
+    </ul>
+    <img src="~/Resources/Images/@Model.MainImage" alt="" />
+    <h3 class="uk-margin-remove uk-margin-small-bottom">@Model.Title</h3>
+    <p>
+        @Html.Raw(Model.Body)
+    </p>
+</content>
+
+<div class="space-double"></div>

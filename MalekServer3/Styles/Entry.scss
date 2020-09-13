@@ -1,0 +1,81 @@
+﻿@import "_colors.scss";
+@import "_controls.scss";
+@import "_general.scss";
+
+body {
+    background-image: url('../Resources/Vector/Tile.png');
+    background-repeat: repeat;
+    display: flex;
+
+    form {
+        margin: auto;
+    }
+}
+
+
+.uk-card {
+    @include mat();
+    @include shadow-mega();
+    @include border-radius(8px,8px,8px,8px);
+    padding: 20px;
+    margin: 6vh 3vw;
+    width: 32vw;
+
+    * {
+        overflow-y: hidden;
+    }
+
+    .form {
+        padding: 20px;
+        flex: 1;
+    }
+
+    img {
+        flex: 0;
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
+
+    .uk-input {
+        margin-top: 12px;
+        margin-bottom: 6px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+}
+
+.g-recaptcha {
+    width: inherit;
+    height: inherit;
+}
+
+
+@media only screen and (max-width: 1120px) and (min-width: 740px) {
+    .uk-card {
+        width: 42vw;
+    }
+}
+
+@media only screen and (max-width: 740px) {
+    .uk-card {
+        width: 56vw;
+    }
+}
+
+@media only screen and (min-device-width : 20px) and (max-device-width : 480px) {
+    .g-recaptcha {
+        margin: 0 !important;
+        margin-right: -4px !important;
+    }
+
+    .uk-card {
+        width: 90vw;
+        margin: 5vh 5vw;
+
+        img {
+            flex: .0;
+        }
+    }
+}

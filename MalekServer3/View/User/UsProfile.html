@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>سابقه</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit-rtl.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Profile.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="/Scripts/General.js"></script>
+
+
+</head>
+<body class="column">
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="UsProfile.html" class="menu-item unselectable">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">نام کاربر</span>
+            </a>
+            <hr class="uk-divider-vertical" />
+            <a class="menu-item" href=".html">
+                <span class="uk-icon" uk-icon="icon: cart"></span>
+                <span class="text">سبد خرید</span>
+            </a>
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: history"></span>
+                <span class="text">سابقه</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+
+    <content class="form  uk-card uk-margin-bottom uk-margin-medium-top">
+        <label>نام و نام خانوادگی</label>
+        <input class="uk-input  " id="txtName" type="text" value="" />
+
+        <label>کد ملی</label>
+        <input class="uk-input  " id="txtIdentification" type="text" value="" />
+
+        <label>شماره تلفن</label>
+        <input class="uk-input  " id="txtTellNo" type="tel" value="" />
+
+        <label>نام کاربری</label>
+        <input class="uk-input  " id="txtUsername" type="text" value="" />
+
+        <label>گذز واژه</label>
+        <input class="uk-input  " id="txtPassword" type="password" value="" />
+
+        <button class="uk-button uk-margin-top uk-margin-auto uk-button-primary ">
+            ویرایش
+        </button>
+    </content>
+
+
+</body>
+</html>

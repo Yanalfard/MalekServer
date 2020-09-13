@@ -1,0 +1,42 @@
+﻿[
+  {
+    "outputFile": "Styles/Index.css",
+    "inputFile": "Styles/Index.scss"
+  },
+  {
+    "outputFile": "Styles/Product.css",
+    "inputFile": "Styles/Product.scss"
+  },
+  {
+    "outputFile": "Styles/ItemAdder.css",
+    "inputFile": "Styles/ItemAdder.scss"
+  },
+  {
+    "outputFile": "Styles/Entry.css",
+    "inputFile": "Styles/Entry.scss"
+  },
+  {
+    "outputFile": "Styles/Profile.css",
+    "inputFile": "Styles/Profile.scss"
+  },
+  {
+    "outputFile": "Styles/Search.css",
+    "inputFile": "Styles/Search.scss"
+  },
+  {
+    "outputFile": "Styles/Static.css",
+    "inputFile": "Styles/Static.scss"
+  },
+  {
+    "outputFile": "Styles/Admin.css",
+    "inputFile": "Styles/Admin.scss"
+  },
+  {
+    "outputFile": "Styles/Blog.css",
+    "inputFile": "Styles/Blog.scss"
+  },
+  {
+    "outputFile": "Styles/Tables.css",
+    "inputFile": "Styles/Tables.scss"
+  }
+]

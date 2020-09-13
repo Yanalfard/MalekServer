@@ -1,0 +1,40 @@
+﻿@model IEnumerable<MalekServer3.Models.TblClient>
+@{
+    ViewBag.Title = "مشتری ها";
+}
+<!-- UIkit CSS -->
+<link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+<link href="~/Styles/Tables.min.css" rel="stylesheet" />
+
+<table dir="rtl" class=" uk-table uk-table-hover uk-table-striped uk-table-middle uk-table-divider  ">
+    <thead>
+        <tr>
+            <th>آی دی</th>
+            <th>نام کاربری</th>
+            <th>پسورد</th>
+            <th>شماره تلفن</th>
+            <th>کد ملی</th>
+            <th>حذف</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.Username</td>
+                <td>@item.Password</td>
+                <td>@item.TellNo</td>
+                <td>@item.IdentificationNo</td>
+                <td>
+                    <a onclick="deleteGroup(@item.id)" href="#" uk-icon="icon: trash"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script src="~/Scripts/Admin/Clients.js"></script>
+}

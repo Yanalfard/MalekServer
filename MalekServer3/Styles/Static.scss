@@ -1,0 +1,116 @@
+﻿@import "_colors.scss";
+@import "_controls.scss";
+@import "_general.scss";
+
+.parallax {
+    margin-top: auto auto auto auto;
+    position: relative;
+    width: 92vw;
+    height: 32vh;
+    background: url(/Resources/Raster/Contact.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-y: center;
+    z-index: 10;
+
+    h1 {
+        overflow-y: hidden;
+        color: $white;
+    }
+}
+
+@media only screen and (min-device-width : 280px) and (max-device-width : 670px) {
+    .parallax {
+        height: 34vh;
+    }
+}
+
+.content-form {
+    width: 92vw;
+    @include mat();
+    @include shadow-mega();
+    padding: 0;
+    z-index: 50 !important;
+    margin-bottom: 2vw;
+
+    article {
+        padding: 20px;
+
+        * {
+            overflow-y: hidden;
+            direction: rtl;
+        }
+
+        .browse {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        }
+
+        .uk-card {
+            padding: 12px;
+            @include border-radius(8px,8px,8px,8px);
+            @include trans(.4s);
+
+            h5 {
+                align-self: center;
+                margin: 0;
+            }
+
+            h4 {
+                align-self: center;
+                margin: 8px 0 0 0;
+                letter-spacing: 3px;
+            }
+        }
+
+        .uk-card:hover {
+            @include trans(.2s);
+            background: $white-mid;
+        }
+
+        .text-important {
+            padding: 8px;
+            background: lighten($accent-light, 24%);
+        }
+    }
+}
+
+@media only screen and (max-device-width : 480px) {
+    .content-form {
+        article {
+
+            .browse {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                grid-gap: .6em;
+            }
+
+            .uk-card {
+                padding: 12px;
+                @include border-radius(8px,8px,8px,8px);
+                @include trans(.4s);
+
+                h5 {
+                    align-self: center;
+                    margin: 0;
+                }
+
+                h4 {
+                    align-self: center;
+                    margin: 8px 0 0 0;
+                    letter-spacing: 3px;
+                }
+            }
+
+            .uk-card:hover {
+                @include trans(.2s);
+                background: $white-mid;
+            }
+
+            .text-important {
+                padding: 8px;
+                background: lighten($accent-light, 24%);
+            }
+        }
+    }
+}
+
+

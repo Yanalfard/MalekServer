@@ -1,0 +1,52 @@
+﻿@model MalekServer3.Models.TblBlog
+@{
+    ViewBag.Title = "ویرایش مقاله";
+}
+
+
+<link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+<div class="space-nav-bottom"></div>
+<!-- #endregion -->
+
+<div class="blog-adder uk-margin-medium-top uk-margin-medium-bottom    uk-margin-auto uk-card">
+
+    <h3 class="uk-margin-bottom">
+        ویرایش مقاله
+    </h3>
+
+    <h4 class="uk-margin-top">تیتر</h4>
+    <input id="titreBlog" type="text" class="uk-input" value="@Model.Title" />
+
+    <div class="row uk-margin-bottom " dir="rtl">
+        <div class="js-upload" uk-form-custom>
+            <input id="inputImage" type="file" onchange="btnAddImageClick()" accept="image/*">
+            <button class="uk-margin-top uk-button uk-button-primary" type="button" tabindex="-1">
+                <span class="text">انتخاب عکس</span>
+                <span class="uk-icon" uk-icon="icon: image"></span>
+            </button>
+        </div>
+        @if (@Model.MainImage != "")
+        {
+            <img class="img-thumbnail" width="300" src="~/Resources/Images/@Model.MainImage" />
+            <input type="hidden" name="imgBlog" id="imgBlog" value="@Model.MainImage" />
+        }
+    </div>
+
+    <textarea id="editor" name="editor" rows="4" cols="50" class="uk-input uk-margin-top" contenteditable>
+            @Model.Body
+    </textarea>
+    <hr class="uk-divider-icon uk-margin-medium-top" />
+
+    <div class="row ">
+        <a href="/Admin/Home/Blogs" class="uk-button uk-button-danger uk-margin-auto-left   uk-margin-right">بازگشت</a>
+        <a onclick=" AddBlogToData()" class="uk-button uk-button-primary ">ویرایش مقاله</a>
+    </div>
+</div>
+<input type="hidden" name="hiddenId" id="hiddenId" value="@Model.id" />
+
+@section Scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Scripts/Admin/EditBlogs.js"></script>
+}

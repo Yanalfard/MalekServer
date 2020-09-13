@@ -1,0 +1,238 @@
+﻿@import '_colors.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    float: none;
+    overflow-x: hidden;
+    font-family: 'Segoe UI';
+    text-decoration: none;
+    text-align: right;
+    outline: none;
+}
+
+img {
+    -o-object-fit: contain!important;
+    object-fit: contain!important;
+    overflow:hidden!important;
+}
+
+html {
+    background:$Background;
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 12px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #dbdbdb;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #c1c1c1;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #afb6c2;
+    }
+}
+
+body {
+    background: $Background;
+    min-height:100vh!important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+p {
+    overflow-x: hidden;
+    overflow-y: hidden;
+    color: $Text;
+}
+
+.center {
+    text-align: center;
+    align-content: center;
+    align-self: center;
+    margin: 0 auto;
+}
+
+.right {
+    text-align: right;
+    margin: auto 0 auto auto;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.collapsed {
+    visibility: collapse;
+    height: 0;
+    width: 0;
+    flex: 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.unselectable {
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -webkit-user-drag: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
+}
+
+hr {
+}
+
+img {
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -webkit-user-drag: none !important;
+    -webkit-user-select: none !important;
+    -ms-user-select: none !important;
+    pointer-events: none !important;
+}
+
+.dummy {
+    width: 100px;
+    height: 100px;
+    background: red;
+}
+
+.space {
+    width: 100vw;
+    height: 4vw;
+}
+
+.space-double {
+    width: 100vw;
+    height: 8vw;
+}
+
+.space-half {
+    width: 100vw;
+    height: 2vw;
+}
+
+.space-nav {
+    width: 100vw;
+    height:140px;
+}
+
+.space-desktop {
+    width: 100vw;
+    height: 4vw;
+}
+
+@media only screen and (max-device-width : 480px) {
+    .space-desktop {
+        height: 0!important;
+    }
+}
+
+.space-mobile {
+    width: 100vw;
+    height: 0vw;
+}
+
+@media only screen and (max-device-width : 480px) {
+    .space-mobile {
+        height: 4vh !important;
+    }
+}
+
+.space-nav-bottom {
+    width: 100vw;
+    height: 60px;
+}
+
+/*#region Alignment */
+
+.column {
+    overflow:visible;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+@mixin column() {
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+.row {
+    overflow: visible;
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+@mixin row() {
+    display: flex;
+    -ms-flex-direction: row;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    -ms-align-content: center;
+    -webkit-align-content: center;
+    align-content: center;
+}
+
+.fillwidth {
+    min-width: 100%;
+    height: auto;
+}
+
+.fillheight {
+    min-height: 100%;
+    width: auto;
+}
+
+/*#endregion */
+
+::-webkit-input-placeholder {
+    color: $PlaceholderColor;
+}
+
+:-ms-input-placeholder {
+    color: $PlaceholderColor;
+}
+
+::placeholder {
+    color: $PlaceholderColor;
+}
+
+.pointer{
+    cursor:pointer;
+}
+
+.container {
+    overflow: visible!important;
+}

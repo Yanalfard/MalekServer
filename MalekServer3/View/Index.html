@@ -1,0 +1,589 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>خانه</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Index.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="/Scripts/General.js"></script>
+
+</head>
+<body>
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <!-- Top -->
+        <div class="stripe"></div>
+        <div class="top row">
+            <div class="left row">
+                <a href="Cart.html" class="uk-icon" uk-icon="icon: cart"></a>
+                <!-- agar karbar login shodeh bashad, be jaye kalame حساب name karbar neveshte shavad -->
+                <button class="button-icon uk-margin-left login row" type="button" onclick="window.location = 'Login.html';">
+                    <span class="text">حساب</span>
+                    <span class="uk-icon" uk-icon="icon: user"></span>
+                </button>
+                <!-- #region Agar karbar login shodeh bashad in ghesmat neshan dadeh SHAVAD -->
+                <div mode="hover" delay-hide="400" uk-drop="pos: bottom" class="uk-navbar-dropdown uk-position-fixed">
+                    <ul class="uk-nav uk-navbar-dropdown-nav">
+                        <li class="uk-active">
+                            <a href="User/UsProfile.html">حساب</a>
+                        </li>
+                        <li><hr class="uk-margin-small-top" /></li>
+                        <li>
+                            <a class="row">
+                                <span>خروج</span>
+                                <span uk-icon="icon: sign-out"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="row">
+                                <span>سبد خرید</span>
+                                <span uk-icon="icon: cart"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- #endregion -->
+            </div>
+            <!--  -->
+            <div class="right uk-margin-small-top row">
+                <div class="uk-margin uk-margin-medium-right">
+                    <form class="uk-search uk-search-default">
+                        <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                        <input class="uk-search-input" type="search" placeholder="...جستجو">
+                    </form>
+                </div>
+                <a class="logo" href="">
+                    <img src="/Resources/Vector/Logo.svg" />
+                </a>
+            </div>
+        </div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <button class="menu-item" type="button">
+                <span class="uk-icon" uk-icon="icon: menu"></span>
+                <span class="text">دسته بندی ها</span>
+            </button>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-left;duration: 300"
+                 class="uk-navbar-dropdown uk-width-large uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <div>
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li class="uk-active"><a href="#">Active</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Item</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="uk-nav uk-dropdown-nav">
+                            <li class="uk-active"><a href="#">Active</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-header">Header</li>
+                            <li><a href="#">Item</a></li>
+                            <li><a href="#">Item</a></li>
+                            <li class="uk-nav-divider"></li>
+                            <li><a href="#">Item</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--the about page, uncomment when needed-->
+            <!--<a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: info"></span>
+                <span class="text">درباره</span>
+            </a>-->
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: world"></span>
+                <span class="text">تماس با ما</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="space-nav"></div>
+
+    <!-- #endregion -->
+
+    <button class="pill uk-button ">
+        <span uk-icon="icon: cart"></span>
+    </button>
+
+
+    <div class="row uk-border-rounded">
+
+        <div class="slider-mini  column uk-card uk-padding-remove">
+            <img src="../Resources/Raster/photo.jpg" alt="" />
+            <span class="uk-badge uk-position-absolute uk-margin-auto-right uk-margin-small-left uk-margin-small-top">Ad</span>
+        </div>
+
+        <div class="slider uk-margin-auto uk-border-rounded gray"
+             uk-slideshow="animation: push; autoplay: true; autoplay-interval: 3500">
+
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+
+                <ul class="uk-slideshow-items">
+                    <li>
+                        <img src="../Resources/Raster/dark.jpg" alt="" uk-cover>
+                    </li>
+                    <li>
+                        <img src="../Resources/Raster/photo.jpg" alt="" uk-cover>
+                    </li>
+                    <li>
+                        <img src="../Resources/Raster/light.jpg" alt="" uk-cover>
+                    </li>
+                </ul>
+
+                <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <header class="gray uk-margin-top">
+        <h4 class="uk-margin-top uk-margin-medium-right">مقاله ها</h4>
+    </header>
+
+    <content class="browse gray">
+
+        <!-- #region blog -->
+
+        <article class="blog-block">
+
+            <img src="../Resources/Raster/dark.jpg" alt="" />
+            <div class="column">
+                <h3 class="uk-margin-remove uk-margin-small-bottom">مقاله اول</h3>
+                <p class="uk-margin-small-top">
+                    لورم ایپسوم متن ساختگی با تولید سادگی
+                    نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها
+                    و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
+                    و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با
+                    هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و
+                    سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را
+                    کرد، در این صورت می توان امید داشت که تمام و دشواری موجود
+                    در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد
+                    نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته
+                    اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+                <a href="" class="uk-margin-top">بیشتر...</a>
+            </div>
+        </article>
+
+        <!-- #endregion -->
+
+    </content>
+
+    <content id="cards" class="browse uk-margin-medium-top">
+
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+    </content>
+
+    <header class="gray uk-margin-top uk-margin-remove-bottom">
+        <h4 class="uk-margin-top uk-margin-medium-right">پیشنهاد های ویژه</h4>
+    </header>
+
+    <content id="cards" class="browse gray uk-margin-remove-top">
+
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!-- #region Model -->
+
+        <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+            <img src="/Resources/Raster/chair.png" />
+            <content>
+                <h3 class="uk-card-title"> ایپسوم متن ساختگی با تولید سادگی نامفهوم ا</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صو مجله در ستون و سطرآنچنان که لازم است
+                </p>
+                <div class="row star-container">
+                    <div class="Stars" style="--rating: 2.5;" aria-label="Rating of this product is 2.3 out of 5."></div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <div class="row">
+                            <span class="percent uk-badge uk-margin-small-right">42%</span>
+                            <label class="discount">25 000 000 000</label>
+                        </div>
+                        <div class="row">
+                            <span class="price-toman">تومان </span>
+                            <span class="price">19 000 000 000 </span>
+                        </div>
+
+                    </div>
+                </div>
+            </content>
+        </a>
+
+        <!-- #endregion -->
+        <!--string Name
+
+        <!-- #region Model -->
+        <!--
+
+            <a href="Product.html" class="model uk-border-rounded column uk-card uk-card-default uk-card-body uk-width-1-2@m">
+                <img src="${ImageUrl}" alt="" />
+                <content>
+                    <h3 class="uk-card-title">
+                        ${Name}
+                    </h3>
+                    <p>
+                        ${DescriptionHtml}
+                    </p>
+                    <div class="row star-container">
+                        <div class="Stars" style="--rating: ${Raiting};"></div>
+            </div>
+            <div class="row">
+                <div class="column">
+                    <div class="row">
+                        <span class="uk-badge uk-margin-small-right">
+                            ${Discount}
+                        </span>
+                        <label class="discount">
+                            ${Price}
+                        </label>
+                    </div>
+                    <div class="row">
+                        <span class="price-toman">تومان </span>
+                        <span class="price">
+                            ${Price * Discount}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </content>
+        </a>
+
+        -->
+        <!-- #endregion -->
+
+    </content>
+
+
+
+
+    <footer class="uk-margin-medium-top">
+        <div class="row">
+            <!--Contacts-->
+            <ul class="contacts column">
+                <li>
+                    <a class="row" href="https://www.instagram.com/malekserver/">
+                        <img src="/Resources/Vector/Social/Instagram.svg" />
+                        <label>instagram.com/malekserver</label>
+                    </a>
+                </li>
+                <li>
+                    <a class="row" >
+                        <img src="/Resources/Vector/Social/Gmail.svg" />
+                        <label>info@malekserver.com</label>
+                    </a>
+                </li>
+                <li>
+                    <a class="row">
+                        <img src="/Resources/Vector/Social/Telegram.svg" />
+                        <label>t.me/malekserver</label>
+                    </a>
+                </li>
+                <li>
+                    <a class="row">
+                        <img src="/Resources/Vector/Social/WhatsApp.svg" />
+                        <label>09190995384</label>
+                    </a>
+                </li>
+            </ul>
+            <!-- Links -->
+            <div class="links row uk-margin-top">
+                <ul class="column">
+                    <li>
+                        <a href="User/UsProfile.html">پروفایل</a>
+                    </li>
+                    <li>
+                        <a href="User/UsCart.html">سبد خرید</a>
+                    </li>
+                    <li>
+                        <a href="User/UsHistory.html">خرید ها</a>
+                    </li>
+                    <li>
+                        <a href="Index.html">خانه</a>
+                    </li>
+                </ul>
+                <ul class="column">
+                    <li>
+                        <a href="ContactUs.html">تماس با ما</a>
+                    </li>
+                    <li>
+                        <a href="Blog.html">وبلاگ ها</a>
+                    </li>
+                    <li>
+                        <a href="SignUp.html">ثبت نام</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Map -->
+            <div class="map column">
+                <h3 class="uk-margin-remove">آدرس ما</h3>
+                <p class="uk-margin-auto-left uk-margin-small-right uk-margin-small-top">
+                    تهران -خیابان ولیعصر- نرسیده به میدان ولیعصر - کوچه فیروزه - پلاک ٣٢ - واحد ٨
+                </p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.8485484269802!2d51.40633902455808!3d35.70907085749233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDQyJzMyLjEiTiA1McKwMjQnMjYuMiJF!5e0!3m2!1sen!2snl!4v1597836859199!5m2!1sen!2snl"
+                        class="uk-border-rounded "
+                        frameborder="0" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

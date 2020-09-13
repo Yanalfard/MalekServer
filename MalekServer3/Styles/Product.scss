@@ -1,0 +1,388 @@
+﻿@import "colors";
+@import "controls";
+@import "general";
+
+.product {
+    @include mat();
+    width: 96vw;
+    min-height: 50vh;
+    margin: 10px auto 0 auto;
+
+    .discount {
+        text-decoration: line-through !important;
+    }
+
+    * {
+        overflow: hidden !important;
+    }
+
+    .price {
+        background: $primary-light;
+        height: 40px;
+        margin: 0 auto 0 0;
+
+        > * {
+            color: $white;
+        }
+
+
+
+        .cart {
+            width: 40px;
+            height: 40px;
+            background: $primary;
+            display: flex;
+
+            svg {
+                margin: auto;
+            }
+        }
+
+        .cart:hover {
+            background: darken($primary,6%);
+        }
+
+        .price {
+            margin: auto 8px !important;
+            height: auto;
+            font-size: 1.2em;
+        }
+
+        .toman {
+            font-size: .8em;
+            width: 38px;
+            text-align: right;
+            margin: auto;
+        }
+    }
+
+    .alternate {
+        @include row();
+
+        .column {
+            flex: 3;
+            margin-right: 20px;
+
+            label {
+                font-size: .8em;
+                color: $black-light;
+            }
+
+            select {
+                direction: rtl;
+
+                option {
+                    padding: 12px;
+                    @include trans(.2s);
+                }
+            }
+
+            header {
+                font-weight: bold;
+                font-size: 1.4em;
+            }
+
+            .star-container {
+                margin-left: auto;
+                background: $white-mid;
+                padding: 6px 10px;
+            }
+
+            p {
+            }
+
+
+            table {
+                border: solid 1px #e4e4e4;
+                direction: rtl;
+                margin-bottom: 0 !important;
+
+                * {
+                    text-align: right;
+                }
+
+                tr, td {
+                    width: 50%;
+                }
+
+
+                a {
+                    svg {
+                        margin: auto;
+                    }
+                }
+            }
+        }
+
+        .slider {
+            flex: 1.6;
+            width: 32vw;
+            margin-bottom: auto;
+
+            * {
+                height: 100% !important;
+            }
+
+            .uk-thumbnav {
+                li {
+                    margin: 12px 12px 0 0;
+
+                    a {
+                        img {
+                            width: 3vw !important;
+                            height: 3vw !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        .imageAdder {
+            flex: 1.6;
+            margin-bottom: auto;
+
+            .js-upload {
+                margin-left: auto;
+            }
+
+            .button-icon {
+                color: white;
+            }
+        }
+
+        #addedImages {
+            margin-right: 0 !important;
+            direction: rtl;
+            display: grid;
+            grid-gap: 1em;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+
+            .image-item {
+                display: flex;
+
+                img {
+                    -o-object-fit: contain;
+                    object-fit: contain;
+                    width: 6vw;
+                    height: 6vw;
+                    min-width: 42px;
+                    min-height: 42px;
+                    @include trans(.3s);
+                    z-index: 40;
+                }
+
+                a {
+                    color: transparent;
+                    position: absolute;
+                    width: 6vw;
+                    height: 6vw;
+                    min-width: 42px;
+                    min-height: 42px;
+                    display: flex;
+                    @include trans(.3s);
+                    z-index: 50;
+
+                    svg {
+                        margin: auto;
+                    }
+                }
+
+                a:hover {
+                    color: white;
+                    @include trans(.2s);
+                }
+
+                a:hover + img {
+                    filter: brightness(64%);
+                    @include trans(.2s);
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width : 480px) {
+    .product {
+        .price {
+            margin: 0 auto 20px 0;
+
+            > * {
+                color: $white;
+            }
+
+
+
+            .cart {
+                width: 40px;
+                height: 40px;
+                background: $primary;
+                display: flex;
+
+                svg {
+                    margin: auto;
+                }
+            }
+
+            .cart:hover {
+                background: darken($primary,6%);
+            }
+
+            .price {
+                margin: auto 8px !important;
+                height: auto;
+                font-size: 1.2em;
+            }
+
+            .toman {
+                font-size: .8em;
+                width: 38px;
+                text-align: right;
+                margin: auto;
+            }
+        }
+
+        .alternate {
+            -ms-flex-direction: column-reverse;
+            -webkit-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+
+            .column {
+                margin-right: 0 !important;
+            }
+
+            .slider {
+                margin-top: 50px;
+                flex: 2;
+                width: 100%;
+                margin: auto;
+                margin-bottom: 24px !important;
+
+                .uk-thumbnav {
+                    li {
+                        margin: 12px 12px 0 0;
+
+                        a {
+                            img {
+                                width: 3vw;
+                                height: 3vw;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.keywords {
+    @include mat();
+    width: 91%;
+    min-height: 20px;
+    margin: 0 auto;
+
+    label {
+        padding: 6px;
+        background: lighten($accent-light,16%);
+        color: darken($accent,12%);
+        margin: 0 0 .7em .7em;
+        @include border-radius(6px,6px,6px,6px);
+    }
+
+    .grid {
+        direction: rtl;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+}
+
+.comment-section {
+    width: 96vw;
+    margin: auto;
+    padding: 20px;
+    background: transparent;
+    @include row();
+
+    .comments {
+        flex: 3;
+        @include mat();
+        margin-left: auto;
+        margin-top: auto;
+        padding: 20px;
+
+        .uk-comment {
+            margin-bottom: 20px;
+        }
+
+        .uk-comment-body {
+            p {
+                direction: rtl;
+                text-align: justify;
+            }
+        }
+    }
+
+    .uk-divider-vertical {
+        width: 0 !important;
+        flex: .2;
+        margin: auto;
+    }
+
+    .make-comment {
+        flex: 3;
+        @include mat();
+        margin-right: auto;
+        margin-bottom: auto;
+
+        textarea {
+            position: sticky;
+            resize: none;
+            direction: rtl;
+            text-align: justify;
+            min-height: 7em;
+        }
+
+        .star-container {
+            input {
+                background: red;
+                outline: none;
+            }
+        }
+    }
+}
+
+@media only screen and (max-device-width : 480px) {
+    .comment-section {
+        margin: auto;
+        width: 100vw;
+        padding: 0px;
+        margin-bottom: 20px;
+        @include column();
+
+        .comments {
+            flex: 3;
+            @include mat();
+            margin-right: 2.5vw;
+            margin-top: auto;
+            padding: 20px;
+
+            .uk-comment {
+                margin-bottom: 20px;
+            }
+
+            .uk-comment-body {
+                p {
+                    direction: rtl;
+                    text-align: justify;
+                }
+            }
+        }
+
+        .make-comment {
+            margin: auto;
+            width: 85%;
+            margin-bottom: 20px;
+        }
+    }
+}

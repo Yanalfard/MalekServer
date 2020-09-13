@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MalekServer3.Models.TblComment>
+@{
+    ViewBag.Title = "پبام ها";
+}
+
+<div class="space-nav-bottom"></div>
+<!-- #endregion -->
+
+
+<section class="holder column uk-margin-auto uk-margin-medium-bottom uk-margin-medium-top">
+
+    <header class="uk-margin-auto-left uk-margin-bottom">
+        <span class="uk-badge">@Model.Count()</span>
+        <span>نظرات باقی مانده</span>
+    </header>
+
+    <!-- #region Comment -->
+    @foreach (var item in Model)
+    {
+        <article class="uk-comment uk-comment-primary">
+            <header class="uk-comment-header">
+                <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                    <div class="uk-width-expand">
+                        <h4 class="uk-comment-title uk-margin-remove">@item.TblClient.Name</h4>
+                        <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                            <li>@item.Date.ToShamsi()</li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+            <div class="uk-comment-body">
+                <p>
+                    @item.Body
+                </p>
+            </div>
+            <div class="row uk-margin-top">
+                <a  onclick="DeleteComment(@item.id)" href="#" class="uk-button uk-button-danger uk-margin-auto-left">
+                    <span>حذف</span>
+                    <span uk-icon="icon: trash"></span>
+                </a>
+                <a href="/Admin/Home/ShowHideComment/@item.id" class="uk-button uk-button-primary uk-margin-left">
+                    <span>تایید</span>
+                    <span uk-icon="icon: check"></span>
+                </a>
+            </div>
+        </article>
+    }
+
+    <!-- #endregion -->
+
+</section>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/Admin/CommentValidator.js"></script>
+}

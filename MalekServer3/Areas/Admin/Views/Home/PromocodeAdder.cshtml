@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MalekServer3.Models.TblDiscount>
+@{
+    ViewBag.Title = "تخفیفات";
+}
+
+
+
+<div class="holder column uk-margin-auto uk-margin-medium-bottom uk-margin-medium-top">
+    <h4>
+        کد تخفیف جدید
+    </h4>
+    <section class="column uk-card row ">
+        <div class="uk-margin-auto-top">
+            <button tabindex="3"
+                    onclick="AddPromoCode()"
+                    class="uk-button uk-button-primary uk-margin-left ">
+                اضافه
+                <span uk-icon="icon: "></span>
+            </button>
+        </div>
+        <div class="column uk-margin-auto-left">
+            <label class="uk-margin-small-bottom">
+                درصد تخفیف
+            </label>
+            <input id="txtPercent" tabindex="2"
+                   class="uk-input uk-width-small" type="number" placeholder="..." />
+        </div>
+        <div class="column uk-margin-left">
+            <label class="uk-margin-small-bottom">
+                تعداد
+            </label>
+            <input id="txtCount" tabindex="2"
+                   class="uk-input uk-width-small" type="number" placeholder="..." />
+        </div>
+        <div class="column uk-margin-left">
+            <label class="uk-margin-small-bottom">
+                نام کد تخفیف
+            </label>
+            <input id="txtName" tabindex="1" class="uk-input" type="text" placeholder="..." />
+        </div>
+
+    </section>
+</div>
+<div class="promo-browse holder uk-margin-auto uk-margin-bottom">
+    @foreach (var item in Model)
+    {
+        <div class="promo-code row" id="@item.id">
+            <a class="uk-icon uk-margin-left" 
+               onclick="RemovePromoCode('@item.id')"
+               uk-icon="icon: trash"></a>
+            <label class="">@item.Name</label>
+            <label class="uk-badge uk-margin-auto-right">@item.Discount%</label>
+        </div>
+    }
+
+</div>
+
+
+
+@section Scripts{
+    <script src="~/Scripts/UiScripts/PromocodeAdder.js"></script>
+    <script src="~/Scripts/Admin/PromocodeAdder.js"></script>
+    <script>
+
+    </script>
+}

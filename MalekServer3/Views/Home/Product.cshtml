@@ -1,0 +1,224 @@
+﻿@using MalekServer3.Models.ViewModel
+@model MalekServer3.Models.ObjectClass.OcProduct
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!-- Project CSS -->
+<link href="~/Styles/Product.min.css" rel="stylesheet" />
+<!-- #region product -->
+
+<section class="column product uk-card ">
+    <ul class="uk-breadcrumb" dir="rtl">
+        <li><a href="/Home/Index">خانه</a></li>
+        <li><a href="/Home/Search?q=@Model.Catagory.Name">@Model.Catagory.Name</a></li>
+        <li><a href="">@Model.Name</a></li>
+    </ul>
+    @if (Model.Discount != 0)
+    {
+        <div class="row uk-margin-small-bottom">
+            <label class="discount-star uk-margin-small-right">
+                <span>
+                    @Model.Discount%
+                </span>
+            </label>
+            <span class="discount uk-margin-remove-left">@Model.Price.ToString("#,0")</span>
+        </div>
+    }
+
+    <div class="price row ">
+        <span class="toman">تومان</span>
+        <span class="price">@Model.AfterDiscount.ToString("#,0")</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (User.Identity.Name.Split('|')[1] != null)
+            {
+                <a href="#" class="cart" uk-icon="icon: cart" onclick="AddToCart(@Model.id)"></a>
+            }
+        }
+        else
+        {
+            <a href="/Login" class="cart" uk-icon="icon: cart"></a>
+        }
+    </div>
+
+    <div class="alternate">
+        <div class="column">
+            <header class="uk-margin-small-bottom">@Model.Name</header>
+            <div dir="rtl">
+                @Html.Raw(Model.DescriptionHtml)
+            </div>
+
+
+            <div class="row star-container">
+                <label class="uk-margin-small-right"></label>
+                <div class="Stars" style="--rating:(@Model.Raiting/20);"></div>
+            </div>
+
+            <table class="uk-table uk-table-striped">
+                <thead>
+                    <tr>
+                        <th style="float:left">اطلاعات</th>
+                        <th>مشخصات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Properties.Count != 0)
+                    {
+                        foreach (var item in Model.Properties)
+                        {
+                            <tr>
+                                <td style="float:left;text-align:left;">@item.Name</td>
+                                <td>: @item.Description</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+
+        </div>
+        <div style="overflow: hidden" class="slider uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow>
+
+            <ul class="uk-slideshow-items">
+                @if (Model.images.Count != 0)
+                {
+                    foreach (var item in Model.images)
+                    {
+                        <li>
+                            <img src="~/Resources/Images/@item.Image" alt="" uk-cover>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li>
+                        <img src="~/Resources/Images/NoImg.svg" alt="" />
+                    </li>
+                }
+
+            </ul>
+
+            <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+            <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+            <ul class="uk-thumbnav uk-thumbnav-vertical row" uk-margin>
+
+                @if (Model.images.Count != 0)
+                {
+                    <li uk-slideshow-item="0" class="uk-active">
+                        <a href="#"><img src="~/Resources/Images/@Model.images[0].Image"></a>
+                    </li>
+                    for (int i = 1; i < Model.images.Count; i++)
+                    {
+                        <li uk-slideshow-item="@i">
+                            <a href="#"><img src="~/Resources/Images/@Model.images[i].Image"></a>
+                        </li>
+                    }
+                }
+
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</section>
+<!-- #endregion -->
+
+<div class="space-half"></div>
+
+<!-- #region CommentSection -->
+
+<div class="comment-section row">
+    <!-- #region MakeAComment -->
+
+    <div class="make-comment column">
+        <header class="uk-margin-bottom">
+            نظر خود را ثبت کنید
+        </header>
+
+        <textarea class="uk-textarea" id="txtComment" placeholder="نظر شما..."></textarea>
+
+        <div class="row uk-margin-top">
+            <div class="row star-container">
+                <span class="star-cb-group">
+                    <input type="radio" id="rating-5" class="radioName" name="rating" value="5" /><label for="rating-5">5</label>
+                    <input type="radio" id="rating-4" class="radioName" name="rating" value="4" checked="checked" /><label for="rating-4">4</label>
+                    <input type="radio" id="rating-3" class="radioName" name="rating" value="3" /><label for="rating-3">3</label>
+                    <input type="radio" id="rating-2" class="radioName" name="rating" value="2" /><label for="rating-2">2</label>
+                    <input type="radio" id="rating-1" class="radioName" name="rating" value="1" /><label for="rating-1">1</label>
+                </span>
+            </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                if (User.Identity.Name.Split('|')[1] != null)
+                {
+                    <button class="uk-margin-auto-left uk-button uk-button-primary" onclick="addComment()">ثبت</button>
+                }
+            }
+            else
+            {
+                <a href="/Login" class="uk-margin-auto-left uk-button uk-button-primary">ثبت </a>
+            }
+        </div>
+    </div>
+    <!-- #endregion -->
+
+    <hr class="uk-divider-vertical collapsed" />
+
+    <!-- #region Comments -->
+
+    <div class="comments uk-card uk-margin-remove-top uk-margin-auto-bottom">
+        <header class="uk-margin-bottom">
+            نظرات کاربران
+        </header>
+
+        <!-- #region Comment -->
+        @if (Model.Comments.Count() != 0)
+        {
+            foreach (var item in Model.Comments)
+            {
+                if (item.IsValid == true)
+                {
+                    <article class="uk-comment uk-comment-primary">
+                        <header class="uk-comment-header">
+                            <div class="uk-grid-medium uk-flex-middle" uk-grid>
+                                <div class="uk-width-expand">
+                                    <h4 class="uk-comment-title uk-margin-remove">@item.TblClient.Name</h4>
+                                    <ul class="uk-comment-meta uk-subnav uk-subnav-divider uk-margin-remove-top">
+                                        <li> @item.Date.ToShamsi()</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="uk-comment-body">
+                            <p>
+                                @item.Body
+                            </p>
+                        </div>
+                    </article>
+                }
+            }
+        }
+
+
+        <!-- #endregion -->
+    </div>
+    <!-- #endregion -->
+</div>
+<input type="hidden" class="HideStatusId" id="HideStatusId" name="HideStatusId" value="1" />
+@if (User.Identity.IsAuthenticated)
+{
+
+    <input type="hidden" class="HideuserId" id="HideuserId" name="HideuserId" value="@User.Identity.Name.Split('|')[1]" />
+}
+<input type="hidden" class="HideProductId" id="HideProductId" name="HideProductId" value="@Model.id" />
+
+
+@section Scripts
+{
+    <script src="~/Scripts/Home/Product.js"></script>
+}

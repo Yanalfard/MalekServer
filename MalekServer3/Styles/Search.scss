@@ -1,0 +1,92 @@
+﻿@import "colors";
+@import "controls";
+@import "general";
+
+.alternate{
+    @include row();
+}
+
+@media only screen and (min-device-width : 1px) and (max-device-width : 480px) {
+    .alternate {
+        -ms-flex-direction: column-reverse;
+        -webkit-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+    }
+
+    .search-filters {
+        width:90vw;
+        margin:auto!important;
+        > .uk-padding-remove{
+            display:none;
+        }
+
+    }
+
+    .browse {
+        margin-top:3vh;
+        .model {
+            margin: auto;
+        }
+    }
+}
+
+
+.search-filters {
+    flex: 1.5;
+
+    .uk-card {
+        width: 95%;
+        margin: 0 4px 16px 4px;
+        border: solid 1px $white-mid;
+        /*@include shadow-mild();*/
+        padding: 20px;
+        background: $white;
+        @include border-radius(4px,4px,4px,4px);
+
+        span {
+            margin-bottom: 6px;
+        }
+    }
+
+    .price-range {
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+
+    .category {
+        select {
+            direction: rtl;
+        }
+    }
+
+    .uk-button {
+        margin-right: 4%;
+        width: 95%;
+    }
+}
+
+.browse {
+    flex: 4;
+    padding: 0 2.5vw 2.5vw 2.5vw;
+    display: grid;
+    grid-gap: 2em;
+    grid-template-columns: repeat(auto-fit,minmax(290px,1fr)) !important;
+}
+
+@media only screen and (max-device-width : 480px) {
+    .browse {
+        padding: 0 2.5vw;
+        display: grid;
+        grid-template-rows: auto;
+        grid-gap: 1.6em;
+        grid-template-columns: repeat(auto-fit, minmax(45vw, 1fr))!important;
+        direction: rtl;
+    }
+}

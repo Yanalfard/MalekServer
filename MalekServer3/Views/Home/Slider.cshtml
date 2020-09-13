@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MalekServer3.Models.ObjectClass.OcProduct>
+
+<ul class="uk-slideshow-items">
+    @if (Model.Count() != 0)
+    {
+        foreach (var item in Model.Where(i => i.images != null))
+        {
+            <li class="pointer" onclick="window.location = '/Home/Product/@item.id'">
+                <a href="#">
+                    @if (item.images.Count != 0)
+                    {
+                        <img src="~/Resources/Images/@item.images[0].Image" uk-cover>
+                    }
+                    else
+                    {
+                        <img src="~/Resources/Images/NoImg.svg" alt="" />
+                    }
+                </a>
+            </li>
+        }
+    }
+</ul>

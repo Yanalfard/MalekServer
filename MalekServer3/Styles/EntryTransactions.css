@@ -1,0 +1,26 @@
+﻿.uk-card {
+    margin-top: 60px !important;
+    display: flex;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    background: #fff;
+    padding: 20px;
+    margin: auto;
+    width: 80vw;
+    -moz-box-shadow: 0 0 #353535 16px!important;
+    -webkit-box-shadow: 0 0 #353535 16px!important;
+    box-shadow: 0 0 #353535 16px!important;
+}
+
+.uk-card h2{
+    overflow:hidden!important;
+}
+
+
+footer{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+}

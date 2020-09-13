@@ -1,0 +1,45 @@
+﻿@model IEnumerable<MalekServer3.Models.TblOrder>
+
+@{
+    ViewBag.Title = "سفارش آنلاین";
+}
+<link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+<link href="~/Styles/Tables.min.css" rel="stylesheet" />
+<table dir="rtl" class="uk-margin-small-right uk-table .uk-table-hover uk-table-middle uk-table-divider uk-table uk-table-striped ">
+    <thead>
+        <tr>
+            <th>کد</th>
+            <th>نام</th>
+            <th>موضوع</th>
+            <th>مشاهده متن</th>
+            <th>حذف</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.TblClient.Name</td>
+                <td>@item.Title</td>
+                <td>
+                    <a href="/Admin/Order/Details/@item.id" uk-icon="icon: file-edit"></a>
+                </td>
+                <td>
+                    <a onclick="DeleteOrder(@item.id)" href="#" uk-icon="icon: trash"></a>
+                </td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script src="~/Scripts/Admin/Products.js"></script>
+    <script src="~/Scripts/Admin/Order.js"></script>
+}
+
+

@@ -1,0 +1,69 @@
+﻿@using MalekServer3.Models
+@model MalekServer3.Product_Property
+@{
+    ViewBag.Title = "ویژگی های محصولات";
+}
+<!-- Project CSS -->
+<link href="/Styles/Blog.min.css" rel="stylesheet" />
+<div class="gallery-card uk-margin-auto uk-margin-medium-top uk-margin-medium-bottom ">
+    <h3 class="uk-margin-bottom">ویزگی های  محصول</h3>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.ProductID)
+        <div class="col-md-4">
+            <div class="form-horizontal">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <label class="uk-margin-large-top">مشخصات</label>
+                <table class="uk-table uk-table-striped uk-margin-small-top">
+                    <thead>
+                        <tr>
+                            <th>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" value="اضافه کردن" class="uk-button uk-button-primary" />
+                                    </div>
+                                </div>
+                            </th>
+                            <th>
+                                <input  name="Description" id="Description"
+                                       class="uk-input" type="text" placeholder="مشخصات" />
+                            </th>
+                            <th>
+                                <input name="Name" id="Name"
+                                       class="uk-input" type="text" placeholder="اطلاعات" />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody">
+                        @{
+                            List<TblProperty> list = ViewBag.Property;
+                            foreach (var item in list)
+                            {
+                                <tr>
+                                    <td>
+                                        <a uk-icon="icon: trash; ratio: 1"  href="/Admin/Home/DeleteProperty/@item.id"></a>
+                                    </td>
+                                    <td>@item.Description</td>
+                                    <td>@item.Name</td>
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+    <a href="/Admin/Home/Products"
+       class="uk-button uk-button-primary uk-margin-auto-left">انجام</a>
+</div>
+@section Scripts{
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+
+}
+

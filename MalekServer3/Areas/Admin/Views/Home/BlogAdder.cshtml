@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "اضافه کردن مقاله";
+}
+
+
+<link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+<div class="space-nav-bottom"></div>
+<!-- #endregion -->
+
+<div class="blog-adder uk-margin-medium-top uk-margin-medium-bottom    uk-margin-auto uk-card">
+
+    <h3 class="uk-margin-bottom">
+        مقاله جدید
+    </h3>
+
+    <h4 class="uk-margin-top">تیتر</h4>
+    <input id="titreBlog" type="text" class="uk-input" />
+
+    <div class="row uk-margin-bottom " dir="rtl">
+        <div class="js-upload" uk-form-custom>
+            <input id="inputImage" type="file" onchange="btnAddImageClick()" accept="image/*">
+            <button class="uk-margin-top uk-button uk-button-primary" type="button" tabindex="-1">
+                <span class="text">انتخاب عکس</span>
+                <span class="uk-icon" uk-icon="icon: image"></span>
+            </button>
+        </div>
+    </div>
+
+    <textarea id="editor" name="editor" rows="4" cols="50" class="uk-input uk-margin-top" contenteditable>
+
+    </textarea>
+    <hr class="uk-divider-icon uk-margin-medium-top" />
+
+    <div class="row ">
+        <a  onclick=" AddBlogToData()" class="uk-button uk-button-primary ">اضافه کردن مقاله</a>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Scripts/Admin/BlogAdder.js"></script>
+}

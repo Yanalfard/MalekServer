@@ -1,0 +1,153 @@
+﻿/*#region name*/
+
+$Background: #F7F7F7;
+
+$white: #fff;
+$white-mid: #EBEBEB;
+$white-dark: #D1D1D1;
+
+$black: #404040;
+$black-mid: #5B5B5B;
+$black-light: #848484;
+
+$primary: #00679A;
+$primary-dark: #005580;
+$primary-light: #2f86b1;
+$accent: #43ADD5;
+$accent-light: #74D3F6;
+
+/*#endregion */
+
+
+/*#region Global */
+
+$link: #3299F3;
+$Title: #656565;
+$Title-secondary: #656565;
+$Text: rgba(95, 95, 95, 0.85);
+$White-text: #fff;
+$Alert: rgb(221, 100, 88);
+$FooterBackround: $white;
+
+$PlaceholderColor: #afafaf;
+
+/*#endregion */
+
+
+/*#region Nav */
+
+$NavBackground:#fff;
+
+/*#endregion */
+
+/*#region Card*/
+
+$Cardbackground: #F0F0F0;
+
+/*#endregion */
+
+/*#region Controls*/
+
+$ControlBackground: #f0f0f0;
+$Primary: #5f95e8;
+$Secondary: #27FFA0;
+$PriorityIcon: #46AE13;
+$AlertIcon: #FF4B4B;
+
+/*#endregion */
+
+/*#region Scrollbar */
+
+$ScrollbarTrack: $white-mid;
+$ScrollbarHandle: $white-dark;
+
+/*#endregion */
+/*#region shadow */
+@mixin shadow-mild {
+    $shadowColor: rgba(112, 112, 112, 0.38);
+    -moz-box-shadow: $shadowColor 0 0px .4vw;
+    -webkit-box-shadow: $shadowColor 0 0px .4vw;
+    box-shadow: $shadowColor 0 0px .4vw;
+}
+
+@mixin shadow-medium {
+    -moz-box-shadow: rgba(48, 48, 48, 0.54) 0 0px .6vw;
+    -webkit-box-shadow: rgba(48, 48, 48, 0.54) 0 0px .6vw;
+    box-shadow: rgba(48, 48, 48, 0.54) 0 0px .6vw;
+}
+
+@mixin shadow-more {
+    -moz-box-shadow: rgba(0,0,0,.20) 0 0 1.0vw;
+    -webkit-box-shadow: rgba(0,0,0,.20) 0 0 1.0vw;
+    box-shadow: rgba(0,0,0,.20) 0 0 1.0vw;
+}
+
+@mixin shadow-more-hov {
+    -moz-box-shadow: rgba(0, 0, 0, 0.32) 0 0 2.0vw;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.32) 0 0 2.0vw;
+    box-shadow: rgba(0, 0, 0, 0.32) 0 0 2.0vw;
+}
+
+@mixin shadow-mega {
+    $shadowColor: rgba(85, 85, 85, 0.38);
+    -moz-box-shadow: $shadowColor 0 0px 2vw;
+    -webkit-box-shadow: $shadowColor 0 0px 2vw;
+    box-shadow: $shadowColor 0 0px 2vw;
+}
+
+/*#endregion */
+
+@mixin subtle-glow($rgba) {
+    -moz-box-shadow: $rgba 0 6px 1.0vw;
+    -webkit-box-shadow: $rgba 0 6px 1.0vw;
+    box-shadow: $rgba 0 6px 1.0vw;
+}
+
+@mixin border-radius($tl, $tr, $bl, $br) {
+    -moz-border-radius: $tl $tr $bl $br;
+    -webkit-border-radius: $tl $tr $bl $br;
+    border-radius: $tl $tr $bl $br;
+}
+
+@mixin gradient($primary,$secondary,$angle) {
+    background-color: $primary;
+    background-image: -moz-linear-gradient($angle, $primary, $Secondary);
+    background-image: -o-linear-gradient($angle, $primary, $secondary);
+    background-image: -webkit-gradient($angle, left top, left bottom, from($primary), to($secondary));
+    background-image: -webkit-linear-gradient($angle, $primary, $secondary);
+    background-image: linear-gradient($angle, $primary, $secondary);
+}
+
+@mixin trans($seconds) {
+    -moz-transition: all ease $seconds;
+    -o-transition: all ease $seconds;
+    -webkit-transition: all ease $seconds;
+    transition: all ease $seconds;
+}
+
+
+/*#region Material  */
+
+@mixin mat() {
+    padding: 20px;
+    background: $white;
+    @include shadow-mild;
+}
+
+
+
+@mixin sign($lighten) {
+    background-image: -moz-linear-gradient(-45deg, lighten($Primary,$lighten), lighten($Secondary,$lighten));
+    background-image: -o-linear-gradient(-45deg, lighten($Primary,$lighten), lighten($Secondary,$lighten));
+    background-image: -webkit-gradient(-45deg, left top, left bottom, from(lighten($Primary,$lighten)), to(lighten($Secondary,$lighten)));
+    background-image: -webkit-linear-gradient(-45deg, lighten($Primary,$lighten), lighten($Secondary,$lighten));
+    background-image: linear-gradient(-45deg, lighten($Primary,$lighten), lighten($Secondary,$lighten));
+}
+@mixin cancel() {
+    background: rgb(208,72,72);
+    background: -moz-linear-gradient(-45deg, rgba(208,72,72,1) 0%, rgba(255,192,0,1) 100%);
+    background: -webkit-linear-gradient(-45deg, rgba(208,72,72,1) 0%, rgba(255,192,0,1) 100%);
+    background: linear-gradient(-45deg, rgba(208,72,72,1) 0%, rgba(255,192,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#d04848",endColorstr="#ffc000",GradientType=1);
+}
+/*#endregion */

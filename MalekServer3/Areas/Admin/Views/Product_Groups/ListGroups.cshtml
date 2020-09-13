@@ -1,0 +1,53 @@
+﻿@model IEnumerable<MalekServer3.Models.TblCatagory>
+<link href="~/Styles/Tables.min.css" rel="stylesheet" />
+<table class="uk-table uk-table-striped" dir="rtl">
+    <thead>
+        <tr>
+            <th>
+                سر گروه ها
+            </th>
+            <th>
+                زیر گروه ها
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr id="group_@(item.id)">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @if (item.TblCatagory1.Any())
+                    {
+                        <ul>
+                            @foreach (var subGroup in item.TblCatagory1)
+                            {
+                                <li id="group_@(subGroup.id)">
+                                    @subGroup.Name
+                                    <a class="text-warning" uk-icon="icon:file-edit" onclick="EditZirCatagory(@subGroup.id)" uk-toggle="target: #myModal">
+
+                                    </a>
+                                    <a class="text-danger" uk-icon="icon:trash" onclick="Delete(@subGroup.id)">
+                                    </a>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </td>
+                <td>
+                    <a class="btn btn-primary btn-xs" uk-icon="icon:plus" onclick="CreateZirDate(@item.id)" uk-toggle="target: #myModal">
+                    </a>
+                    <a class="btn btn-warning btn-xs" uk-icon="icon:file-edit" onclick="Edit(@item.id)" uk-toggle="target: #myModal">
+                    </a>
+                    <a class="btn btn-danger btn-xs" uk-icon="icon:trash" onclick="Delete(@item.id)">
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>تماس با ما</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit-rtl.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Static.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="/Scripts/General.js"></script>
+
+</head>
+<body class="column">
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <!-- Top -->
+        <div class="stripe"></div>
+        <div class="top row">
+            <div class="left row">
+                <a href="Cart.html" class="uk-icon" uk-icon="icon: cart"></a>
+                <button class="button-icon uk-margin-left login row" onclick="window.location = 'Login.html';">
+                    <span class="text">حساب</span>
+                    <span class="uk-icon" uk-icon="icon: user"></span>
+                </button>
+            </div>
+            <!--  -->
+            <div class="right uk-margin-small-top row">
+                <div class="uk-margin uk-margin-medium-right">
+                    <form class="uk-search uk-search-default">
+                        <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                        <input class="uk-search-input" type="search" placeholder="...جستجو">
+                    </form>
+                </div>
+                <a class="logo" href="">
+                    <img src="../Resources/Raster/MalekLogo.jpeg" />
+                </a>
+            </div>
+        </div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <button class="menu-item" type="button">
+                <span class="uk-icon" uk-icon="icon: menu"></span>
+                <span class="text">دسته بندی ها</span>
+            </button>
+            <div mode="hover" delay-hide="400" uk-drop="pos: bottom-justify" class="uk-navbar-dropdown uk-position-fixed">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </div>
+            <!--<a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: info"></span>
+                <span class="text">درباره</span>
+            </a>-->
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: world"></span>
+                <span class="text">تماس با ما</span>
+            </a>
+        </div>
+
+    </nav>
+    <div class="space-nav"></div>
+
+    <!-- #endregion -->
+
+    <div class="parallax uk-flex"
+         uk-parallax="bgy: +400">
+        <h1 class="uk-width-1-2@m uk-text-center
+            uk-padding-small uk-padding-remove-right uk-padding-remove-left
+            uk-margin-auto uk-margin-auto-vertical">
+            تماس با ما
+        </h1>
+    </div>
+
+    <content class="content-form column uk-margin-auto">
+        <h2 class="uk-padding-small uk-margin-remove-bottom uk-padding-remove-bottom uk-padding-remove-right uk-padding-remove-top">درباره ما</h2>
+        <p>
+            با توجه به گسترش روز افزون تجارت الکترونیک
+            و نیاز مشتریان به دسترسی سریع به قیمت کالاهای دیجیتال بر آن شدیم
+            وب سایت اطلاع رسانی و فروش آنلاین
+            <b>ملک سرور</b>
+            را راه‌اندازی کنیم.
+        </p>
+        <h4 class="uk-margin-remove-bottom">
+            زمینه‌های فعالیت
+        </h4>
+        <ul class="uk-list uk-list-disc uk-list-primary">
+            <li>فروش قطعات سرور استوک و اورجینال</li>
+            <li>فروش قطعات سرور استوک و اورجینال</li>
+            <li>فروش قطعات سرور استوک و اورجینال</li>
+        </ul>
+        <h4 class="center uk-margin-remove-bottom uk-margin-top">هماهنگی فروش</h4>
+        <ul class="browse">
+            <li>
+                <div class="uk-card column">
+                    <h5>احمد ملکی </h5>
+                    <h4>5384 099 0919</h4>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card column">
+                    <h5>حامد ملکی </h5>
+                    <h4>5385 099 0919</h4>
+                </div>
+            </li>
+            <li>
+                <div class="uk-card column ">
+                    <h5>خانم حاصل زاده</h5>
+                    <h4>5386 099 0919</h4>
+                </div>
+            </li>
+        </ul>
+
+        <p>
+            ساعات کاری
+            شنبه تا پنج‌شنبه، از ساعت ۹ الی ۲۰
+        </p>
+
+        <p class="text-important">
+            به منظور عدم اتلاف وقت شما عزیزان، لطفا قبل از مراجعه حضوری جهت خرید و یا تحویل کالا، با واحد تحویل سفارشات هماهنگی فرمایید.
+        </p>
+    </content>
+
+
+    <div class="space-double"></div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>مقاله ها</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+
+</head>
+<body>
+
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <div class="stripe uk-margin-small-bottom"></div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: sign-out"></span>
+            </a>
+            <a href="../Index.html" class="menu-item">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+            </a>
+            <div class="menu-item unselectable">
+                <span class="uk-icon" uk-icon="icon: user"></span>
+                <span class="text">نام ادمین</span>
+            </div>
+            <hr class="uk-divider-vertical" />
+            <a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: comments"></span>
+                <span class="text">نظرات کاربران</span>
+            </a>
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: hashtag"></span>
+                <span class="text">کد های تخفیف</span>
+            </a>
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: database"></span>
+                <span class="text">جدول ها</span>
+            </a>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="TblClients.html">مشتریان</a></li>
+                        <li><a href="TblProducts.html">کالا ها</a></li>
+                        <li><a href="TblComments.html">نظرات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <a class="menu-item">
+                <span class="uk-icon" uk-icon="icon: file-text"></span>
+                <span class="text">مقاله ها</span>
+            </a>
+            <div mode="hover" delay-hide="400"
+                 uk-drop="pos: bottom-right;duration: 300"
+                 class="uk-navbar-dropdown uk-position-fixed">
+                <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                    <ul class="uk-nav uk-dropdown-nav">
+                        <li><a href="BlogAdder.html">مقاله جدید</a></li>
+                        <li><a href="Blogs.html">مشاهده مقالات</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="space-nav-bottom"></div>
+    <!-- #endregion -->
+
+    <div class="browse uk-padding uk-margin-auto
+         uk-margin-medium-top uk-margin-medium-bottom">
+
+        <!-- #region blog -->
+
+        <article class="blog-block">
+
+            <img src="../Resources/Raster/dark.jpg" alt="" />
+            <div class="column">
+                <h3 class="uk-margin-remove">مقاله اول</h3>
+                <p>
+                    لورم ایپسوم متن ساختگی با تولید سادگی
+                    نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها
+                    و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است،
+                    و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با
+                    هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و
+                    سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را
+                    کرد، در این صورت می توان امید داشت که تمام و دشواری موجود
+                    در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد
+                    نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته
+                    اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
+                </p>
+                <div class="row">
+                    <button class="uk-button uk-button-primary uk-margin-top">
+                        <span uk-icon="icon: file-edit"></span>
+                        <span>ویرایش</span>
+                    </button>
+                    <button class="uk-button uk-button-default uk-margin-top uk-margin-right">
+                        <span uk-icon="icon: trash"></span>
+                    </button>
+                </div>
+            </div>
+        </article>
+
+        <!-- #endregion -->
+
+
+    </div>
+
+
+</body>
+</html>

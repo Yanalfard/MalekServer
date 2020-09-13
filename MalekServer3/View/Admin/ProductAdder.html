@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>کالا جدید</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Product.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="/Scripts/General.js"></script>
+    <script src="../../Scripts/UiScripts/ProductAdder.js"></script>
+
+</head>
+<body>
+    <!-- #region Nav -->
+
+    <nav class="column">
+        <!-- Top -->
+        <div class="stripe"></div>
+        <div class="top row">
+            <div class="left row">
+                <a href="Cart.html" class="uk-icon" uk-icon="icon: cart"></a>
+                <button class="button-icon uk-margin-left login row" onclick="window.location = 'Login.html';">
+                    <span class="text">حساب</span>
+                    <span class="uk-icon" uk-icon="icon: user"></span>
+                </button>
+            </div>
+            <!--  -->
+            <div class="right uk-margin-small-top row">
+                <div class="uk-margin uk-margin-medium-right">
+                    <form class="uk-search uk-search-default">
+                        <a href="" class="uk-search-icon-flip" uk-search-icon></a>
+                        <input class="uk-search-input" type="search" placeholder="...جستجو">
+                    </form>
+                </div>
+                <a class="logo" href="">
+                    <img src="/Resources/Raster/MalekLogo.jpeg" />
+                </a>
+            </div>
+        </div>
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <button class="menu-item" type="button">
+                <span class="uk-icon" uk-icon="icon: menu"></span>
+                <span class="text">دسته بندی ها</span>
+            </button>
+            <div mode="hover" delay-hide="400" uk-drop="pos: bottom-justify" class="uk-navbar-dropdown uk-position-fixed">
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+                <ul class="uk-nav uk-navbar-dropdown-nav">
+                    <li class="uk-active"><a href="#">Active</a></li>
+                    <li><a href="#">Item</a></li>
+                    <li><a href="#">Item</a></li>
+                </ul>
+            </div>
+            <a class="menu-item" href="About.html">
+                <span class="uk-icon" uk-icon="icon: info"></span>
+                <span class="text">درباره</span>
+            </a>
+            <a class="menu-item" href="ContactUs.html">
+                <span class="uk-icon" uk-icon="icon: world"></span>
+                <span class="text">تماس با ما</span>
+            </a>
+        </div>
+    </nav>
+
+    <div class="space-nav"></div>
+
+    <!-- #endregion -->
+    <!-- #region product -->
+    <section class="column product uk-card ">
+        <div class="alternate">
+            <div class="column">
+                <label class="uk-margin-small-bottom">
+                    دسته کالا
+                </label>
+                <div class="row">
+
+                    <div class="row">
+                        <button class="uk-button uk-button-primary uk-margin-right">اضافه</button>
+                        <input type="tel" class="uk-input uk-margin-small-right" placeholder="دسته جدید" />
+                    </div>
+
+                    <select class="uk-select uk-width-medium uk-margin-auto-left">
+                        <option>کالای دیجیتال</option>
+                        <option>لوازم آرایش</option>
+                        <option>لوازم بهداشتی</option>
+                    </select>
+                </div>
+
+                <!--  -->
+
+                <label class="uk-margin-small-bottom uk-margin-top">
+                    زیر دسته
+                </label>
+                <div class="row">
+
+                    <div class="row">
+                        <button class="uk-button uk-button-primary uk-margin-right">اضافه</button>
+                        <input type="tel" class="uk-input uk-margin-small-right" placeholder="زیر دسته جدید" />
+                    </div>
+
+                    <select class="uk-select uk-width-medium uk-margin-auto-left">
+                        <option>موبایل</option>
+                        <option>تلفن</option>
+                        <option>لپ تاپ</option>
+                    </select>
+                </div>
+
+                <hr class="uk-margin-medium-top" />
+                <!--  -->
+
+                <label class="uk-margin-small-bottom uk-margin-medium-top">
+                    نام کالا
+                </label>
+                <header class="uk-textarea" contenteditable></header>
+
+                <label class="uk-margin-medium-top uk-margin-small-bottom">
+                    توضیحات
+                </label>
+                <p class="uk-textarea uk-padding-small" contenteditable>
+                </p>
+
+                <div class="row uk-margin-medium-top">
+                    <div class="column uk-margin-right ">
+                        <label class="uk-margin-small-bottom">
+                            درصد تخفیف
+                        </label>
+                        <p class="uk-textarea" contenteditable>
+                        </p>
+                    </div>
+                    <div class="column uk-margin-remove">
+                        <label class="uk-margin-small-bottom">
+                            قیمت به تومان
+                        </label>
+                        <p class="uk-textarea" contenteditable>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row uk-margin-small-top" dir="rtl">
+                    <input type="checkbox" class="uk-checkbox uk-margin-top" />
+                    <label class="uk-margin-small-right uk-margin-auto-top">در صفحه اول نشان داده شود</label>
+                </div>
+
+                <label class="uk-margin-medium-top uk-margin-small-bottom">
+                    کلمات کلیدی
+                </label>
+                <p class="uk-textarea" contenteditable>
+                </p>
+
+
+
+                <label class="uk-margin-large-top">مشخصات</label>
+                <table class="uk-table uk-table-striped uk-margin-small-top">
+                    <thead>
+                        <tr>
+                            <th>
+                                <button onclick="btnAddProperty_Click()"
+                                        class=" uk-button uk-button-primary">
+                                    اضافه
+                                </button>
+                            </th>
+                            <th>
+                                <input id="txtProperty"
+                                       class="uk-input" type="text" placeholder="مشخصات" />
+                            </th>
+                            <th>
+                                <input id="txtValue"
+                                       class="uk-input" type="text" placeholder="اطلاعات" />
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody"></tbody>
+                </table>
+
+            </div>
+
+            <div class="imageAdder column">
+                <div class="row uk-margin-bottom">
+                    <div class="js-upload" uk-form-custom>
+                        <input id="inputImage" type="file" onchange="btnAddImageClick()" accept="image/*">
+                        <button class="button-icon uk-button uk-button-primary" type="button" tabindex="-1">
+                            <span class="text">انتخاب عکس</span>
+                            <span class="uk-icon" uk-icon="icon: image"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="addedImages" class="row">
+                    <!--<div class="image-item">
+                        <a class="uk-icon" onclick="alert('xello');" uk-icon="icon: trash; ratio: 1.4"></a>
+                        <img src="../~/Resources/Raster/light.jpg" alt="" />
+                    </div>-->
+                    <!--<div class="image-item" id="${file.name}">
+                        <a class="uk-icon" onclick="'${file.name}'" uk-icon="icon: trash; ratio: 1.4"></a>
+                        <img src="${this.result}" alt="" />
+                    </div>-->
+                </div>
+            </div>
+
+        </div>
+
+        <hr class="uk-divider-icon uk-margin-medium-top"/>
+
+        <div class="row uk-margin-auto-left  ">
+            <button class="uk-button uk-button-danger uk-margin-right" onclick="window.location = 'AdminPanel.html'">بازگشت</button>
+            <button class="uk-button uk-button-primary ">اضافه کردن کالا</button>
+        </div>
+
+    </section>
+    <!-- #endregion -->
+
+    <div class="space-half"></div>
+
+    <div class="space-double"></div>
+</body>
+</html>

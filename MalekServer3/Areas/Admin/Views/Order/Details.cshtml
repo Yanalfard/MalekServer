@@ -1,0 +1,22 @@
+﻿@model MalekServer3.Models.TblOrder
+
+@{
+    ViewBag.Title = "اطلاعات";
+}
+
+
+<link href="~/Styles/Blog.min.css" rel="stylesheet" />
+
+<content class="blog-view uk-card clipped uk-margin-auto column" dir="rtl">
+    <h3 class="uk-margin-remove uk-margin-small-bottom">@Model.TblClient.Name</h3>
+    <h3 class="uk-margin-remove uk-margin-small-bottom">@Model.TblClient.TellNo</h3>
+    <h3 class="uk-margin-remove uk-margin-small-bottom">@Model.TblClient.Email</h3>
+    <p>
+        @Model.Title
+    </p>
+    <p>
+        @Model.Body
+    </p>
+</content>
+
+<div class="space-double"></div>

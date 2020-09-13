@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "اضافه کردن تبلیغ";
+}
+
+
+<link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+<div class="space-nav-bottom"></div>
+<!-- #endregion -->
+
+<div class="blog-adder uk-margin-medium-top uk-margin-medium-bottom    uk-margin-auto uk-card">
+
+    <h3 class="uk-margin-bottom">
+        مقاله جدید
+    </h3>
+
+    <h4 class="uk-margin-top">لینک</h4>
+    <input id="titreBlog" type="text" class="uk-input" />
+
+    <div class="row uk-margin-bottom " dir="rtl">
+        <div class="js-upload" uk-form-custom>
+            <input id="inputImage" type="file" onchange="btnAddImageClick()" accept="image/*">
+            <button class="uk-margin-top uk-button uk-button-primary" type="button" tabindex="-1">
+                <span class="text">انتخاب عکس</span>
+                <span class="uk-icon" uk-icon="icon: image"></span>
+            </button>
+        </div>
+    </div>
+    <h4 class="uk-margin-top">محل نمایش</h4>
+    <div class="row uk-margin-bottom " dir="rtl">
+            <select id="selectPositionAds" class="uk-select uk-width-medium uk-margin-auto-left">
+                <option value="1">اسلایدر اصلی سمت چپ</option>
+                <option value="2">اسلایدر سمت چپ بالا</option>
+                <option value="3">اسلایدر سمت چپ پایین</option>
+                <option value="4">بنر  پایین اول 6/25</option>
+                <option value="5">بنر  پایین دوم 6/25</option>
+                <option value="6">بنر  پایین سوم 6/25</option>
+            </select>
+    </div>
+    <hr class="uk-divider-icon uk-margin-medium-top" />
+
+    <div class="row ">
+        <a onclick=" AddAdToData()" class="uk-button uk-button-primary ">اضافه کردن تبلیغ</a>
+    </div>
+</div>
+
+@section Scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Scripts/Admin/AddAd.js"></script>
+}

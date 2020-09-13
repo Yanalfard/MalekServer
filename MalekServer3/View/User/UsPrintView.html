@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>فاکتور</title>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit-rtl.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="/Styles/Profile.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+</head>
+<body>
+    <window id="win" class="clipped check-out column uk-card uk-padding uk-margin-top uk-margin-bottom uk-margin-auto">
+        <div class="row">
+
+            <div class="column  uk-margin-auto-right">
+                <div class="row">
+                    <span class="uk-margin-right">16/04/16</span>
+                    <span dir="rtl">تاریخ:</span>
+                </div>
+                <div class="row">
+                    <span class="uk-margin-right">1500</span>
+                    <span dir="rtl">شماره فاکتور:</span>
+                </div>
+            </div>
+            <h2 class=" uk-margin-auto">
+                صورت حساب فروش اینترنتی کالا
+            </h2>
+            <img class="uk-width-small uk-margin-auto-left" src="../../Resources/Vector/Logo.svg" />
+        </div>
+
+        <label class="uk-margin-top uk-margin-small-bottom">مشخصات فروشنده</label>
+        <table class="cart history uk-table uk-table-striped uk-margin-small-top">
+            <thead>
+                <tr>
+                    <th>
+                        نام
+                    </th>
+                    <th>
+                        آدرس
+                    </th>
+                    <th>
+                        شماره تماس
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                <tr>
+                    <td>ملک سرور</td>
+                    <td>تهران، میدان ولیعصر</td>
+                    <td dir="ltr">021 - 88940037</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <label class="uk-margin-top uk-margin-small-bottom">مشخصات خریدار</label>
+        <table class="cart history uk-table uk-table-striped uk-margin-small-top">
+            <thead>
+                <tr>
+                    <th>
+                        نام مشتری
+                    </th>
+                    <th>
+                        آدرس
+                    </th>
+                    <th>
+                        شماره تماس
+                    </th>
+                    <th>
+                        یارانامه
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                <tr>
+                    <td>حسن حسن زاده</td>
+                    <td>تهران، میدان ولیعصر</td>
+                    <td dir="ltr">021 - 88940037</td>
+                    <td>email@gmail.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <label class="uk-margin-top uk-margin-small-bottom">مشخصات کالا</label>
+
+        <content class="cart">
+            <table class="history uk-table uk-table-striped uk-margin-small-top">
+                <thead>
+                    <tr>
+                        <th>
+                            ردیف
+                        </th>
+                        <th>
+                            کد
+                        </th>
+                        <th>
+                            نام
+                        </th>
+                        <th>
+                            دسته بندی
+                        </th>
+                        <th>
+                            مبلغ واحد
+                        </th>
+                        <th>
+                            تعداد
+                        </th>
+                        <th>
+                            قیمت
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+                    <tr>
+                        <td>1</td>
+                        <td>150</td>
+                        <td>باتری</td>
+                        <td>لوازم جانبی</td>
+                        <td>5000</td>
+                        <td>2</td>
+                        <td>10000</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>8 عدد</td>
+                        <td>
+                            40000 تومان
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </content>
+
+        <div class="row uk-margin-top " dir="rtl">
+            <label class="uk-margin-small-bottom ">کد تخفیف:</label>
+            <span class="uk-margin-right">PromoCodeName</span>
+            <label class="uk-margin-small-bottom uk-margin-medium-right">درصد تخفیف:</label>
+            <span class="uk-badge uk-margin-right" type="text">30%</span>
+        </div>
+
+        <label class="uk-margin-top uk-margin-small-bottom">مبلغ قابل پرداخت بعد از مالیات</label>
+        <div class="row uk-label  uk-margin-auto-left uk-padding-small">
+            <span class="uk-margin-small-right uk-margin-auto-left">تومان</span>
+            <span>16 000 000</span>
+        </div>
+
+        <content class="row center uk-margin-medium-top" dir="rtl">
+            <span>کارشناسان فروش و پشتیبانی</span>
+            <span class="uk-margin-right">09190995384</span>
+            <span class="uk-margin-right">09190995385</span>
+            <span class="uk-margin-right">09190995386</span>
+        </content>
+
+        <div class="row">
+            <button class="uk-margin-auto-left uk-margin-top uk-button uk-button-danger uk-margin-right ">برگشت</button>
+            <button class="uk-margin-top uk-button uk-button-primary" onclick="window.print();">چاپ</button>
+        </div>
+
+    </window>
+
+    <div class="space"></div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+﻿@model MalekServer3.Models.ViewModel.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ورود</title>
+
+
+    <script src="~/Scripts/Jquery/jquery.validate.min.js"></script>
+    <script src="~/Scripts/Jquery/jquery.validate.unobtrusive.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+
+    <!-- UIkit CSS -->
+    <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+    <!-- Project CSS -->
+    <link href="~/Styles/Entry.css" rel="stylesheet" />
+    <link href="/Styles/.min.css" rel="stylesheet" />
+
+    <!-- UIkit JS -->
+    <script src="/Scripts/UIKit/uikit.min.js"></script>
+    <script src="/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+
+
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form uk-card">
+            @if (Request.QueryString["recovery"] != null)
+            {
+                <div class="alert alert-success">
+                    <p>کلمه عبور شما با موفقیت تغییر کرد</p>
+                    <p>میتوانید لاگین کنید</p>
+                </div>
+            }
+            <h3 class="center uk-margin-remove-top uk-margin-remove-bottom">ورود</h3>
+
+            @Html.ValidationSummary(true, "", new { @class = "uk-text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "input-label" })
+                <div class="textbox">
+                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "uk-input" } })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "uk-text-danger" })
+                </div>
+            </div>
+
+
+            <div>
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="textbox">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "uk-input" } })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "uk-text-danger" })
+                </div>
+            </div>
+
+            <div class=" row uk-margin-auto-left uk-margin-top" dir="rtl">
+                <div>
+                    <div class="checkbox ">
+                        @Html.EditorFor(model => model.RememberMe, new { htmlAttributes = new { @class = "uk-checkbox" } })
+                        @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.LabelFor(model => model.RememberMe, htmlAttributes: new { @class = "control-label uk-margin-small-right " })
+            </div>
+
+            <div class="center uk-margin-medium-top">
+                <div dir="rtl">
+                    <!-- Site -->
+                    <div class="g-recaptcha center uk-margin-small-bottom" data-sitekey="6LevZMIZAAAAAAp_NimdDiJ7wU6SCAIUHFI8-M_f"></div>
+                    <!-- localhost -->
+                    @* <div class="g-recaptcha center uk-margin-small-bottom" data-sitekey="6Ld_XsIZAAAAAD5pg4pDXJWD93von5OYhbai1zma"></div>*@
+
+                    <span class=" uk-text-danger">@ViewBag.Message</span>
+                </div>
+            </div>
+
+            <div class="column center uk-margin-top">
+                <input type="submit" value="ورود" class="uk-button uk-button-primary center uk-margin-medium-top" />
+                <a class="uk-margin-small-top center" href="/Register">ثبت نام</a>
+                <a class="uk-margin-small-top center" href="/ForgotPassword">کلمه عبور خود را فراموش کرده ام </a>
+
+            </div>
+        </div>
+    }
+</body>
+</html>

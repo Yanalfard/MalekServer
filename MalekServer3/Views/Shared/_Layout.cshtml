@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title </title>
+
+    <!-- UIkit CSS -->
+    <link href="~/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+   
+
+    <!-- Loading CSS -->
+    <link href="~/Styles/Load.css" rel="stylesheet" />
+
+    <link href="~/Styles/Index.min.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <nav class="column">
+        <!-- Top -->
+        <div class="stripe"></div>
+        <div class="top row">
+            <div class="left row">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <!-- agar karbar login shodeh bashad, be jaye kalame حساب name karbar neveshte shavad -->
+                    <button class="button-icon uk-margin-left login row" type="button">
+                        <span class="text">حساب</span>
+                        <span class="uk-icon" uk-icon="icon: user"></span>
+                    </button>
+                    <!-- #region Agar karbar login shodeh bashad in ghesmat neshan dadeh SHAVAD -->
+                    <div mode="hover" delay-hide="400" uk-drop="pos: bottom" class="uk-navbar-dropdown uk-position-fixed">
+                        <ul class="uk-nav uk-navbar-dropdown-nav">
+                            <li class="uk-active">
+                                <a href="/Account/LogPage/@User.Identity.Name.Split('|')[1]">@User.Identity.Name.Split('|')[0]</a>
+                            </li>
+                            <li><hr class="uk-margin-small-top" /></li>
+                            <li>
+                                <a href="/LogOff" class="row">
+                                    <span>خروج</span>
+                                    <span uk-icon="icon: sign-out"></span>
+                                </a>
+                            </li>
+                            @if (User.Identity.Name.Split('|')[1] != "3")
+                            {
+                                <li>
+                                    <span id="shopcart"></span>
+                                    <a href="/UserPanel/Home/Cart" class="row">
+                                        <span>سبد خرید</span>
+                                        <span uk-icon="icon: cart"></span>
+                                    </a>
+                                </li>
+                            }
+
+                        </ul>
+                    </div>
+                    <!-- #endregion -->
+                }
+                else
+                {
+                    <a href="/Login" class="button-icon uk-margin-remove-left login row">
+                        <span class="text">ورود/ثبت نام</span>
+                        <span class="uk-icon" uk-icon="icon: user"></span>
+                    </a>
+                }
+
+
+            </div>
+            <!--  -->
+            <div class="right uk-margin-small-top row">
+                <div class="uk-margin uk-margin-right">
+                    <form action="/Home/Search" method="get" class="uk-search uk-search-default main-search">
+                        <button class="uk-search-icon-flip" uk-search-icon></button>
+                        <input class="uk-search-input" name="q" type="search" placeholder="...جستجو">
+                    </form>
+
+                </div>
+                <a class="logo" href="/Home/Index">
+                    <img src="~/Resources/Raster/MalekLogo.jpeg" />
+                </a>
+            </div>
+        </div>
+
+        @* MID *@
+        <div class="column clone-container uk-margin-small-bottom">
+            <!--  -->
+            <form action="/Home/Search" method="get" class="uk-search uk-search-default">
+                <button class="uk-search-icon-flip" uk-search-icon></button>
+                <input class="uk-search-input" name="q" type="search" placeholder="...جستجو">
+            </form>
+        </div>
+
+        <!-- Nav Items -->
+        <div class="bottom row">
+            <a href="#CategoryModal" uk-toggle class="menu-item hide-text">
+                <span class="uk-icon" uk-icon="icon: menu"></span>
+                <span class="text">دسته بندی های فروشگاه</span>
+            </a>
+            <div id="CategoryModal" uk-modal>
+                <div class="uk-modal-dialog uk-modal-body" dir="rtl">
+                    <div class="uk-dropdown-grid uk-child-width-1-2@m" uk-grid>
+                        @Html.Action("Catagorys", "Home")
+                    </div>
+                </div>
+            </div>
+
+            <a class="menu-item hide-text" href="/Home/Index">
+                <span class="uk-icon" uk-icon="icon: home"></span>
+                <span class="text"></span>
+            </a>
+            <a class="menu-item hide-icon" href="/Product/New">
+                <span class="uk-icon" uk-icon="icon: bolt"></span>
+                <span class="text">جدید</span>
+            </a>
+            <a class="menu-item hide-icon" href="/Product/Suggestions">
+                <span class="uk-icon" uk-icon="icon: star"></span>
+                <span class="text">پیشنهادات</span>
+            </a>
+            <a class="menu-item hide-icon" href="/Blog/AllBlog">
+                <span class="uk-icon" uk-icon="icon: copy"></span>
+                <span class="text">مقالات</span>
+            </a>
+            <a class="menu-item hide-icon" href="/Home/ContactUs">
+                <span class="uk-icon" uk-icon="icon: receiver"></span>
+                <span class="text">تماس با ما</span>
+            </a>
+
+        </div>
+    </nav>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+
+        if (User.Identity.Name.Split('|')[1] != "3")
+        {
+            <a href="/Account/LogCart/@User.Identity.Name.Split('|')[1]" class="pill uk-button uk-position-fixed">
+                <span uk-icon="icon: cart"></span>
+            </a>
+        }
+
+    }
+    else if (User.Identity.IsAuthenticated == false)
+    {
+        <a href="/Login" class="pill uk-button uk-position-fixed">
+            <span uk-icon="icon: cart"></span>
+        </a>
+    }
+
+    <div class="space-nav"></div>
+
+
+    @RenderBody()
+
+    <!-- #endregion -->
+
+    <footer class="uk-margin-medium-top column">
+
+        <div class="icons row">
+            <ul class="row">
+                <li class="column">
+                    <img src="~/Resources/Vector/Footer/support.svg" />
+                    <span> پشتیبانی مطمئن</span>
+                </li>
+                <li class="column">
+                    <img src="~/Resources/Vector/Footer/target.svg" />
+                    <span>خرید هدفمند</span>
+                </li>
+                <li class="column">
+                    <img src="~/Resources/Vector/Footer/money.svg" />
+                    <span class="uk-margin-small-top">پرداخت مطمئن</span>
+                </li>
+                <li class="column">
+                    <img src="~/Resources/Vector/Footer/box.svg" />
+                    <span>ارسال در کمترین زمان</span>
+                </li>
+            </ul>
+        </div>
+        <div class="media" dir="rtl">
+            <div class="row links">
+                <ul class="column">
+                    <li>
+                        <h4>
+                            حساب کاربری
+                        </h4>
+                    </li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (User.Identity.Name.Split('|')[1] != "3")
+                        {
+                            <li>
+                                <a href="/UserPanel/Home/Index">صفحه من</a>
+                            </li>
+                            <li>
+                                <a href="/UserPanel/Home/Cart">سبد خرید</a>
+                            </li>
+                        }
+
+                    }
+
+                    else if (User.Identity.IsAuthenticated == false)
+                    {
+                        <li>
+                            <a href="/Login">ورود</a>
+                        </li>
+
+                        <li>
+                            <a href="/Register">ثبت نام</a>
+                        </li>
+                        <li>
+                            <a href="/Login">سبد خرید</a>
+                        </li>
+                    }
+
+                </ul>
+                <ul class="column">
+                    <li>
+                        <h4>
+                            اطلاعات
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="/Product/Suggestions">
+                            محصولات ویژه
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Product/New">
+                            محصولات جدید
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Home/ContactUs">
+                            تماس با ما
+                        </a>
+                    </li>
+                </ul>
+                <ul class="column">
+                    <li>
+                        <h4>
+                            لینک های مفید
+                        </h4>
+                    </li>
+                    <li>
+                        <a href="/Index">
+                            خانه
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Blog/AllBlog">
+                            مقالات
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/SiteMap">
+                            نقشه سایت
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="media-icons column uk-margin-right">
+                <h4>
+                    شبکه های اجتماعی
+                </h4>
+                <ul class="row">
+                    <li>
+                        <a href="mailto:noreplaymalekserver@gmail.com" target="_blank">
+                            <img src="~/Resources/Vector/Social/Gmail.svg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://wa.me/989190995384" target="_blank">
+                            <img src="~/Resources/Vector/Social/WhatsApp.svg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://t.me/malekserver" target="_blank">
+                            <img src="~/Resources/Vector/Social/Telegram.svg" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/malekserver/" target="_blank">
+                            <img src="~/Resources/Vector/Social/Instagram.svg" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="time gray uk-padding-small">
+            <div class="row uk-margin-medium-right ">
+                <span uk-icon="icon: receiver"></span>
+                <p class="uk-margin-medium-right uk-margin-remove-top uk-margin-remove-bottom">
+                    (+9821) 8894 0037 – 8894 5978
+                </p>
+            </div>
+            <div class="row uk-margin-small-right uk-margin-auto-left">
+                <p class="uk-margin-auto-left uk-margin-remove-top uk-margin-remove-bottom">
+                    شنبه تا چهارشنبه، 9:30 الی 17:30 و پنجشنبه 9:30 الی 13:30
+                </p>
+                <h4 class=" uk-margin-remove">
+                    :ساعات کاری
+                </h4>
+            </div>
+        </div>
+        <div class="address column uk-margin-auto">
+            <span>
+                تهران، خیابان ولیعصر، نرسیده به میدان ولیعصر، خیابان فیروزه، پلاک32 ،واحد8
+            </span>
+            <span class="uk-margin-auto">
+                09190995384 - 09190995385 - 09190995386
+            </span>
+        </div>
+
+        <div class="footer-stripe column">
+            <a href="https://arvintavco.com/"
+               class="uk-margin-auto">کلیه حقوق این سایت برای شرکت ملک سرور محفوظ است -طراحی و توسعه ایده پرداز آروین تاو</a>
+        </div>
+    </footer>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <input type="hidden" id="HideuserIdNodAddAdmin" name="HideuserIdNodAddAdmin" value="@User.Identity.Name.Split('|')[1]" />
+    }
+
+    <!-- #Loadin -->
+    <div id="overlay">
+        <div class="cv-spinner">
+            <span class="spinner"></span>
+        </div>
+    </div>
+
+    <!-- UIkit JS -->
+    <script src="~/Scripts/UIKit/uikit.min.js"></script>
+    <script src="~/Scripts/UIKit/uikit-icons.min.js"></script>
+    <!-- Jquery -->
+    <script src="~/Scripts/Jquery/jquery-3.5.1.min.js"></script>
+    <!--Project JS-->
+    <script src="~/Scripts/General.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="~/Scripts/Home/Shared.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+</html>

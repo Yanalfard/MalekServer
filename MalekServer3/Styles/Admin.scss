@@ -1,0 +1,65 @@
+﻿@import "_colors.scss";
+@import "_controls.scss";
+@import "_general.scss";
+
+.holder {
+    width: 92vw;
+    padding: 16px;
+    @include mat();
+    @include shadow-mild();
+
+    .uk-comment {
+        background: $white-mid;
+        margin-bottom: 20px;
+
+        .uk-button {
+            opacity: 0;
+            @include trans(.5s);
+        }
+    }
+
+    .uk-comment:hover {
+        .uk-button {
+            opacity: 1;
+            @include trans(.3s);
+        }
+    }
+}
+
+.promo-browse {
+    display: grid;
+    grid-template-rows: auto;
+    grid-gap: 1em;
+    grid-template-columns: repeat(auto-fit,minmax(256px,1fr));
+    direction: rtl;
+
+    .promo-code {
+        max-width:256px;
+        padding:16px;
+        background:$white-mid;
+    }
+}
+
+.gallery-card{
+    @include mat();
+    width:90vw;
+}
+
+.admin-image-holder {
+    direction: rtl;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    .admin-image {
+        padding: 20px;
+
+        margin: {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        background: $white-mid;
+    }
+}

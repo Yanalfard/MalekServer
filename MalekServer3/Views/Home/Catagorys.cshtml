@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MalekServer3.Models.TblCatagory>
+
+<ul>
+    <li>
+        @* !!! *@
+        @if (User.Identity.IsAuthenticated)
+        {
+
+            if (User.Identity.Name.Split('|')[1] != "3")
+            {
+                <a class="uk-link-text" href="/UserPanel/Home/Order">
+                    <span>سفارش گیری آنلاین</span>
+                </a>
+            }
+            else
+            {
+                <a class="uk-link-text" href="/Admin/Order/Orders">
+                    <span>مشاهده سفارش های آنلاین</span>
+                </a>
+            }
+
+        }
+        else if (User.Identity.IsAuthenticated == false)
+        {
+            <a class="uk-link-text" href="/Login">
+                <span>سفارش گیری آنلاین</span>
+            </a>
+        }
+
+    </li>
+    <li>
+        <a class="uk-link-text uk-margin-top" href="/Product/New">
+            <span class="text">جدید</span>
+        </a>
+    </li>
+    <li>
+        <a class="uk-link-text uk-margin-top" href="/Product/Suggestions">
+            <span class="text">پیشنهادات</span>
+        </a>
+    </li>
+    <li>
+        <a class="uk-link-text uk-margin-top" href="/Blog/AllBlog">
+            <span class="text">مقالات</span>
+        </a>
+    </li>
+</ul>
+
+@foreach (var group in Model.Where(i => i.CatagoryId == null))
+{
+    <div>
+        <ul class="uk-nav uk-dropdown-nav">
+
+            <li class="uk-active"><a>@group.Name</a></li>
+            @if (Model.Any(g => g.CatagoryId == group.id))
+            {
+                foreach (var subGroup in Model.Where(g => g.CatagoryId == group.id))
+                {
+                    <li><a href="/Home/Search?q=@subGroup.Name">@subGroup.Name</a></li>
+                }
+
+            }
+
+        </ul>
+    </div>
+}

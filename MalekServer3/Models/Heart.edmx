@@ -1,0 +1,1309 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="malekser_MalekServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TblAd">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Link" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="PositionId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblBlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MainImage" Type="nvarchar(max)" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="LikeCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblBlogCommentRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+          <Property Name="CommentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblBlogKeywordRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BlogId" Type="int" Nullable="false" />
+          <Property Name="KeywordId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblCatagory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="CatagoryId" Type="int" />
+          <Property Name="IsOnFirstPage" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblClient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="IdentificationNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="TellNo" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="16" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="64" Nullable="false" />
+          <Property Name="Auth" Type="nvarchar(max)" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblClientProductRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblComment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FromId" Type="int" Nullable="false" />
+          <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IsValid" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblDiscount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TblImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblKeyword">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Body" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClientId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="DateSubmited" Type="nvarchar" MaxLength="20" />
+          <Property Name="Raiting" Type="int" Nullable="false" />
+          <Property Name="Price" Type="bigint" Nullable="false" />
+          <Property Name="DescriptionHtml" Type="nvarchar(max)" />
+          <Property Name="CatagoryId" Type="int" />
+          <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="IsSuggested" Type="bit" Nullable="false" />
+          <Property Name="Discount" Type="int" Nullable="false" />
+          <Property Name="IsSlide" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProductCommentRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="CommentId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProductImageRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="ImageId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProductKeywordRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="KeywordId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProductPropertyRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" Nullable="false" />
+          <Property Name="PropertyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblProperty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_TblBlogCommentRel_TblBlog">
+          <End Role="TblBlog" Type="Self.TblBlog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogCommentRel" Type="Self.TblBlogCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBlog">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogCommentRel">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBlogCommentRel_TblComment">
+          <End Role="TblComment" Type="Self.TblComment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogCommentRel" Type="Self.TblBlogCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblComment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogCommentRel">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBlogKeywordRel_TblBlog">
+          <End Role="TblBlog" Type="Self.TblBlog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogKeywordRel" Type="Self.TblBlogKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBlog">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogKeywordRel">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBlogKeywordRel_TblKeyword">
+          <End Role="TblKeyword" Type="Self.TblKeyword" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogKeywordRel" Type="Self.TblBlogKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKeyword">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogKeywordRel">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCatagory_TblCatagory">
+          <End Role="TblCatagory" Type="Self.TblCatagory" Multiplicity="0..1" />
+          <End Role="TblCatagory1" Type="Self.TblCatagory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCatagory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblCatagory1">
+              <PropertyRef Name="CatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblClientProductRel_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblClientProductRel">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblClientProductRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblClientProductRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblComment_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1" />
+          <End Role="TblComment" Type="Self.TblComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblComment">
+              <PropertyRef Name="FromId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrder_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblOrder">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProduct_TblCatagory">
+          <End Role="TblCatagory" Type="Self.TblCatagory" Multiplicity="0..1" />
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCatagory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="CatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCommentRel_TblComment">
+          <End Role="TblComment" Type="Self.TblComment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductCommentRel" Type="Self.TblProductCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblComment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductCommentRel">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCommentRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductCommentRel" Type="Self.TblProductCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductCommentRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductImageRel_TblImage">
+          <End Role="TblImage" Type="Self.TblImage" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductImageRel" Type="Self.TblProductImageRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblImage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductImageRel">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductImageRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductImageRel" Type="Self.TblProductImageRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductImageRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductKeywordRel_TblKeywords">
+          <End Role="TblKeyword" Type="Self.TblKeyword" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductKeywordRel" Type="Self.TblProductKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKeyword">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductKeywordRel">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductKeywordRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductKeywordRel" Type="Self.TblProductKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductKeywordRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductPropertyRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductPropertyRel" Type="Self.TblProductPropertyRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductPropertyRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductPropertyRel_TblProperty">
+          <End Role="TblProperty" Type="Self.TblProperty" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductPropertyRel" Type="Self.TblProductPropertyRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProperty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductPropertyRel">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="malekser_MalekServerModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblAd" EntityType="Self.TblAd" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblBlog" EntityType="Self.TblBlog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblBlogCommentRel" EntityType="Self.TblBlogCommentRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblBlogKeywordRel" EntityType="Self.TblBlogKeywordRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblCatagory" EntityType="Self.TblCatagory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblClient" EntityType="Self.TblClient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblClientProductRel" EntityType="Self.TblClientProductRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblComment" EntityType="Self.TblComment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblDiscount" EntityType="Self.TblDiscount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblImage" EntityType="Self.TblImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblKeyword" EntityType="Self.TblKeyword" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblOrder" EntityType="Self.TblOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProduct" EntityType="Self.TblProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProductCommentRel" EntityType="Self.TblProductCommentRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProductImageRel" EntityType="Self.TblProductImageRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProductKeywordRel" EntityType="Self.TblProductKeywordRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProductPropertyRel" EntityType="Self.TblProductPropertyRel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TblProperty" EntityType="Self.TblProperty" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TblBlogCommentRel_TblBlog" Association="Self.FK_TblBlogCommentRel_TblBlog">
+            <End Role="TblBlog" EntitySet="TblBlog" />
+            <End Role="TblBlogCommentRel" EntitySet="TblBlogCommentRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBlogCommentRel_TblComment" Association="Self.FK_TblBlogCommentRel_TblComment">
+            <End Role="TblComment" EntitySet="TblComment" />
+            <End Role="TblBlogCommentRel" EntitySet="TblBlogCommentRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBlogKeywordRel_TblBlog" Association="Self.FK_TblBlogKeywordRel_TblBlog">
+            <End Role="TblBlog" EntitySet="TblBlog" />
+            <End Role="TblBlogKeywordRel" EntitySet="TblBlogKeywordRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBlogKeywordRel_TblKeyword" Association="Self.FK_TblBlogKeywordRel_TblKeyword">
+            <End Role="TblKeyword" EntitySet="TblKeyword" />
+            <End Role="TblBlogKeywordRel" EntitySet="TblBlogKeywordRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCatagory_TblCatagory" Association="Self.FK_TblCatagory_TblCatagory">
+            <End Role="TblCatagory" EntitySet="TblCatagory" />
+            <End Role="TblCatagory1" EntitySet="TblCatagory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblClientProductRel_TblClient" Association="Self.FK_TblClientProductRel_TblClient">
+            <End Role="TblClient" EntitySet="TblClient" />
+            <End Role="TblClientProductRel" EntitySet="TblClientProductRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblClientProductRel_TblProduct" Association="Self.FK_TblClientProductRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblClientProductRel" EntitySet="TblClientProductRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblComment_TblClient" Association="Self.FK_TblComment_TblClient">
+            <End Role="TblClient" EntitySet="TblClient" />
+            <End Role="TblComment" EntitySet="TblComment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrder_TblClient" Association="Self.FK_TblOrder_TblClient">
+            <End Role="TblClient" EntitySet="TblClient" />
+            <End Role="TblOrder" EntitySet="TblOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProduct_TblCatagory" Association="Self.FK_TblProduct_TblCatagory">
+            <End Role="TblCatagory" EntitySet="TblCatagory" />
+            <End Role="TblProduct" EntitySet="TblProduct" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCommentRel_TblComment" Association="Self.FK_TblProductCommentRel_TblComment">
+            <End Role="TblComment" EntitySet="TblComment" />
+            <End Role="TblProductCommentRel" EntitySet="TblProductCommentRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCommentRel_TblProduct" Association="Self.FK_TblProductCommentRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblProductCommentRel" EntitySet="TblProductCommentRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductImageRel_TblImage" Association="Self.FK_TblProductImageRel_TblImage">
+            <End Role="TblImage" EntitySet="TblImage" />
+            <End Role="TblProductImageRel" EntitySet="TblProductImageRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductImageRel_TblProduct" Association="Self.FK_TblProductImageRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblProductImageRel" EntitySet="TblProductImageRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductKeywordRel_TblKeywords" Association="Self.FK_TblProductKeywordRel_TblKeywords">
+            <End Role="TblKeyword" EntitySet="TblKeyword" />
+            <End Role="TblProductKeywordRel" EntitySet="TblProductKeywordRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductKeywordRel_TblProduct" Association="Self.FK_TblProductKeywordRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblProductKeywordRel" EntitySet="TblProductKeywordRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductPropertyRel_TblProduct" Association="Self.FK_TblProductPropertyRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProduct" />
+            <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductPropertyRel_TblProperty" Association="Self.FK_TblProductPropertyRel_TblProperty">
+            <End Role="TblProperty" EntitySet="TblProperty" />
+            <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRel" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="malekser_MalekServerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TblAd">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Link" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PositionId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblBlog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MainImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LikeCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblBlogCommentRels" Relationship="Self.FK_TblBlogCommentRel_TblBlog" FromRole="TblBlog" ToRole="TblBlogCommentRel" />
+          <NavigationProperty Name="TblBlogKeywordRels" Relationship="Self.FK_TblBlogKeywordRel_TblBlog" FromRole="TblBlog" ToRole="TblBlogKeywordRel" />
+        </EntityType>
+        <EntityType Name="TblBlogCommentRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblBlog" Relationship="Self.FK_TblBlogCommentRel_TblBlog" FromRole="TblBlogCommentRel" ToRole="TblBlog" />
+          <NavigationProperty Name="TblComment" Relationship="Self.FK_TblBlogCommentRel_TblComment" FromRole="TblBlogCommentRel" ToRole="TblComment" />
+        </EntityType>
+        <EntityType Name="TblBlogKeywordRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BlogId" Type="Int32" Nullable="false" />
+          <Property Name="KeywordId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblBlog" Relationship="Self.FK_TblBlogKeywordRel_TblBlog" FromRole="TblBlogKeywordRel" ToRole="TblBlog" />
+          <NavigationProperty Name="TblKeyword" Relationship="Self.FK_TblBlogKeywordRel_TblKeyword" FromRole="TblBlogKeywordRel" ToRole="TblKeyword" />
+        </EntityType>
+        <EntityType Name="TblCatagory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CatagoryId" Type="Int32" />
+          <NavigationProperty Name="TblCatagory1" Relationship="Self.FK_TblCatagory_TblCatagory" FromRole="TblCatagory" ToRole="TblCatagory1" />
+          <NavigationProperty Name="TblCatagory2" Relationship="Self.FK_TblCatagory_TblCatagory" FromRole="TblCatagory1" ToRole="TblCatagory" />
+          <NavigationProperty Name="TblProducts" Relationship="Self.FK_TblProduct_TblCatagory" FromRole="TblCatagory" ToRole="TblProduct" />
+          <Property Name="IsOnFirstPage" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TblClient">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdentificationNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TellNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="16" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Auth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblClientProductRels" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClient" ToRole="TblClientProductRel" />
+          <NavigationProperty Name="TblComments" Relationship="Self.FK_TblComment_TblClient" FromRole="TblClient" ToRole="TblComment" />
+          <NavigationProperty Name="TblOrders" Relationship="Self.FK_TblOrder_TblClient" FromRole="TblClient" ToRole="TblOrder" />
+        </EntityType>
+        <EntityType Name="TblClientProductRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblClient" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClientProductRel" ToRole="TblClient" />
+          <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblClientProductRel_TblProduct" FromRole="TblClientProductRel" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblComment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromId" Type="Int32" Nullable="false" />
+          <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IsValid" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblBlogCommentRels" Relationship="Self.FK_TblBlogCommentRel_TblComment" FromRole="TblComment" ToRole="TblBlogCommentRel" />
+          <NavigationProperty Name="TblClient" Relationship="Self.FK_TblComment_TblClient" FromRole="TblComment" ToRole="TblClient" />
+          <NavigationProperty Name="TblProductCommentRels" Relationship="Self.FK_TblProductCommentRel_TblComment" FromRole="TblComment" ToRole="TblProductCommentRel" />
+        </EntityType>
+        <EntityType Name="TblDiscount">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TblImage">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TblProductImageRels" Relationship="Self.FK_TblProductImageRel_TblImage" FromRole="TblImage" ToRole="TblProductImageRel" />
+        </EntityType>
+        <EntityType Name="TblKeyword">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TblBlogKeywordRels" Relationship="Self.FK_TblBlogKeywordRel_TblKeyword" FromRole="TblKeyword" ToRole="TblBlogKeywordRel" />
+          <NavigationProperty Name="TblProductKeywordRels" Relationship="Self.FK_TblProductKeywordRel_TblKeywords" FromRole="TblKeyword" ToRole="TblProductKeywordRel" />
+        </EntityType>
+        <EntityType Name="TblOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Body" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblClient" Relationship="Self.FK_TblOrder_TblClient" FromRole="TblOrder" ToRole="TblClient" />
+        </EntityType>
+        <EntityType Name="TblProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DateSubmited" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Raiting" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int64" Nullable="false" />
+          <Property Name="DescriptionHtml" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CatagoryId" Type="Int32" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="IsSuggested" Type="Boolean" Nullable="false" />
+          <Property Name="Discount" Type="Int32" Nullable="false" />
+          <Property Name="IsSlide" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblCatagory" Relationship="Self.FK_TblProduct_TblCatagory" FromRole="TblProduct" ToRole="TblCatagory" />
+          <NavigationProperty Name="TblClientProductRels" Relationship="Self.FK_TblClientProductRel_TblProduct" FromRole="TblProduct" ToRole="TblClientProductRel" />
+          <NavigationProperty Name="TblProductCommentRels" Relationship="Self.FK_TblProductCommentRel_TblProduct" FromRole="TblProduct" ToRole="TblProductCommentRel" />
+          <NavigationProperty Name="TblProductImageRels" Relationship="Self.FK_TblProductImageRel_TblProduct" FromRole="TblProduct" ToRole="TblProductImageRel" />
+          <NavigationProperty Name="TblProductKeywordRels" Relationship="Self.FK_TblProductKeywordRel_TblProduct" FromRole="TblProduct" ToRole="TblProductKeywordRel" />
+          <NavigationProperty Name="TblProductPropertyRels" Relationship="Self.FK_TblProductPropertyRel_TblProduct" FromRole="TblProduct" ToRole="TblProductPropertyRel" />
+        </EntityType>
+        <EntityType Name="TblProductCommentRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="CommentId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblComment" Relationship="Self.FK_TblProductCommentRel_TblComment" FromRole="TblProductCommentRel" ToRole="TblComment" />
+          <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblProductCommentRel_TblProduct" FromRole="TblProductCommentRel" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblProductImageRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="ImageId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblImage" Relationship="Self.FK_TblProductImageRel_TblImage" FromRole="TblProductImageRel" ToRole="TblImage" />
+          <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblProductImageRel_TblProduct" FromRole="TblProductImageRel" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblProductKeywordRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="KeywordId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblKeyword" Relationship="Self.FK_TblProductKeywordRel_TblKeywords" FromRole="TblProductKeywordRel" ToRole="TblKeyword" />
+          <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblProductKeywordRel_TblProduct" FromRole="TblProductKeywordRel" ToRole="TblProduct" />
+        </EntityType>
+        <EntityType Name="TblProductPropertyRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="PropertyId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblProductPropertyRel_TblProduct" FromRole="TblProductPropertyRel" ToRole="TblProduct" />
+          <NavigationProperty Name="TblProperty" Relationship="Self.FK_TblProductPropertyRel_TblProperty" FromRole="TblProductPropertyRel" ToRole="TblProperty" />
+        </EntityType>
+        <EntityType Name="TblProperty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="TblProductPropertyRels" Relationship="Self.FK_TblProductPropertyRel_TblProperty" FromRole="TblProperty" ToRole="TblProductPropertyRel" />
+        </EntityType>
+        <Association Name="FK_TblBlogCommentRel_TblBlog">
+          <End Role="TblBlog" Type="Self.TblBlog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogCommentRel" Type="Self.TblBlogCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBlog">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogCommentRel">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBlogKeywordRel_TblBlog">
+          <End Role="TblBlog" Type="Self.TblBlog" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogKeywordRel" Type="Self.TblBlogKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblBlog">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogKeywordRel">
+              <PropertyRef Name="BlogId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBlogCommentRel_TblComment">
+          <End Role="TblComment" Type="Self.TblComment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogCommentRel" Type="Self.TblBlogCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblComment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogCommentRel">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblBlogKeywordRel_TblKeyword">
+          <End Role="TblKeyword" Type="Self.TblKeyword" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblBlogKeywordRel" Type="Self.TblBlogKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKeyword">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblBlogKeywordRel">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblCatagory_TblCatagory">
+          <End Role="TblCatagory" Type="Self.TblCatagory" Multiplicity="0..1" />
+          <End Role="TblCatagory1" Type="Self.TblCatagory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCatagory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblCatagory1">
+              <PropertyRef Name="CatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProduct_TblCatagory">
+          <End Role="TblCatagory" Type="Self.TblCatagory" Multiplicity="0..1" />
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblCatagory">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProduct">
+              <PropertyRef Name="CatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblClientProductRel_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblClientProductRel">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblComment_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1" />
+          <End Role="TblComment" Type="Self.TblComment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblComment">
+              <PropertyRef Name="FromId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblOrder_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblOrder">
+              <PropertyRef Name="ClientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblClientProductRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblClientProductRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCommentRel_TblComment">
+          <End Role="TblComment" Type="Self.TblComment" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductCommentRel" Type="Self.TblProductCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblComment">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductCommentRel">
+              <PropertyRef Name="CommentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductImageRel_TblImage">
+          <End Role="TblImage" Type="Self.TblImage" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductImageRel" Type="Self.TblProductImageRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblImage">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductImageRel">
+              <PropertyRef Name="ImageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductKeywordRel_TblKeywords">
+          <End Role="TblKeyword" Type="Self.TblKeyword" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductKeywordRel" Type="Self.TblProductKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblKeyword">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductKeywordRel">
+              <PropertyRef Name="KeywordId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductCommentRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductCommentRel" Type="Self.TblProductCommentRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductCommentRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductImageRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductImageRel" Type="Self.TblProductImageRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductImageRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductKeywordRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductKeywordRel" Type="Self.TblProductKeywordRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductKeywordRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductPropertyRel_TblProduct">
+          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductPropertyRel" Type="Self.TblProductPropertyRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProduct">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductPropertyRel">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblProductPropertyRel_TblProperty">
+          <End Role="TblProperty" Type="Self.TblProperty" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TblProductPropertyRel" Type="Self.TblProductPropertyRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblProperty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblProductPropertyRel">
+              <PropertyRef Name="PropertyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Heart" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TblAds" EntityType="Self.TblAd" />
+          <EntitySet Name="TblBlogs" EntityType="Self.TblBlog" />
+          <EntitySet Name="TblBlogCommentRels" EntityType="Self.TblBlogCommentRel" />
+          <EntitySet Name="TblBlogKeywordRels" EntityType="Self.TblBlogKeywordRel" />
+          <EntitySet Name="TblCatagories" EntityType="Self.TblCatagory" />
+          <EntitySet Name="TblClients" EntityType="Self.TblClient" />
+          <EntitySet Name="TblClientProductRels" EntityType="Self.TblClientProductRel" />
+          <EntitySet Name="TblComments" EntityType="Self.TblComment" />
+          <EntitySet Name="TblDiscounts" EntityType="Self.TblDiscount" />
+          <EntitySet Name="TblImages" EntityType="Self.TblImage" />
+          <EntitySet Name="TblKeywords" EntityType="Self.TblKeyword" />
+          <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
+          <EntitySet Name="TblProducts" EntityType="Self.TblProduct" />
+          <EntitySet Name="TblProductCommentRels" EntityType="Self.TblProductCommentRel" />
+          <EntitySet Name="TblProductImageRels" EntityType="Self.TblProductImageRel" />
+          <EntitySet Name="TblProductKeywordRels" EntityType="Self.TblProductKeywordRel" />
+          <EntitySet Name="TblProductPropertyRels" EntityType="Self.TblProductPropertyRel" />
+          <EntitySet Name="TblProperties" EntityType="Self.TblProperty" />
+          <AssociationSet Name="FK_TblBlogCommentRel_TblBlog" Association="Self.FK_TblBlogCommentRel_TblBlog">
+            <End Role="TblBlog" EntitySet="TblBlogs" />
+            <End Role="TblBlogCommentRel" EntitySet="TblBlogCommentRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBlogKeywordRel_TblBlog" Association="Self.FK_TblBlogKeywordRel_TblBlog">
+            <End Role="TblBlog" EntitySet="TblBlogs" />
+            <End Role="TblBlogKeywordRel" EntitySet="TblBlogKeywordRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBlogCommentRel_TblComment" Association="Self.FK_TblBlogCommentRel_TblComment">
+            <End Role="TblComment" EntitySet="TblComments" />
+            <End Role="TblBlogCommentRel" EntitySet="TblBlogCommentRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblBlogKeywordRel_TblKeyword" Association="Self.FK_TblBlogKeywordRel_TblKeyword">
+            <End Role="TblKeyword" EntitySet="TblKeywords" />
+            <End Role="TblBlogKeywordRel" EntitySet="TblBlogKeywordRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblCatagory_TblCatagory" Association="Self.FK_TblCatagory_TblCatagory">
+            <End Role="TblCatagory" EntitySet="TblCatagories" />
+            <End Role="TblCatagory1" EntitySet="TblCatagories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProduct_TblCatagory" Association="Self.FK_TblProduct_TblCatagory">
+            <End Role="TblCatagory" EntitySet="TblCatagories" />
+            <End Role="TblProduct" EntitySet="TblProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblClientProductRel_TblClient" Association="Self.FK_TblClientProductRel_TblClient">
+            <End Role="TblClient" EntitySet="TblClients" />
+            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblComment_TblClient" Association="Self.FK_TblComment_TblClient">
+            <End Role="TblClient" EntitySet="TblClients" />
+            <End Role="TblComment" EntitySet="TblComments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblOrder_TblClient" Association="Self.FK_TblOrder_TblClient">
+            <End Role="TblClient" EntitySet="TblClients" />
+            <End Role="TblOrder" EntitySet="TblOrders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblClientProductRel_TblProduct" Association="Self.FK_TblClientProductRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProducts" />
+            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCommentRel_TblComment" Association="Self.FK_TblProductCommentRel_TblComment">
+            <End Role="TblComment" EntitySet="TblComments" />
+            <End Role="TblProductCommentRel" EntitySet="TblProductCommentRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductImageRel_TblImage" Association="Self.FK_TblProductImageRel_TblImage">
+            <End Role="TblImage" EntitySet="TblImages" />
+            <End Role="TblProductImageRel" EntitySet="TblProductImageRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductKeywordRel_TblKeywords" Association="Self.FK_TblProductKeywordRel_TblKeywords">
+            <End Role="TblKeyword" EntitySet="TblKeywords" />
+            <End Role="TblProductKeywordRel" EntitySet="TblProductKeywordRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductCommentRel_TblProduct" Association="Self.FK_TblProductCommentRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProducts" />
+            <End Role="TblProductCommentRel" EntitySet="TblProductCommentRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductImageRel_TblProduct" Association="Self.FK_TblProductImageRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProducts" />
+            <End Role="TblProductImageRel" EntitySet="TblProductImageRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductKeywordRel_TblProduct" Association="Self.FK_TblProductKeywordRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProducts" />
+            <End Role="TblProductKeywordRel" EntitySet="TblProductKeywordRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductPropertyRel_TblProduct" Association="Self.FK_TblProductPropertyRel_TblProduct">
+            <End Role="TblProduct" EntitySet="TblProducts" />
+            <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRels" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblProductPropertyRel_TblProperty" Association="Self.FK_TblProductPropertyRel_TblProperty">
+            <End Role="TblProperty" EntitySet="TblProperties" />
+            <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRels" />
+          </AssociationSet>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="malekser_MalekServerModelStoreContainer" CdmEntityContainer="Heart">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblAds">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblAd">
+              <MappingFragment StoreEntitySet="TblAd">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Link" ColumnName="Link" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="PositionId" ColumnName="PositionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBlogs">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblBlog">
+              <MappingFragment StoreEntitySet="TblBlog">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="MainImage" ColumnName="MainImage" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="LikeCount" ColumnName="LikeCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBlogCommentRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblBlogCommentRel">
+              <MappingFragment StoreEntitySet="TblBlogCommentRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblBlogKeywordRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblBlogKeywordRel">
+              <MappingFragment StoreEntitySet="TblBlogKeywordRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="BlogId" ColumnName="BlogId" />
+                <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblCatagories">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblCatagory">
+              <MappingFragment StoreEntitySet="TblCatagory">
+                <ScalarProperty Name="IsOnFirstPage" ColumnName="IsOnFirstPage" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblClients">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClient">
+              <MappingFragment StoreEntitySet="TblClient">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IdentificationNo" ColumnName="IdentificationNo" />
+                <ScalarProperty Name="TellNo" ColumnName="TellNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Auth" ColumnName="Auth" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblClientProductRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClientProductRel">
+              <MappingFragment StoreEntitySet="TblClientProductRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblComments">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblComment">
+              <MappingFragment StoreEntitySet="TblComment">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="FromId" ColumnName="FromId" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="IsValid" ColumnName="IsValid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblDiscounts">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblDiscount">
+              <MappingFragment StoreEntitySet="TblDiscount">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblImages">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblImage">
+              <MappingFragment StoreEntitySet="TblImage">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblKeywords">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblKeyword">
+              <MappingFragment StoreEntitySet="TblKeyword">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblOrders">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblOrder">
+              <MappingFragment StoreEntitySet="TblOrder">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProducts">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProduct">
+              <MappingFragment StoreEntitySet="TblProduct">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DateSubmited" ColumnName="DateSubmited" />
+                <ScalarProperty Name="Raiting" ColumnName="Raiting" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="DescriptionHtml" ColumnName="DescriptionHtml" />
+                <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="IsSuggested" ColumnName="IsSuggested" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="IsSlide" ColumnName="IsSlide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductCommentRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductCommentRel">
+              <MappingFragment StoreEntitySet="TblProductCommentRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="CommentId" ColumnName="CommentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductImageRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductImageRel">
+              <MappingFragment StoreEntitySet="TblProductImageRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ImageId" ColumnName="ImageId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductKeywordRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductKeywordRel">
+              <MappingFragment StoreEntitySet="TblProductKeywordRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="KeywordId" ColumnName="KeywordId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProductPropertyRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductPropertyRel">
+              <MappingFragment StoreEntitySet="TblProductPropertyRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="PropertyId" ColumnName="PropertyId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TblProperties">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProperty">
+              <MappingFragment StoreEntitySet="TblProperty">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="malekser_MalekServerModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

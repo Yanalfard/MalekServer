@@ -1,0 +1,77 @@
+﻿
+@{
+    ViewBag.Title = "ثبت سفارش آنلاین";
+}
+
+
+<link href="/Styles/Blog.min.css" rel="stylesheet" />
+
+<!-- #endregion -->
+
+<div class="blog-adder uk-margin-xlarge-top uk-margin-medium-bottom    uk-margin-auto uk-card">
+
+    <h3 class="uk-margin-bottom">
+        ثبت سفارش
+    </h3>
+
+    <h4 class="uk-margin-top">تیتر</h4>
+    <input id="titreOrder" type="text" class="uk-input" />
+    <h4 class="uk-margin-top">متن</h4>
+
+    <textarea id="Body" name="editor" rows="4" cols="50" class="uk-textarea uk-padding-small" contenteditable>
+
+    </textarea>
+    <hr class="uk-divider-icon uk-margin-medium-top" />
+
+    <div class="row ">
+        <a onclick=" AddOrderToData()" class="uk-button uk-button-primary ">ثبت</a>
+    </div>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+
+    <input type="hidden" name="HideId" id="HideId" value="@User.Identity.Name.Split('|')[1]" />
+}
+
+@section Scripts{
+    <script>
+
+        function AddOrderToData() {
+            if ($("#titreOrder").val() == "") {
+                alert(' تیتر خالیست');
+                return false;
+            }
+            if ($("#Body").val() == "") {
+                alert(' متن خالیست');
+                return false;
+            }
+
+            $.ajax({
+                type: "POST",
+                data: {
+                    Title: $("#titreOrder").val(),
+                    Body: $("#Body").val(),
+                    ClientId: $("#HideId").val(),
+                },
+                url: "/UserPanel/Home/Order",
+                success: function (response) {
+                    if (response.success) {
+                        $("#overlay").fadeOut();
+                        alert(response.responseText);
+                        location.reload();
+                    } else {
+                        $("#overlay").fadeOut();
+                        alert(response.responseText);
+                    }
+                },
+                error: function (response) {
+                    $("#overlay").fadeOut();
+                    alert("خطا در ثبت اطلاعات لطفا بعدا امتحان کنید"); //
+                }
+            });
+
+
+
+        }
+    </script>
+}

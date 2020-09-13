@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MalekServer3.Models.TblAd>
+
+@if (Model.Count() != 0)
+{
+    foreach (var item in Model)
+    {
+        <li class="pointer" onclick="window.location = '@item.Link'">
+            <a href="@item.Link">
+                <img src="~/Resources/Images/@item.Image" alt="@item.Link" uk-cover>
+            </a>
+        </li>
+    }
+}
+
+

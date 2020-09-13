@@ -1,0 +1,52 @@
+﻿@model IEnumerable<MalekServer3.Models.TblProduct>
+@{
+    ViewBag.Title = "محصولات";
+}
+<link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
+<link href="~/Styles/Tables.min.css" rel="stylesheet" />
+<table dir="rtl" class="uk-margin-small-right uk-table .uk-table-hover uk-table-middle uk-table-divider uk-table uk-table-striped ">
+    <thead>
+        <tr>
+            <th>آی دی</th>
+            <th>نام محصول</th>
+            <th>قیمت</th>
+            <th>تخفیف</th>
+            <th>زمان ثبت در سیستم</th>
+            <th>امتیاز</th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>@item.id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Discount%</td>
+            <td>@item.DateSubmited.ToShamsi()</td>
+            <td>@item.Raiting</td>
+            <td>@item.Raiting</td>
+            <td>
+                <a href="/Admin/Home/Gallery/@item.id" uk-icon="icon: image">گالری محصول</a>
+            </td>
+            <td>
+                <a href="/Admin/Home/Property/@item.id">ویژگی های محصول</a>
+            </td>
+            <td>
+                <a href="/Admin/Home/EditProduct/@item.id" uk-icon="icon: file-edit"></a>
+            </td>
+            <td>
+                <a onclick="DeleteProduct(@item.id)" href="#" uk-icon="icon: trash"></a>
+            </td>
+
+        </tr>
+        }
+
+
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script src="~/Scripts/Admin/Products.js"></script>
+}

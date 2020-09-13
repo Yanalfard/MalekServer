@@ -1,0 +1,88 @@
+﻿@import "colors";
+@import "controls";
+@import "general";
+
+
+.uk-card {
+    background: $white;
+    @include shadow-mild();
+    margin: 8px auto !important;
+
+    .history {
+        direction: rtl;
+    }
+}
+
+@media only screen and (max-device-width : 480px) {
+    #cartTable {
+        width: 100% !important;
+
+        .history {
+
+            th, td {
+                font-size: .55rem;
+                padding: 6px !important;
+
+                * {
+                    text-wrap: none !important;
+                    font-size: .55rem;
+                    overflow: hidden !important;
+                }
+            }
+        }
+    }
+}
+
+.mini-img {
+    width: 32px;
+    height: 32px;
+}
+
+.clipped {
+    width: 92vw;
+}
+
+.form {
+    padding: 24px;
+    width: 28vw !important;
+    @include mat();
+
+    input {
+        margin-top: 4px;
+        height: 32px;
+        margin-bottom: 12px;
+    }
+}
+
+//and (min-width: 768px)
+@media only screen and (max-width: 1024px) {
+    .form {
+        width: 64vw !important;
+    }
+}
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    .form {
+        width: 64vw;
+    }
+}
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    .form {
+        width: 90vw;
+    }
+}
+
+
+.check-out {
+    .cart {
+        border: $white-mid 1px solid;
+    }
+
+    p {
+        direction: rtl;
+        text-align: justify;
+        -ms-text-justify: inter-word;
+        text-justify: inter-word;
+    }
+}

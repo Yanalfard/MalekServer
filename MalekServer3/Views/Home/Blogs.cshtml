@@ -1,0 +1,24 @@
+﻿@model IEnumerable<MalekServer3.Models.TblBlog>
+
+
+@foreach (var item in Model)
+{
+
+    <li>
+        <article class="blog-block column">
+            @if (string.IsNullOrEmpty(item.MainImage))
+            {
+                <img src="~/Resources/Images/NoImg.svg" alt="" />
+            }
+            else
+            {
+                <img src="~/Resources/Images/@item.MainImage" alt="" />
+            }
+            <div class="column">
+                <h3 class="uk-margin-remove">@item.Title</h3>
+                <a href="/Home/Blog/@item.id" class="uk-margin-auto-left uk-margin-auto-top blog-more"
+                   dir="rtl">بیشتر بخوانید...</a>
+            </div>
+        </article>
+    </li>
+}

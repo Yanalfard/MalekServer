@@ -1,0 +1,100 @@
+﻿@model IEnumerable<MalekServer3.Models.TblCatagory>
+
+@{
+    ViewBag.Title = "اضافه کردن محصول";
+}
+
+<!-- Project CSS -->
+<link href="/Styles/Product.min.css" rel="stylesheet" />
+
+<!-- #endregion -->
+<!-- #region product -->
+<section class="column product uk-card ">
+    <div class="alternate">
+        <div class="column">
+            <label class="uk-margin-small-bottom">
+                دسته کالا
+            </label>
+            <div class="row">
+                <select onchange="SelectCatagory()" id="SelectCatagory" class="uk-select uk-width-medium uk-margin-auto-left">
+                    @if (Model.Count() != 0)
+                    {
+                        foreach (var item in Model.Where(i => i.CatagoryId == null))
+                        {
+                            <option>@item.Name</option>
+                        }
+                    }
+
+                </select>
+            </div>
+            <label class="uk-margin-small-bottom uk-margin-top">
+                زیر دسته
+            </label>
+            <div class="row">
+                <select id="SelectZirCatagory" class="uk-select uk-width-medium uk-margin-auto-left">
+                </select>
+            </div>
+
+            <label class="uk-margin-small-bottom uk-margin-medium-top">
+                نام کالا
+            </label>
+            <input type="text" id="nameKala" class="uk-textarea" name="nameKala" value="" contenteditable />
+
+            <label class="uk-margin-medium-top uk-margin-small-bottom">
+                توضیحات
+            </label>
+
+            <textarea id="description" name="editor" rows="4" cols="50" class="uk-textarea uk-padding-small" contenteditable>
+
+    </textarea>
+            <div class="row uk-margin-medium-top">
+                <div class="column uk-margin-right ">
+                    <label class="uk-margin-small-bottom">
+                        درصد تخفیف
+                    </label>
+                    <input type="number" name="name" value="" id="discount" class="uk-textarea" contenteditable />
+                </div>
+                <div class="column uk-margin-remove">
+                    <label class="uk-margin-small-bottom">
+                        قیمت به تومان
+                    </label>
+                    <input type="number" name="name" value="" id="price" class="uk-textarea" contenteditable />
+                </div>
+            </div>
+
+
+            <div class="row uk-margin-small-top" dir="rtl">
+                <input id="IsSuggested" type="checkbox" class="uk-checkbox uk-margin-top" />
+                <label class="uk-margin-small-right uk-margin-auto-top">پیشنهاد شده</label>
+            </div>
+            <label class="uk-margin-medium-top uk-margin-small-bottom">
+                کلمات کلیدی
+            </label>
+            <input type="text" name="keywords" value="" id="keywords" class="uk-textarea" contenteditable />
+
+        </div>
+
+
+    </div>
+
+    <hr class="uk-divider-icon uk-margin-medium-top" />
+
+    <div class="row uk-margin-auto-left  ">
+        <button onclick="AddProductToData()" class="uk-button uk-button-primary ">اضافه کردن کالا</button>
+    </div>
+
+</section>
+<!-- #endregion -->
+
+<div class="space-half"></div>
+
+<div class="space-double"></div>
+
+
+@section Scripts{
+    <script src="~/Scripts/UiScripts/ProductAdder.js"></script>
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script src="~/Scripts/ckeditor/adapters/jquery.js"></script>
+    <script src="~/Scripts/Admin/ProductAdder.js"></script>
+
+}
