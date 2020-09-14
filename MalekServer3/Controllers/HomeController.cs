@@ -265,7 +265,7 @@ namespace MalekServer3.Controllers
         {
             try
             {
-                TblAd selectAllAds = heart.TblAds.SingleOrDefault(i => i.PositionId == 4);
+                TblAd selectAllAds = heart.TblAds.Where(i => i.PositionId == 4).ToList()[0];
                 return PartialView(selectAllAds);
             }
             catch
@@ -277,7 +277,7 @@ namespace MalekServer3.Controllers
         {
             try
             {
-                TblAd selectAllAds = heart.TblAds.SingleOrDefault(i => i.PositionId == 5);
+                TblAd selectAllAds = heart.TblAds.Where(i => i.PositionId == 5).ToList()[0];
                 return PartialView(selectAllAds);
             }
             catch
@@ -289,7 +289,7 @@ namespace MalekServer3.Controllers
         {
             try
             {
-                TblAd selectAllAds = heart.TblAds.SingleOrDefault(i => i.PositionId == 6);
+                TblAd selectAllAds = heart.TblAds.Where(i => i.PositionId == 6).ToList()[0];
                 return PartialView(selectAllAds);
             }
             catch

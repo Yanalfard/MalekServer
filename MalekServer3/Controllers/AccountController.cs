@@ -117,6 +117,7 @@ namespace MalekServer3.Controllers
             {
                 if (ModelState.IsValid)
                 {
+
                     if (!MethodRepo.CheckRechapcha(form))
                     {
                         ViewBag.Message = "لطفا گزینه من ربات نیستم را تکمیل کنید";

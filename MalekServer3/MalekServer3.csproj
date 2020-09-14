@@ -74,6 +74,7 @@
     </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
     </Reference>
@@ -145,6 +146,30 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
+    <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
+    <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ZarinPal\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Content\bootstrap-rtl.css" />
     <Content Include="Content\bootstrap-rtl.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -311,6 +336,11 @@
     <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Gallery.cshtml" />
     <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
+    <Compile Include="Connected Services\ZarinPal\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Controllers\ManageEmailsController.cs" />
     <Compile Include="Models\ObjectClass\OcCatagory.cs" />
     <Compile Include="Models\ViewModel\KooyWebApp_MVC.Classes.cs" />
@@ -322,6 +352,7 @@
     <Content Include="Areas\Admin\Views\Product_Groups\ListGroups.cshtml" />
     <Content Include="Areas\Admin\Views\Product_Groups\CreateZirDate.cshtml" />
     <Content Include="Areas\Admin\Views\Product_Groups\EditZirCatagory.cshtml" />
+    <None Include="Connected Services\ZarinPal\PaymentGatewayImplementationService.wsdl" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Resources\Vector\Tile.png" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -1728,6 +1759,12 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ZarinPal\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
