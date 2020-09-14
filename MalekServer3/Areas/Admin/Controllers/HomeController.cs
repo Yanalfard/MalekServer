@@ -255,8 +255,7 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
-                TblProduct UpdateProduct = new TblProduct();
-                UpdateProduct.id = tblProduct.id;
+                TblProduct UpdateProduct = heart.TblProducts.SingleOrDefault(i => i.id == tblProduct.id);
                 UpdateProduct.Name = tblProduct.Name;
                 UpdateProduct.CatagoryId = heart.TblCatagories.SingleOrDefault(i => i.Name == SelectZirCatagory).id;
                 UpdateProduct.DescriptionHtml = tblProduct.DescriptionHtml;
@@ -264,7 +263,7 @@ namespace MalekServer3.Areas.Admin.Controllers
                 UpdateProduct.IsSlide = false;
                 UpdateProduct.Discount = tblProduct.Discount;
                 UpdateProduct.IsSuggested = tblProduct.IsSuggested;
-                UpdateProduct.DateSubmited = tblProduct.DateSubmited;
+                UpdateProduct.DateSubmited = UpdateProduct.DateSubmited;
                 UpdateProduct.Raiting = tblProduct.Raiting;
 
                 if (keywords[keywords.Length - 1] == '،')
@@ -417,7 +416,7 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
-                
+
                 List<TblCatagory> TestId = heart.TblCatagories.Where(i => i.id != tblCatagory1.id).ToList();
                 foreach (var item in TestId)
                 {

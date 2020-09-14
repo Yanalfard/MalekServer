@@ -270,6 +270,7 @@
     <Content Include="Scripts\Admin\EditAd.js" />
     <Content Include="Scripts\Admin\EditBlogs.js" />
     <Content Include="Scripts\Admin\EditProduct.js" />
+    <Content Include="Scripts\Admin\Gallery.js" />
     <Content Include="Scripts\Admin\Order.js" />
     <Content Include="Scripts\Admin\ProductAdder.js" />
     <Content Include="Scripts\Admin\Products.js" />

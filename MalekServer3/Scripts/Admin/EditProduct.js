@@ -76,6 +76,7 @@ function EditProductToData() {
     $.ajax({
         type: "POST",
         data: {
+            id: $("#hiddenId").val(),
             Name: $("#nameKala").val(),
             DescriptionHtml: $("#description").val(),
             Price: $("#price").val(),

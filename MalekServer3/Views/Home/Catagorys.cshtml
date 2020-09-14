@@ -2,14 +2,13 @@
 
 <ul>
     <li>
-        @* !!! *@
         @if (User.Identity.IsAuthenticated)
         {
 
             if (User.Identity.Name.Split('|')[1] != "3")
             {
                 <a class="uk-link-text" href="/UserPanel/Home/Order">
-                    <span>سفارش گیری آنلاین</span>
+                    <span>استعلام قیمت کالا</span>
                 </a>
             }
             else
@@ -23,25 +22,10 @@
         else if (User.Identity.IsAuthenticated == false)
         {
             <a class="uk-link-text" href="/Login">
-                <span>سفارش گیری آنلاین</span>
+                <span>استعلام قیمت کالا</span>
             </a>
         }
 
-    </li>
-    <li>
-        <a class="uk-link-text uk-margin-top" href="/Product/New">
-            <span class="text">جدید</span>
-        </a>
-    </li>
-    <li>
-        <a class="uk-link-text uk-margin-top" href="/Product/Suggestions">
-            <span class="text">پیشنهادات</span>
-        </a>
-    </li>
-    <li>
-        <a class="uk-link-text uk-margin-top" href="/Blog/AllBlog">
-            <span class="text">مقالات</span>
-        </a>
     </li>
 </ul>
 
@@ -57,7 +41,6 @@
                 {
                     <li><a href="/Home/Search?q=@subGroup.Name">@subGroup.Name</a></li>
                 }
-
             }
 
         </ul>

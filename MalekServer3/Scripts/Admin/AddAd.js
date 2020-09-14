@@ -2,15 +2,23 @@
     $('#editor').ckeditor();
 
 });
+$('#inputImage').bind('change', function () {
+    var fileSize = this.files[0].size / 1024;
 
+    if (fileSize > 2048) {
+        alert('سایز عکس باید کمتر از 2 مگابایت باشد');
+        $('#inputImage').val("");
+        return false;
+    }
+});
 function AddAdToData() {
 
     if ($("#titreBlog").val() == "") {
-        alert(' تیتر خالیست');
+        UIkit.notification(' تیتر خالیست');
         return false;
     }
     if ($("#inputImage").val() == "") {
-        alert('عکس خالیست');
+        UIkit.notification('عکس خالیست');
         return false;
     }
     var formdata = new FormData();
@@ -39,12 +47,12 @@ function AddAdToData() {
                         window.location.href = "/Admin/Ad/Ads";
                     } else {
                         $("#overlay").fadeOut();
-                        alert(response.responseText);
+                        UIkit.notification(response.responseText);
                     }
                 },
                 error: function (response) {
                     $("#overlay").fadeOut();
-                    alert("خطا در ثبت اطلاعات لطفا بعدا امتحان کنید"); //
+                    UIkit.notification("خطا در ثبت اطلاعات لطفا بعدا امتحان کنید"); //
                 }
             });
 
