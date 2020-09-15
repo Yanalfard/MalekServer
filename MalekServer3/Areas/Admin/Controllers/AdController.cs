@@ -39,6 +39,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         }
         public ActionResult AddAd()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
         [HttpPost]
@@ -100,6 +105,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 //bool updateAd = _adService.UpdateAd(update, update.id);
                 heart.Entry(update).State = EntityState.Modified;
                 heart.SaveChanges();

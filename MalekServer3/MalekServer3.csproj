@@ -180,7 +180,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="HtmlPage1.html" />
     <Content Include="Models\Heart.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Heart.edmx</DependentUpon>
@@ -336,6 +335,7 @@
     <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Gallery.cshtml" />
     <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
+    <Compile Include="Areas\UserPanel\Controllers\PardakhtController.cs" />
     <Compile Include="Connected Services\ZarinPal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1520,7 +1520,6 @@
     <Content Include="Scripts\UiScripts\ProductAdder.js" />
     <Content Include="Scripts\UiScripts\PromocodeAdder.js" />
     <Content Include="Scripts\UserPanel\Checkout.js" />
-    <Content Include="StyleSheet1.css" />
     <Content Include="Styles\Admin.css" />
     <Content Include="Styles\Admin.min.css" />
     <Content Include="Styles\Blog.css" />
@@ -1686,42 +1685,6 @@
     <Content Include="Scripts\PagingJs\jquery.pajinatify.min.js.map" />
     <Content Include="Scripts\Jquery\jquery-3.5.1.min.map" />
     <Content Include="Scripts\Jquery\jquery-3.5.1.slim.min.map" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Blog\AllBlog.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Ads1.cshtml" />
-    <Content Include="Views\Home\Ads2.cshtml" />
-    <Content Include="Views\Home\Ads3.cshtml" />
-    <Content Include="Views\Home\Blog.cshtml" />
-    <Content Include="Views\Home\Blogs.cshtml" />
-    <Content Include="Views\Home\Catagorys.cshtml" />
-    <Content Include="Views\Home\ContactUs.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\NewProduct.cshtml" />
-    <Content Include="Views\Home\Product.cshtml" />
-    <Content Include="Views\Home\ProductHub.cshtml" />
-    <Content Include="Views\Home\ProductHub2.cshtml" />
-    <Content Include="Views\Home\ProductHub3.cshtml" />
-    <Content Include="Views\Home\Search.cshtml" />
-    <Content Include="Views\Home\Slider.cshtml" />
-    <Content Include="Views\Home\Suggestion.cshtml" />
-    <Content Include="Views\Product\New.cshtml" />
-    <Content Include="Views\Product\Suggestions.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Account\ActiveUser.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\RecoveryPassword.cshtml" />
-    <Content Include="Views\Account\SuccessRegister.cshtml" />
-    <Content Include="Views\Account\SuccesForgotPassword.cshtml" />
-    <Content Include="Views\ManageEmails\ActiviationEmail.cshtml" />
-    <Content Include="Views\ManageEmails\RecoveryPassword.cshtml" />
-    <Content Include="Views\Home\Ads6.cshtml" />
-    <Content Include="Views\Home\Ads5.cshtml" />
-    <Content Include="Views\Home\Ads4.cshtml" />
     <Content Include="Styles\Admin.scss" />
     <Content Include="Styles\Blog.scss" />
     <Content Include="Styles\Entry.scss" />
@@ -1736,8 +1699,44 @@
     <Content Include="Styles\_controls.scss" />
     <Content Include="Styles\_general.scss" />
     <Content Include="Styles\_starRating.scss" />
+    <Content Include="Views\Account\ActiveUser.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\RecoveryPassword.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\SuccesForgotPassword.cshtml" />
+    <Content Include="Views\Account\SuccessRegister.cshtml" />
+    <Content Include="Views\Blog\AllBlog.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Ads1.cshtml" />
+    <Content Include="Views\Home\Ads2.cshtml" />
+    <Content Include="Views\Home\Ads3.cshtml" />
+    <Content Include="Views\Home\Ads4.cshtml" />
+    <Content Include="Views\Home\Ads5.cshtml" />
+    <Content Include="Views\Home\Ads6.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Home\Blogs.cshtml" />
+    <Content Include="Views\Home\Catagorys.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\IsOnFirstPage.cshtml" />
+    <Content Include="Views\Home\NewProduct.cshtml" />
+    <Content Include="Views\Home\Product.cshtml" />
+    <Content Include="Views\Home\ProductHub.cshtml" />
+    <Content Include="Views\Home\ProductHub2.cshtml" />
+    <Content Include="Views\Home\ProductHub3.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\SiteMap.cshtml" />
+    <Content Include="Views\Home\Slider.cshtml" />
+    <Content Include="Views\Home\Suggestion.cshtml" />
+    <Content Include="Views\ManageEmails\ActiviationEmail.cshtml" />
+    <Content Include="Views\ManageEmails\RecoveryPassword.cshtml" />
+    <Content Include="Views\Product\New.cshtml" />
+    <Content Include="Views\Product\Suggestions.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1750,6 +1749,7 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\UploadDelete\" />
     <Folder Include="Areas\UserPanel\Data\" />
+    <Folder Include="Areas\UserPanel\Views\Pardakht\" />
     <Folder Include="Repositories\" />
     <Folder Include="Resources\Images\Thumb\" />
     <Folder Include="Resources\UploadEditor\" />

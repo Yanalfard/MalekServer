@@ -16,6 +16,7 @@ using System.Data;
 using InsertShowImage;
 using KooyWebApp_MVC.Classes;
 using System.Web.Security;
+using System.Data.Entity.Validation;
 
 namespace MalekServer3.Areas.Admin.Controllers
 {
@@ -130,6 +131,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         }
         public ActionResult BlogAdder()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
         [HttpPost]
@@ -137,6 +143,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 tblBlog.LikeCount = 0;
                 TblBlog addBlog = heart.TblBlogs.Add(tblBlog);
                 heart.SaveChanges();
@@ -157,6 +168,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         }
         public ActionResult Blogs()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             List<TblBlog> tblBlog = heart.TblBlogs.ToList();
             return View(tblBlog.OrderByDescending(i => i.id));
         }
@@ -176,6 +192,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 heart.Entry(tblBlog).State = EntityState.Modified;
                 heart.SaveChanges();
                 return Json(new { success = true, responseText = " ویرایش مقاله ثبت شد" }, JsonRequestBehavior.AllowGet);
@@ -188,6 +209,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         }
         public ActionResult Comments()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             List<TblComment> allComments = heart.TblComments.OrderByDescending(i => i.id).ToList();
             return View(allComments);
         }
@@ -198,6 +224,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         }
         public ActionResult ProductAdder()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             List<TblCatagory> catagory = heart.TblCatagories.ToList();
             return View(catagory);
         }
@@ -317,6 +348,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         }
         public ActionResult PromocodeAdder()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             List<TblDiscount> selectAlldiscount = heart.TblDiscounts.OrderByDescending(i => i.id).ToList();
             return View(selectAlldiscount);
         }
@@ -324,10 +360,13 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 heart.TblDiscounts.Remove(heart.TblDiscounts.SingleOrDefault(i => i.id == id));
                 heart.SaveChanges();
-
-
                 return Json(new { success = true, responseText = " حذف شد" }, JsonRequestBehavior.AllowGet);
 
             }
@@ -393,6 +432,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 TblCatagory tblCatagory = heart.TblCatagories.SingleOrDefault(i => i.Name == CatagoryName);
                 if (tblCatagory != null)
                 {
@@ -416,7 +460,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
-
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 List<TblCatagory> TestId = heart.TblCatagories.Where(i => i.id != tblCatagory1.id).ToList();
                 foreach (var item in TestId)
                 {
@@ -498,13 +546,18 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 TblProduct add;
 
                 TblProduct addProduct = new TblProduct();
                 addProduct.Name = tblProduct.Name;
                 addProduct.CatagoryId = heart.TblCatagories.SingleOrDefault(i => i.Name == SelectZirCatagory).id;
                 addProduct.DescriptionHtml = tblProduct.DescriptionHtml;
-                addProduct.DateSubmited = DateTime.Now.ToString();
+                addProduct.DateSubmited = DateTime.Now.ToShortDateString();
                 addProduct.Price = tblProduct.Price;
                 addProduct.IsSlide = false;
                 addProduct.Raiting = 3;
@@ -538,10 +591,21 @@ namespace MalekServer3.Areas.Admin.Controllers
                 heart.SaveChanges();
                 return Json(new { success = true, responseText = "ثبت شد" }, JsonRequestBehavior.AllowGet);
             }
-            catch
+            catch (DbEntityValidationException e)
             {
-                return Json(new { success = false, responseText = "خطا در ویرایش اطلاعات لطفا دقت فرمایید" }, JsonRequestBehavior.AllowGet);
-
+                //return Json(new { success = false, responseText = "خطا در ویرایش اطلاعات لطفا دقت فرمایید" }, JsonRequestBehavior.AllowGet);
+                string err = "";
+                foreach (var eve in e.EntityValidationErrors)
+                {
+                    err += "Entity of type \"{0}\" in state \"{1}\" has the following validation errors:" +
+                        eve.Entry.Entity.GetType().Name + " | " + eve.Entry.State + "\n";
+                    foreach (var ve in eve.ValidationErrors)
+                    {
+                        err += "- Property: \"{0}\", Error: \"{1}\"" +
+                            ve.PropertyName + " | " + ve.ErrorMessage;
+                    }
+                }
+                throw;
             }
 
         }
@@ -550,6 +614,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 heart.TblProducts.Remove(heart.TblProducts.SingleOrDefault(i => i.id == id));
                 heart.SaveChanges();
                 return Json(new { success = true, responseText = "حذف شد" }, JsonRequestBehavior.AllowGet);
@@ -564,6 +633,7 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+
                 if (NameCatagory == "")
                 {
                     return JsonConvert.SerializeObject("Err022");
@@ -602,6 +672,11 @@ namespace MalekServer3.Areas.Admin.Controllers
 
         public ActionResult Gallery(int id)
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             List<TblProductImageRel> rels = heart.TblProductImageRels.Where(i => i.ProductId == id).ToList();
             List<TblImage> images = new List<TblImage>();
             foreach (var i in rels)

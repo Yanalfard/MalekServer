@@ -31,11 +31,17 @@ namespace MalekServer3.Areas.Admin.Controllers
         // GET: Admin/Product_Groups
         public ActionResult Index()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             return View();
         }
 
         public ActionResult ListGroups()
         {
+
             var product_Groups = heart.TblCatagories.Where(g => g.CatagoryId == null);
             return PartialView(product_Groups.ToList());
         }
@@ -43,6 +49,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         // GET: Admin/Product_Groups/Details/5
         public ActionResult Details(int? id)
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

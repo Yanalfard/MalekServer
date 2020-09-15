@@ -19,11 +19,21 @@ namespace MalekServer3.Areas.Admin.Controllers
         // GET: Admin/Order
         public ActionResult Orders()
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             List<TblOrder> ordersProduct = heart.TblOrders.OrderByDescending(i => i.id).ToList();
             return View(ordersProduct);
         }
         public ActionResult Details(int? id)
         {
+            int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+            if (idLogin != 3)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -39,6 +49,11 @@ namespace MalekServer3.Areas.Admin.Controllers
         {
             try
             {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin != 3)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
                 heart.TblOrders.Remove(heart.TblOrders.SingleOrDefault(i => i.id == id));
                 heart.SaveChanges();
                 return Json(new { success = true, responseText = "حذف شد" }, JsonRequestBehavior.AllowGet);
