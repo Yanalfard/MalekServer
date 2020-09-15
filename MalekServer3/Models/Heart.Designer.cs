@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Mehdi\Desktop\New folder (4)\MalekServer3\MalekServer3\Models\Heart.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Mehdi\Source\Repos\malekserver\MalekServer3\Models\Heart.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

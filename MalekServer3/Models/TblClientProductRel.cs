@@ -19,6 +19,7 @@ namespace MalekServer3.Models
         public int ProductId { get; set; }
         public string Date { get; set; }
         public int Count { get; set; }
+        public bool IsFinaly { get; set; }
     
         public virtual TblClient TblClient { get; set; }
         public virtual TblProduct TblProduct { get; set; }

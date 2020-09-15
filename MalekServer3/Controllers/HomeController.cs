@@ -133,7 +133,7 @@ namespace MalekServer3.Controllers
                 TblComment addcomment = new TblComment()
                 {
                     Body = comment,
-                    Date = DateTime.Now.ToString(),
+                    Date = DateTime.Now.ToShortDateString(),
                     FromId = Convert.ToInt32(userId),
                     IsValid = false,
                 };

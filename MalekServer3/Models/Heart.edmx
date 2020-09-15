@@ -83,6 +83,7 @@
           <Property Name="ProductId" Type="int" Nullable="false" />
           <Property Name="Date" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Count" Type="int" Nullable="false" />
+          <Property Name="IsFinaly" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="TblComment">
           <Key>
@@ -619,6 +620,7 @@
           <Property Name="Count" Type="Int32" Nullable="false" />
           <NavigationProperty Name="TblClient" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClientProductRel" ToRole="TblClient" />
           <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblClientProductRel_TblProduct" FromRole="TblClientProductRel" ToRole="TblProduct" />
+          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TblComment">
           <Key>
@@ -1165,6 +1167,7 @@
           <EntitySetMapping Name="TblClientProductRels">
             <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClientProductRel">
               <MappingFragment StoreEntitySet="TblClientProductRel">
+                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />

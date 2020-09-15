@@ -146,8 +146,35 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\ZarinPal2\MalekServer3.ZarinPal2.GetUnverifiedTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal2\MalekServer3.ZarinPal2.PaymentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal2\MalekServer3.ZarinPal2.PaymentRequestWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal2\MalekServer3.ZarinPal2.PaymentVerificationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal2\MalekServer3.ZarinPal2.PaymentVerificationWithExtraResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ZarinPal2\MalekServer3.ZarinPal2.RefreshAuthorityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Areas\UserPanel\Views\Pardakht\Payment.cshtml" />
+    <Content Include="Areas\UserPanel\Views\Pardakht\Verify.cshtml" />
+    <None Include="Connected Services\ZarinPal2\PaymentGatewayImplementationService.wsdl" />
     <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
     <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
+    <None Include="Connected Services\ZarinPal2\configuration91.svcinfo" />
+    <None Include="Connected Services\ZarinPal2\configuration.svcinfo" />
+    <None Include="Connected Services\ZarinPal2\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Connected Services\ZarinPal\MalekServer3.ZarinPal.GetUnverifiedTransactionsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -336,6 +363,11 @@
     <Content Include="Areas\Admin\Views\Home\Gallery.cshtml" />
     <Compile Include="Areas\Admin\Controllers\Product_GroupsController.cs" />
     <Compile Include="Areas\UserPanel\Controllers\PardakhtController.cs" />
+    <Compile Include="Connected Services\ZarinPal2\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ZarinPal\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -1749,7 +1781,6 @@
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\UploadDelete\" />
     <Folder Include="Areas\UserPanel\Data\" />
-    <Folder Include="Areas\UserPanel\Views\Pardakht\" />
     <Folder Include="Repositories\" />
     <Folder Include="Resources\Images\Thumb\" />
     <Folder Include="Resources\UploadEditor\" />
@@ -1764,6 +1795,7 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ZarinPal2\" />
     <WCFMetadataStorage Include="Connected Services\ZarinPal\" />
   </ItemGroup>
   <PropertyGroup>
