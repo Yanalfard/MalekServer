@@ -17,7 +17,6 @@ namespace MalekServer3.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TblProduct()
         {
-            this.TblClientProductRels = new HashSet<TblClientProductRel>();
             this.TblProductCommentRels = new HashSet<TblProductCommentRel>();
             this.TblProductImageRels = new HashSet<TblProductImageRel>();
             this.TblProductKeywordRels = new HashSet<TblProductKeywordRel>();
@@ -37,8 +36,6 @@ namespace MalekServer3.Models
         public bool IsSlide { get; set; }
     
         public virtual TblCatagory TblCatagory { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblClientProductRel> TblClientProductRels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblProductCommentRel> TblProductCommentRels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

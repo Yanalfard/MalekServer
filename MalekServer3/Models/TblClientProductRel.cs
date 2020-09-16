@@ -20,8 +20,11 @@ namespace MalekServer3.Models
         public string Date { get; set; }
         public int Count { get; set; }
         public bool IsFinaly { get; set; }
-    
-        public virtual TblClient TblClient { get; set; }
-        public virtual TblProduct TblProduct { get; set; }
+        public string Name { get; set; }
+        public long Price { get; set; }
+        public int FactorId { get; set; }
+        public Nullable<int> Discount { get; set; }
+        public int SumFactor { get; set; }
+        public Nullable<int> DiscountId { get; set; }
     }
 }

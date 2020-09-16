@@ -81,9 +81,15 @@
           <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ClientId" Type="int" Nullable="false" />
           <Property Name="ProductId" Type="int" Nullable="false" />
-          <Property Name="Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Date" Type="nvarchar" MaxLength="120" Nullable="false" />
           <Property Name="Count" Type="int" Nullable="false" />
           <Property Name="IsFinaly" Type="bit" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Price" Type="bigint" Nullable="false" />
+          <Property Name="FactorId" Type="int" Nullable="false" />
+          <Property Name="Discount" Type="int" />
+          <Property Name="SumFactor" Type="int" Nullable="false" />
+          <Property Name="DiscountId" Type="int" />
         </EntityType>
         <EntityType Name="TblComment">
           <Key>
@@ -248,34 +254,6 @@
             </Principal>
             <Dependent Role="TblCatagory1">
               <PropertyRef Name="CatagoryId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblClientProductRel_TblClient">
-          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblClient">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblClientProductRel">
-              <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblClientProductRel_TblProduct">
-          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblProduct">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblClientProductRel">
-              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -471,14 +449,6 @@
             <End Role="TblCatagory" EntitySet="TblCatagory" />
             <End Role="TblCatagory1" EntitySet="TblCatagory" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblClientProductRel_TblClient" Association="Self.FK_TblClientProductRel_TblClient">
-            <End Role="TblClient" EntitySet="TblClient" />
-            <End Role="TblClientProductRel" EntitySet="TblClientProductRel" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblClientProductRel_TblProduct" Association="Self.FK_TblClientProductRel_TblProduct">
-            <End Role="TblProduct" EntitySet="TblProduct" />
-            <End Role="TblClientProductRel" EntitySet="TblClientProductRel" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblComment_TblClient" Association="Self.FK_TblComment_TblClient">
             <End Role="TblClient" EntitySet="TblClient" />
             <End Role="TblComment" EntitySet="TblComment" />
@@ -605,22 +575,8 @@
           <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Auth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="TblClientProductRels" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClient" ToRole="TblClientProductRel" />
           <NavigationProperty Name="TblComments" Relationship="Self.FK_TblComment_TblClient" FromRole="TblClient" ToRole="TblComment" />
           <NavigationProperty Name="TblOrders" Relationship="Self.FK_TblOrder_TblClient" FromRole="TblClient" ToRole="TblOrder" />
-        </EntityType>
-        <EntityType Name="TblClientProductRel">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClientId" Type="Int32" Nullable="false" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Count" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="TblClient" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClientProductRel" ToRole="TblClient" />
-          <NavigationProperty Name="TblProduct" Relationship="Self.FK_TblClientProductRel_TblProduct" FromRole="TblClientProductRel" ToRole="TblProduct" />
-          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TblComment">
           <Key>
@@ -687,7 +643,6 @@
           <Property Name="Discount" Type="Int32" Nullable="false" />
           <Property Name="IsSlide" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblCatagory" Relationship="Self.FK_TblProduct_TblCatagory" FromRole="TblProduct" ToRole="TblCatagory" />
-          <NavigationProperty Name="TblClientProductRels" Relationship="Self.FK_TblClientProductRel_TblProduct" FromRole="TblProduct" ToRole="TblClientProductRel" />
           <NavigationProperty Name="TblProductCommentRels" Relationship="Self.FK_TblProductCommentRel_TblProduct" FromRole="TblProduct" ToRole="TblProductCommentRel" />
           <NavigationProperty Name="TblProductImageRels" Relationship="Self.FK_TblProductImageRel_TblProduct" FromRole="TblProduct" ToRole="TblProductImageRel" />
           <NavigationProperty Name="TblProductKeywordRels" Relationship="Self.FK_TblProductKeywordRel_TblProduct" FromRole="TblProduct" ToRole="TblProductKeywordRel" />
@@ -822,20 +777,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TblClientProductRel_TblClient">
-          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblClient">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblClientProductRel">
-              <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TblComment_TblClient">
           <End Role="TblClient" Type="Self.TblClient" Multiplicity="1" />
           <End Role="TblComment" Type="Self.TblComment" Multiplicity="*" />
@@ -859,20 +800,6 @@
             </Principal>
             <Dependent Role="TblOrder">
               <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblClientProductRel_TblProduct">
-          <End Role="TblProduct" Type="Self.TblProduct" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblProduct">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblClientProductRel">
-              <PropertyRef Name="ProductId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -996,7 +923,6 @@
           <EntitySet Name="TblBlogKeywordRels" EntityType="Self.TblBlogKeywordRel" />
           <EntitySet Name="TblCatagories" EntityType="Self.TblCatagory" />
           <EntitySet Name="TblClients" EntityType="Self.TblClient" />
-          <EntitySet Name="TblClientProductRels" EntityType="Self.TblClientProductRel" />
           <EntitySet Name="TblComments" EntityType="Self.TblComment" />
           <EntitySet Name="TblDiscounts" EntityType="Self.TblDiscount" />
           <EntitySet Name="TblImages" EntityType="Self.TblImage" />
@@ -1032,10 +958,6 @@
             <End Role="TblCatagory" EntitySet="TblCatagories" />
             <End Role="TblProduct" EntitySet="TblProducts" />
           </AssociationSet>
-          <AssociationSet Name="FK_TblClientProductRel_TblClient" Association="Self.FK_TblClientProductRel_TblClient">
-            <End Role="TblClient" EntitySet="TblClients" />
-            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
-          </AssociationSet>
           <AssociationSet Name="FK_TblComment_TblClient" Association="Self.FK_TblComment_TblClient">
             <End Role="TblClient" EntitySet="TblClients" />
             <End Role="TblComment" EntitySet="TblComments" />
@@ -1043,10 +965,6 @@
           <AssociationSet Name="FK_TblOrder_TblClient" Association="Self.FK_TblOrder_TblClient">
             <End Role="TblClient" EntitySet="TblClients" />
             <End Role="TblOrder" EntitySet="TblOrders" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblClientProductRel_TblProduct" Association="Self.FK_TblClientProductRel_TblProduct">
-            <End Role="TblProduct" EntitySet="TblProducts" />
-            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
           </AssociationSet>
           <AssociationSet Name="FK_TblProductCommentRel_TblComment" Association="Self.FK_TblProductCommentRel_TblComment">
             <End Role="TblComment" EntitySet="TblComments" />
@@ -1081,7 +999,25 @@
             <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRels" />
           </AssociationSet>
           <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="TblClientProductRels" EntityType="malekser_MalekServerModel.TblClientProductRel" />
         </EntityContainer>
+        <EntityType Name="TblClientProductRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int64" Nullable="false" />
+          <Property Name="FactorId" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="SumFactor" Type="Int32" Nullable="false" />
+          <Property Name="DiscountId" Type="Int32" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1161,18 +1097,6 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Auth" ColumnName="Auth" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="TblClientProductRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClientProductRel">
-              <MappingFragment StoreEntitySet="TblClientProductRel">
-                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1286,6 +1210,24 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="malekser_MalekServerModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="TblClientProductRels">
+            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClientProductRel">
+              <MappingFragment StoreEntitySet="TblClientProductRel">
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+                <ScalarProperty Name="SumFactor" ColumnName="SumFactor" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="FactorId" ColumnName="FactorId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

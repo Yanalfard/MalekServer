@@ -104,7 +104,7 @@
 
     <label class="AddDiscount uk-margin-top uk-margin-small-bottom">کد تخفیف</label>
     <div class="row">
-        <button  onclick="AddDiscount()" class="AddDiscount uk-button uk-button-primary uk-margin-auto-left uk-margin-right">
+        <button onclick="AddDiscount()" class="AddDiscount uk-button uk-button-primary uk-margin-auto-left uk-margin-right">
             <span>اعمال</span>
             @*<span class="uk-icon" uk-icon="icon: refresh"></span>*@
         </button>
@@ -118,24 +118,29 @@
             //var Maliyat = Model.Sum(p => p.Price * p.Count) * 109 / 100;
             var Maliyat = Model.Sum(p => p.Price * p.Count).ToString("#,0");
         }
-        @*<span>@Maliyat</span>*@
-        @*<span>0</span>*@
+
         <span id="FinalPrice"> @Model.Sum(p => p.Price * p.Count).ToString("#,0") </span>
         <input type="hidden" id="FinalPricehid" name="FinalPricehid" value="@Model.Sum(p => p.Price * p.Count)" />
     </div>
 
     <hr class="uk-divider-icon uk-margin-top uk-margin-bottom" />
-    <div class="row">
-        <a href="/Home/Index" class="uk-margin-auto-left uk-margin-top uk-button uk-button-danger uk-margin-right ">برگشت</a>
-        <button class="uk-margin-top uk-button uk-button-primary">درگاه خرید</button>
-    </div>
+    <form action="/UserPanel/Pardakht/Payment" method="post">
+        <input type="hidden" id="Discount" name="Discount" value="0" />
+        <input type="hidden" id="ClientId" name="ClientId" value="@User.Identity.Name.Split('|')[1]" />
+        <input type="hidden" id="SumFactor" name="SumFactor" value="@Model.Sum(p => p.Price * p.Count)" />
+        <div class="row">
+            <a href="/Home/Index" class="uk-margin-auto-left uk-margin-top uk-button uk-button-danger uk-margin-right ">برگشت</a>
+            <button  class="uk-margin-top uk-button uk-button-primary">درگاه خرید</button>
+        </div>
+    </form>
+   
 </div>
 
 <div class="space"></div>
 
 @section Scripts{
     <script src="~/Scripts/UserPanel/Checkout.js"></script>
-
+  
 }
 
 

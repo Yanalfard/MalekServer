@@ -21,6 +21,8 @@ function AddDiscount() {
                 var percent = parseInt(response.responseText);
                 var final = price - Math.floor((price * percent) / 100);
                 $('#FinalPrice').html(numberWithCommas(final));
+                $('#SumFactor').val(final);
+                $('#Discount').val(percent);
                 $('.AddDiscount').hide();
                 
             } else {

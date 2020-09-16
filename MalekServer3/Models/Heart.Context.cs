@@ -34,7 +34,6 @@ namespace MalekServer3.Models
         public virtual DbSet<TblBlogKeywordRel> TblBlogKeywordRels { get; set; }
         public virtual DbSet<TblCatagory> TblCatagories { get; set; }
         public virtual DbSet<TblClient> TblClients { get; set; }
-        public virtual DbSet<TblClientProductRel> TblClientProductRels { get; set; }
         public virtual DbSet<TblComment> TblComments { get; set; }
         public virtual DbSet<TblDiscount> TblDiscounts { get; set; }
         public virtual DbSet<TblImage> TblImages { get; set; }
@@ -46,6 +45,7 @@ namespace MalekServer3.Models
         public virtual DbSet<TblProductKeywordRel> TblProductKeywordRels { get; set; }
         public virtual DbSet<TblProductPropertyRel> TblProductPropertyRels { get; set; }
         public virtual DbSet<TblProperty> TblProperties { get; set; }
+        public virtual DbSet<TblClientProductRel> TblClientProductRels { get; set; }
     
         public virtual int sp_upgraddiagrams()
         {

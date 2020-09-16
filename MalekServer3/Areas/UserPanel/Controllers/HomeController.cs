@@ -228,11 +228,11 @@ namespace MalekServer3.Areas.UserPanel.Controllers
                     throw new Exception("Admin access only");
                     //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                List<TblClientProductRel> rels = heart.TblClientProductRels.Where(i => i.id == id).ToList();
+                List<TblClientProductRel> rels = heart.TblClientProductRels.Where(i => i.ClientId == id).ToList();
                 List<ShowProduct> showProduct = new List<ShowProduct>();
                 foreach (TblClientProductRel i in rels)
                 {
-                    OcProduct product = new OcProduct(heart.TblProducts.SingleOrDefault(j => j.id == i.id));
+                    OcProduct product = new OcProduct(heart.TblProducts.SingleOrDefault(j => j.id == i.ProductId));
                     TblCatagory cat = heart.TblCatagories.SingleOrDefault(j => j.id == product.CatagoryId);
 
                     ShowProduct db = new ShowProduct()
