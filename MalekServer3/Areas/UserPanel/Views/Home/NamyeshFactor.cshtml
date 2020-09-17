@@ -1,0 +1,172 @@
+﻿@model IEnumerable<MalekServer3.Models.TblClientProductRel>
+@{
+    ViewBag.Title = "فاکتور شما";
+}
+<window id="win" class="clipped check-out column uk-card uk-padding uk-margin-top uk-margin-bottom uk-margin-auto">
+    <div class="row">
+
+        <div class="column  uk-margin-auto-right">
+            <div class="row">
+                <span class="uk-margin-right">@Model.FirstOrDefault().Date.ToShamsi()</span>
+                <span dir="rtl">تاریخ:</span>
+            </div>
+            <div class="row">
+                <span class="uk-margin-right">@Model.FirstOrDefault().FactorId</span>
+                <span dir="rtl">شماره فاکتور:</span>
+            </div>
+        </div>
+        <h2 class=" uk-margin-auto" style="overflow:hidden">
+            صورت حساب فروش اینترنتی کالا
+        </h2>
+        <img class="uk-width-small uk-margin-auto-left" src="~/Resources/Vector/Logo.svg" />
+    </div>
+
+    <label class="uk-margin-top uk-margin-small-bottom">مشخصات فروشنده</label>
+    <table class="cart history uk-table uk-table-striped uk-margin-small-top">
+        <thead>
+            <tr>
+                <th>
+                    نام
+                </th>
+                <th>
+                    آدرس
+                </th>
+                <th>
+                    شماره تماس
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+            <tr>
+                <td>ملک سرور</td>
+                <td>تهران، میدان ولیعصر</td>
+                <td dir="ltr">021 - 88940037</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <label class="uk-margin-top uk-margin-small-bottom">مشخصات خریدار</label>
+    <table class="cart history uk-table uk-table-striped uk-margin-small-top">
+        <thead>
+            <tr>
+                <th>
+                    نام مشتری
+                </th>
+                <th>
+                    آدرس
+                </th>
+                <th>
+                    شماره تماس
+                </th>
+                <th>
+                    یارانامه
+                </th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+            <tr>
+                <td>@Model.FirstOrDefault().TblClient.Name</td>
+                <td>@Model.FirstOrDefault().TblClient.Address</td>
+                <td>@Model.FirstOrDefault().TblClient.TellNo</td>
+                <td>@Model.FirstOrDefault().TblClient.Email</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <label class="uk-margin-top uk-margin-small-bottom">مشخصات کالا</label>
+
+    <content class="cart">
+        <table class="history uk-table uk-table-striped uk-margin-small-top">
+            <thead>
+                <tr>
+                    <th>
+                        ردیف
+                    </th>
+                    <th>
+                        کد
+                    </th>
+                    <th>
+                        نام
+                    </th>
+                    <th>
+                        دسته بندی
+                    </th>
+                    <th>
+                        مبلغ واحد
+                    </th>
+                    <th>
+                        تعداد
+                    </th>
+                    <th>
+                        قیمت
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+                @{
+                    int i = 1;
+                }
+                @foreach (var item in Model)
+                {
+                    <tr>
+
+                        <td>@i</td>
+                        @{
+                            i += 1;
+                        }
+                        <td>@item.ProductId</td>
+                        <td>@item.Name</td>
+                        <td>@item.TblProduct.TblCatagory.Name</td>
+                        <td>@item.Price.ToString("#,0")</td>
+                        <td>@item.Count</td>
+                        <td>@((item.Price * item.Count).ToString("#,0"))</td>
+                    </tr>
+                }
+
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>@Model.Sum(p => p.Count)</td>
+                    <td>
+                        @Model.Sum(p => p.Price * p.Count).ToString("#,0") تومان
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </content>
+
+    @if (Model.FirstOrDefault().Discount != 0)
+    {
+        <div class="row uk-margin-top " dir="rtl">
+            <label class="uk-margin-small-bottom uk-margin-medium-right">درصد تخفیف:</label>
+            <span class="uk-badge uk-margin-right" type="text">@Model.FirstOrDefault().Discount%</span>
+        </div>
+    }
+
+
+    <label class="uk-margin-top uk-margin-small-bottom">مبلغ قابل پرداخت بعد از مالیات</label>
+    <div class="row uk-label  uk-margin-auto-left uk-padding-small">
+        <span class="uk-margin-small-right uk-margin-auto-left">تومان</span>
+        <span>@((Model.Sum(p => p.Price * p.Count)-Convert.ToInt32(Model.Sum(p => p.Price * p.Count)*Model.FirstOrDefault().Discount/100)).ToString("#,0"))</span>
+    </div>
+    <content class="row center uk-margin-medium-top" dir="rtl">
+        <span>کارشناسان فروش و پشتیبانی</span>
+        <span class="uk-margin-right">09190995384</span>
+        <span class="uk-margin-right">09190995385</span>
+        <span class="uk-margin-right">09190995386</span>
+    </content>
+
+    <div class="row">
+        <a href="/UserPanel/Home/History" class="uk-margin-auto-left uk-margin-top uk-button uk-button-danger uk-margin-right ">برگشت</a>
+        <button class="uk-margin-top uk-button uk-button-primary" onclick="window.print();">چاپ</button>
+    </div>
+
+</window>
+
+<div class="space"></div>

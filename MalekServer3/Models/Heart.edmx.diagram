@@ -40,6 +40,8 @@
         <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductPropertyRel_TblProduct" ManuallyRouted="false" />
         <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductPropertyRel_TblProperty" ManuallyRouted="false" />
         <EntityTypeShape EntityType="malekser_MalekServerModel.TblClientProductRel" Width="1.5" PointX="6.375" PointY="10.75" />
+        <AssociationConnector Association="malekser_MalekServerModel.FK_TblClientProductRel_TblProduct" />
+        <AssociationConnector Association="malekser_MalekServerModel.FK_TblClientProductRel_TblClient" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

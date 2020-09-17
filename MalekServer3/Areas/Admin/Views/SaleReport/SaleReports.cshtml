@@ -1,30 +1,83 @@
 ﻿@model IEnumerable<MalekServer3.Models.TblClientProductRel>
-
 @{
     ViewBag.Title = "لیست خریداران";
 }
-
-<link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
-<link href="~/Styles/Tables.min.css" rel="stylesheet" />
-<table dir="rtl" class="uk-margin-small-right uk-table .uk-table-hover uk-table-middle uk-table-divider uk-table uk-table-striped ">
-    <thead>
-        <tr>
-            <th>کد</th>
-            <th>نام</th>
-            <th>تعداد</th>
-            <th>قیمت</th>
-        </tr>
-    </thead>
-    <tbody id="tbody">
-        @foreach (var item in Model)
-        {
+<!-- UIkit CSS -->
+<link href="~/Styles/UIKit/uikit-rtl.min.css" rel="stylesheet" />
+<!-- Project CSS -->
+<link href="~/Styles/Profile.min.css" rel="stylesheet" />
+<div class="clipped column uk-margin-top uk-margin-auto">
+    <label>لیست خریداران</label>
+    <hr class="uk-margin-small-top " />
+</div>
+<content id="cartTable" class="uk-card clipped uk-margin-bottom">
+    <table class="history uk-table uk-table-striped uk-margin-small-top">
+        <thead>
             <tr>
-                <td>@item.id</td>
-                <td>@item.Date</td>
-                <td>@item.ProductId</td>
+                <th>
+                    ردیف
+                </th>
+                <th>
+                    شماره فاکتور
+                </th>
+                <th>
+                    نام مشتری
+                </th>
+                <th>
+                    تاریخ خرید
+                </th>
+                <th>
+                    قیمت کل
+                </th>
+                <th>
+                    وضعیت
+                </th>
+                <th>
+                    مشاهده
+                </th>
             </tr>
-        }
+        </thead>
+        <tbody id="tBody">
+            @{
+                int i = 1;
+            }
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@i</td>
+                @{
+                    i += 1;
+                }
+                <td>@item.FactorId</td>
+                <td>@item.TblClient.Name</td>
+                <td>@item.Date.ToShamsi()</td>
+                <td>@item.SumFactor</td>
+                @if (@item.IsFinaly)
+                {
+                    <td>
+                        موفق
+                    </td>
+                    <td>
+                        <a href="/Admin/SaleReport/NamyeshFactor/@item.FactorId">نمایش کامل فاکتور</a>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        نا موفق
+                    </td>
+                    <td>
+                    </td>
+                }
 
+            </tr>
+            }
+        </tbody>
+        <tfoot>
 
-    </tbody>
-</table>
+        </tfoot>
+    </table>
+
+</content>
+
+<div class="space-double"></div>

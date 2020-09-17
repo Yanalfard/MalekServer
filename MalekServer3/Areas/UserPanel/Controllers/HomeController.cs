@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using MalekServer3.Utilities;
 
 namespace MalekServer3.Areas.UserPanel.Controllers
 {
@@ -218,6 +219,7 @@ namespace MalekServer3.Areas.UserPanel.Controllers
 
             }
         }
+
         public ActionResult History()
         {
             try
@@ -228,28 +230,8 @@ namespace MalekServer3.Areas.UserPanel.Controllers
                     throw new Exception("Admin access only");
                     //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
-                List<TblClientProductRel> rels = heart.TblClientProductRels.Where(i => i.ClientId == id).ToList();
-                List<ShowProduct> showProduct = new List<ShowProduct>();
-                foreach (TblClientProductRel i in rels)
-                {
-                    OcProduct product = new OcProduct(heart.TblProducts.SingleOrDefault(j => j.id == i.ProductId));
-                    TblCatagory cat = heart.TblCatagories.SingleOrDefault(j => j.id == product.CatagoryId);
-
-                    ShowProduct db = new ShowProduct()
-                    {
-                        AfterDiscount = long.Parse(Math.Floor(product.Discount == 0 ? product.Price : product.AfterDiscount).ToString()),
-                        cat = cat.Name,
-                        product = product.Name,
-                        Count = i.Count,
-                        id = i.id,
-                        Date = i.Date,
-                        TotalAfterDiscount = long.Parse(Math.Floor((product.Discount == 0 ? product.Price : product.AfterDiscount) * i.Count).ToString())
-
-                    };
-                    showProduct.Add(db);
-                }
-
-                return View(showProduct);
+                List<TblClientProductRel> rels = heart.TblClientProductRels.Where(i => i.ClientId == id).DistinctBy(i => i.FactorId).OrderByDescending(i => i.id).ToList();
+                return View(rels);
             }
             catch (Exception e)
             {
@@ -258,6 +240,26 @@ namespace MalekServer3.Areas.UserPanel.Controllers
             }
 
         }
+        public ActionResult NamyeshFactor(int? id)
+        {
+            try
+            {
+                int idLogin = Convert.ToInt32(User.Identity.Name.Split('|')[1]);
+                if (idLogin == 3)
+                {
+                    throw new Exception("Admin access only");
+                    //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                List<TblClientProductRel> rels = heart.TblClientProductRels.Where(i => i.IsFinaly && i.ClientId == idLogin && i.FactorId == id).ToList();
+                return View(rels);
+            }
+            catch (Exception e)
+            {
+                throw e;
+                //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+        }
+
         public ActionResult Order()
         {
             return View();
@@ -281,9 +283,9 @@ namespace MalekServer3.Areas.UserPanel.Controllers
         public ActionResult CheckDiscount(string name)
         {
             List<TblDiscount> discout = heart.TblDiscounts.Where(i => i.Name == name && i.Count != 0).ToList();
-            if (discout.Count!=0)
+            if (discout.Count > 0)
             {
-                return Json(new { success = true, responseText = discout[0].Discount }, JsonRequestBehavior.AllowGet);
+                return Json(new { success = true, responseText = discout[0].Discount, responseId = discout[0].id }, JsonRequestBehavior.AllowGet);
             }
             return Json(new { success = false, responseText = "کد تخفیف موجود نیست" }, JsonRequestBehavior.AllowGet);
         }

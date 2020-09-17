@@ -26,5 +26,8 @@ namespace MalekServer3.Models
         public Nullable<int> Discount { get; set; }
         public int SumFactor { get; set; }
         public Nullable<int> DiscountId { get; set; }
+    
+        public virtual TblProduct TblProduct { get; set; }
+        public virtual TblClient TblClient { get; set; }
     }
 }

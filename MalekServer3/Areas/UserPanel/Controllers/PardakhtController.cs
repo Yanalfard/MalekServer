@@ -24,7 +24,7 @@ namespace MalekServer3.Areas.UserPanel.Controllers
             int numFactor;
             if (selectFatorId.Count == 0)
             {
-                numFactor = 1;
+                numFactor = 1000;
             }
             else
             {
@@ -42,29 +42,34 @@ namespace MalekServer3.Areas.UserPanel.Controllers
                         Count = ShopCartItem.Count,
                         Price = product.Price,
                         Name = product.Name,
-                        Date = DateTime.Now.ToString(),
+                        Date = DateTime.Now.ToShortDateString(),
                         IsFinaly = false,
                         FactorId = numFactor,
                         ClientId = tblClientProductRel.ClientId,
                         Discount = tblClientProductRel.Discount,
-                        SumFactor= tblClientProductRel.SumFactor,
-                        DiscountId= tblClientProductRel.DiscountId
+                        SumFactor = tblClientProductRel.SumFactor,
+                        DiscountId = tblClientProductRel.DiscountId
                     };
                     heart.TblClientProductRels.Add(AddTbl);
-                    heart.SaveChanges();
                 }
+                if (tblClientProductRel.DiscountId > 0)
+                {
+                    TblDiscount discountToUpdate = heart.TblDiscounts.SingleOrDefault(i => i.id == tblClientProductRel.DiscountId);
+                    discountToUpdate.Count--;
+                }
+                heart.SaveChanges();
                 cart.Clear();
             }
-            
+
             System.Net.ServicePointManager.Expect100Continue = false;
-            ZarinPal2.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal2.PaymentGatewayImplementationServicePortTypeClient();
+            ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
             string Authority;
 
-            int Status = zp.PaymentRequest("YOUR-ZARINPAL-MERCHANT-CODE", tblClientProductRel.SumFactor, "ملک سرور", "Iman@Madaeny.com", "09124140939", "https://localhost:44316/UserPanel/Pardakht/Verify/" + numFactor, out Authority);
+            int Status = zp.PaymentRequest("a282a431-19d8-43ee-ae50-e3d056519667", tblClientProductRel.SumFactor, "ملک سرور", "noreplaymalekserver@gmail.com", "09190995384", "https://www.malekserver.com/UserPanel/Pardakht/Verify/" + numFactor, out Authority);
             if (Status == 100)
             {
-                // Response.Redirect("https://www.zarinpal.com/pg/StartPay/" + Authority);
-                return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + Authority);
+                Response.Redirect("https://www.zarinpal.com/pg/StartPay/" + Authority);
+                //return Redirect("https://sandbox.zarinpal.com/pg/StartPay/" + Authority);
             }
             else
             {
@@ -75,26 +80,30 @@ namespace MalekServer3.Areas.UserPanel.Controllers
 
         public ActionResult Verify(int id)
         {
-            TblClientProductRel order = heart.TblClientProductRels.Where(i => i.FactorId == id).ToList()[0];
+            List<TblClientProductRel> order = heart.TblClientProductRels.Where(i => i.FactorId == id).ToList();
 
             if (Request.QueryString["Status"] != "" && Request.QueryString["Status"] != null && Request.QueryString["Authority"] != "" && Request.QueryString["Authority"] != null)
             {
                 if (Request.QueryString["Status"].ToString().Equals("OK"))
                 {
-                    int Amount = order.SumFactor;
+                    int Amount = order[0].SumFactor;
                     long RefID;
                     System.Net.ServicePointManager.Expect100Continue = false;
-                    ZarinPal2.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal2.PaymentGatewayImplementationServicePortTypeClient();
+                    ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
 
-                    int Status = zp.PaymentVerification("YOUR-ZARINPAL-MERCHANT-CODE", Request.QueryString["Authority"].ToString(), Amount, out RefID);
+                    int Status = zp.PaymentVerification("a282a431-19d8-43ee-ae50-e3d056519667", Request.QueryString["Authority"].ToString(), Amount, out RefID);
 
                     if (Status == 100)
                     {
-                        order.IsFinaly = true;
+                        foreach (var item in order)
+                        {
+                            item.IsFinaly = true;
+                        }
                         heart.SaveChanges();
                         ViewBag.IsSuccess = true;
                         ViewBag.RefId = RefID;
                         // Response.Write("Success!! RefId: " + RefID);
+                        return Redirect("/UserPanel/Home/NamyeshFactor/" + id);
                     }
                     else
                     {

@@ -23,6 +23,7 @@ function AddDiscount() {
                 $('#FinalPrice').html(numberWithCommas(final));
                 $('#SumFactor').val(final);
                 $('#Discount').val(percent);
+                $('#DiscountId').val(response.responseId);
                 $('.AddDiscount').hide();
                 
             } else {

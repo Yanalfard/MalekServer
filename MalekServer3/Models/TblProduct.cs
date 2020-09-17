@@ -21,6 +21,7 @@ namespace MalekServer3.Models
             this.TblProductImageRels = new HashSet<TblProductImageRel>();
             this.TblProductKeywordRels = new HashSet<TblProductKeywordRel>();
             this.TblProductPropertyRels = new HashSet<TblProductPropertyRel>();
+            this.TblClientProductRels = new HashSet<TblClientProductRel>();
         }
     
         public int id { get; set; }
@@ -44,5 +45,7 @@ namespace MalekServer3.Models
         public virtual ICollection<TblProductKeywordRel> TblProductKeywordRels { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblProductPropertyRel> TblProductPropertyRels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblClientProductRel> TblClientProductRels { get; set; }
     }
 }

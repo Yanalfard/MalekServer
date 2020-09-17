@@ -33,7 +33,6 @@
         <table class="history uk-table uk-table-striped uk-margin-small-top">
             <thead>
                 <tr>
-
                     <th>
                         ردیف
                     </th>
@@ -126,6 +125,7 @@
     <hr class="uk-divider-icon uk-margin-top uk-margin-bottom" />
     <form action="/UserPanel/Pardakht/Payment" method="post">
         <input type="hidden" id="Discount" name="Discount" value="0" />
+        <input type="hidden" id="DiscountId" name="DiscountId" value="0" />
         <input type="hidden" id="ClientId" name="ClientId" value="@User.Identity.Name.Split('|')[1]" />
         <input type="hidden" id="SumFactor" name="SumFactor" value="@Model.Sum(p => p.Price * p.Count)" />
         <div class="row">

@@ -37,11 +37,11 @@ namespace MalekServer3.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    //if (!MethodRepo.CheckRechapcha(form))
-                    //{
-                    //    ViewBag.Message = "لطفا گزینه من ربات نیستم را تکمیل کنید";
-                    //    return View(register);
-                    //}
+                    if (!MethodRepo.CheckRechapcha(form))
+                    {
+                        ViewBag.Message = "لطفا گزینه من ربات نیستم را تکمیل کنید";
+                        return View(register);
+                    }
                     // go ahead and write code to validate username password against database
                     if (!heart.TblClients.Any(u => u.Email == register.Email.Trim().ToLower()))
                     {
@@ -118,11 +118,11 @@ namespace MalekServer3.Controllers
                 if (ModelState.IsValid)
                 {
 
-                    //if (!MethodRepo.CheckRechapcha(form))
-                    //{
-                    //    ViewBag.Message = "لطفا گزینه من ربات نیستم را تکمیل کنید";
-                    //    return View(login);
-                    //}
+                    if (!MethodRepo.CheckRechapcha(form))
+                    {
+                        ViewBag.Message = "لطفا گزینه من ربات نیستم را تکمیل کنید";
+                        return View(login);
+                    }
                     string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password, "MD5");
                     var user = heart.TblClients.SingleOrDefault(u => u.Email == login.Email && u.Password == hashPassword);
                     if (user != null)

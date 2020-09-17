@@ -166,6 +166,8 @@
     </Content>
     <Content Include="Areas\UserPanel\Views\Pardakht\Payment.cshtml" />
     <Content Include="Areas\UserPanel\Views\Pardakht\Verify.cshtml" />
+    <Content Include="Areas\UserPanel\Views\Home\NamyeshFactor.cshtml" />
+    <Content Include="Areas\Admin\Views\SaleReport\NamyeshFactor.cshtml" />
     <None Include="Connected Services\ZarinPal2\PaymentGatewayImplementationService.wsdl" />
     <None Include="Connected Services\ZarinPal\configuration91.svcinfo" />
     <None Include="Connected Services\ZarinPal\configuration.svcinfo" />
@@ -1709,6 +1711,7 @@
     <Compile Include="Models\ViewModel\ShopCartItem.cs" />
     <Compile Include="Models\ViewModel\ShowProduct.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\ExtensionMethods.cs" />
     <Compile Include="Utilities\MethodRepo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1779,6 +1782,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Areas\Admin\Views\ShowFactor\" />
     <Folder Include="Areas\Admin\Views\UploadDelete\" />
     <Folder Include="Areas\UserPanel\Data\" />
     <Folder Include="Repositories\" />

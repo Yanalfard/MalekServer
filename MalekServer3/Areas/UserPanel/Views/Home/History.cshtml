@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MalekServer3.Models.ViewModel.ShowProduct>
+﻿@model IEnumerable<MalekServer3.Models.TblClientProductRel>
 @{
     ViewBag.Title = "سابقه خرید";
 }
@@ -12,28 +12,19 @@
         <thead>
             <tr>
                 <th>
-                    ردیف
+                    شماره فاکتور
                 </th>
                 <th>
-                    کد
+                    تاریخ خرید
                 </th>
                 <th>
-                    نام
+                    قیمت کل
                 </th>
                 <th>
-                    دسته بندی
+                    وضعیت
                 </th>
                 <th>
-                    تاریخ
-                </th>
-                <th>
-                    فی
-                </th>
-                <th>
-                    تعداد
-                </th>
-                <th>
-                    قیمت
+                    مشاهده
                 </th>
             </tr>
         </thead>
@@ -41,18 +32,29 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td></td>
-                    <td>@item.id</td>
-                    <td>@item.product</td>
-                    <td>@item.cat</td>
-                    <td>@item.Date</td>
-                    <td>@item.AfterDiscount</td>
-                    <td>@item.Count</td>
-                    <td>@item.TotalAfterDiscount</td>
+                    <td>@item.FactorId</td>
+                    <td>@item.Date.ToShamsi()</td>
+                    <td>@item.SumFactor</td>
+                    @if (@item.IsFinaly)
+                    {
+                        <td>
+                            موفق
+                        </td>
+                        <td>
+                            <a href="/UserPanel/Home/NamyeshFactor/@item.FactorId">نمایش کامل فاکتور</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            نا موفق
+                        </td>
+                        <td>
+                        </td>
+                    }
+
                 </tr>
             }
-
-
         </tbody>
         <tfoot>
 
