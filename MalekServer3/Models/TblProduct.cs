@@ -11,7 +11,8 @@ namespace MalekServer3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class TblProduct
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -29,6 +30,7 @@ namespace MalekServer3.Models
         public string DateSubmited { get; set; }
         public int Raiting { get; set; }
         public long Price { get; set; }
+        [AllowHtml]
         public string DescriptionHtml { get; set; }
         public Nullable<int> CatagoryId { get; set; }
         public int Count { get; set; }

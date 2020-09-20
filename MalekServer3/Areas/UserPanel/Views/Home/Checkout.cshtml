@@ -25,9 +25,9 @@
             <h6>
                 ▪️ هزینه ارسال:
             </h6>
-            – سفارش‌های بالای دو میلیون تومان، به صورت رایگان ارسال خواهند شد.
+            – سفارش‌های بالای دو میلیون ریال، به صورت رایگان ارسال خواهند شد.
             <br />
-            – سفارش‌های زیر دو میلیون تومان، به صورت پس کرایه (به عهده مشتری) ارسال خواهند شد.
+            – سفارش‌های زیر دو میلیون ریال، به صورت پس کرایه (به عهده مشتری) ارسال خواهند شد.
             <br />
 
         </div>
@@ -136,7 +136,7 @@
 
                     <td>@Model.Sum(p => p.Count)</td>
                     <td>
-                        @Model.Sum(p => p.Price * p.Count).ToString("#,0") تومان
+                        @Model.Sum(p => p.Price * p.Count).ToString("#,0") ریال
                     </td>
                 </tr>
             </tfoot>
@@ -154,7 +154,7 @@
 
     <label class="uk-margin-top uk-margin-small-bottom">0 هزینه ارسال</label>
     <div class="row uk-label  uk-margin-auto-left uk-padding-small">
-        <span class="uk-margin-small-right uk-margin-auto-left">تومان</span>
+        <span class="uk-margin-small-right uk-margin-auto-left">ریال</span>
         @{
             //var Maliyat = Model.Sum(p => p.Price * p.Count) * 109 / 100;
             var Maliyat = Model.Sum(p => p.Price * p.Count).ToString("#,0");

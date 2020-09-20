@@ -138,7 +138,7 @@
                     <td></td>
                     <td>@Model.Sum(p => p.Count)</td>
                     <td>
-                        @Model.Sum(p => p.Price * p.Count).ToString("#,0") تومان
+                        @Model.Sum(p => p.Price * p.Count).ToString("#,0") ریال
                     </td>
                 </tr>
             </tfoot>
@@ -156,7 +156,7 @@
 
     <label class="uk-margin-top uk-margin-small-bottom">مبلغ قابل پرداخت بعد از مالیات</label>
     <div class="row uk-label  uk-margin-auto-left uk-padding-small">
-        <span class="uk-margin-small-right uk-margin-auto-left">تومان</span>
+        <span class="uk-margin-small-right uk-margin-auto-left">ریال</span>
         <span>@((Model.Sum(p => p.Price * p.Count)-Convert.ToInt32(Model.Sum(p => p.Price * p.Count)*Model.FirstOrDefault().Discount/100)).ToString("#,0"))</span>
     </div>
     <content class="row center uk-margin-medium-top" dir="rtl">

@@ -11,7 +11,8 @@ namespace MalekServer3.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class TblBlog
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,6 +25,7 @@ namespace MalekServer3.Models
         public int id { get; set; }
         public string MainImage { get; set; }
         public string Title { get; set; }
+        [AllowHtml]
         public string Body { get; set; }
         public int LikeCount { get; set; }
     

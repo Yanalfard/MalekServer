@@ -24,7 +24,7 @@
                             <label class="discount">25 000</label>
                         </div>
                         <div class="row">
-                            <span class="price-toman">تومان </span>
+                            <span class="price-toman">ریال </span>
                             <span class="price">25 000 000 </span>
                         </div>
 
