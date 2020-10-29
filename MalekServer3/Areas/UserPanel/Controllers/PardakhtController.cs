@@ -92,7 +92,6 @@ namespace MalekServer3.Areas.UserPanel.Controllers
                     ZarinPal.PaymentGatewayImplementationServicePortTypeClient zp = new ZarinPal.PaymentGatewayImplementationServicePortTypeClient();
 
                     int Status = zp.PaymentVerification("a282a431-19d8-43ee-ae50-e3d056519667", Request.QueryString["Authority"].ToString(), Amount, out RefID);
-
                     if (Status == 100)
                     {
                         foreach (var item in order)

@@ -13,7 +13,8 @@
     <link href="~/Styles/Admin.min.css" rel="stylesheet" />
 
     <!-- Loading CSS -->
-    <link href="~/Styles/Load.css" rel="stylesheet" />
+    <link href="~/Content/MvcCss/Loading.css" rel="stylesheet" />
+
 </head>
 <body>
 
@@ -136,14 +137,8 @@
     <!--Project JS-->
     <script src="~/Scripts/General.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/Scripts/MvcJs/Loading.js"></script>
 
-    <script>
-        jQuery(function ($) {
-            $(document).ajaxSend(function () {
-                $("#overlay").fadeIn(300);
-            });
-        });
-    </script>
 
     @RenderSection("Scripts", required: false)
 </body>
