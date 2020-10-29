@@ -14,7 +14,8 @@
 
     <script src="~/Scripts/Jquery/jquery.validate.min.js"></script>
     <script src="~/Scripts/Jquery/jquery.validate.unobtrusive.min.js"></script>
-    <script src='https://www.google.com/recaptcha/api.js'></script>
+    @*<script src='https://www.google.com/recaptcha/api.js'></script>*@
+    <script src='https://www.google.com/recaptcha/api.js?hl=fa'></script>
 
     <!-- UIkit CSS -->
     <link href="/Styles/UIKit/uikit.min.css" rel="stylesheet" />
@@ -76,9 +77,9 @@
             <div class="center uk-margin-medium-top">
                 <div dir="rtl">
                     <!-- Site -->
-                    <div class="g-recaptcha center uk-margin-small-bottom" data-sitekey="6LevZMIZAAAAAAp_NimdDiJ7wU6SCAIUHFI8-M_f"></div>
+                    @*<div class="g-recaptcha center uk-margin-small-bottom" data-sitekey="6LevZMIZAAAAAAp_NimdDiJ7wU6SCAIUHFI8-M_f"></div>*@
                     <!-- localhost -->
-                    @* <div class="g-recaptcha center uk-margin-small-bottom" data-sitekey="6Ld_XsIZAAAAAD5pg4pDXJWD93von5OYhbai1zma"></div>*@
+                     <div class="g-recaptcha center uk-margin-small-bottom" data-sitekey="6Ld_XsIZAAAAAD5pg4pDXJWD93von5OYhbai1zma"></div>
 
                     <span class=" uk-text-danger">@ViewBag.Message</span>
                 </div>
