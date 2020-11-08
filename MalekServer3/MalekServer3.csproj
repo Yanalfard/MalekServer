@@ -8,6 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{0E2ADC6D-1295-479A-84EC-BA655D8E6F9B}</ProjectGuid>
+    <AutoGenerateBindingRedirects>false</AutoGenerateBindingRedirects>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -16,9 +17,9 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
-    <IISExpressSSLPort>44316</IISExpressSSLPort>
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
+    <IISExpressSSLPort>44314</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
@@ -353,13 +354,6 @@
     <Content Include="Areas\Admin\Views\Ad\EditAd.cshtml" />
     <Content Include="Areas\Admin\Views\Home\Index.cshtml" />
     <Content Include="Areas\Admin\Views\SaleReport\SaleReports.cshtml" />
-    <EntityDeploy Include="Models\Heart.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Heart.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Heart.edmx.diagram">
-      <DependentUpon>Heart.edmx</DependentUpon>
-    </Content>
     <Content Include="Areas\Admin\Views\Order\Orders.cshtml" />
     <Content Include="Areas\UserPanel\Views\Home\Order.cshtml" />
     <Content Include="Areas\Admin\Views\Order\Details.cshtml" />
@@ -377,7 +371,76 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Controllers\ManageEmailsController.cs" />
+    <Compile Include="Models\Heart.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Heart.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Heart.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Heart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Heart.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ObjectClass\OcCatagory.cs" />
+    <Compile Include="Models\TblAd.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblBlog.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblBlogCommentRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblBlogKeywordRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblCatagory.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblClient.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblClientProductRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblComment.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblDiscount.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblImage.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblKeyword.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblOrder.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblProduct.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblProductCommentRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblProductImageRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblProductKeywordRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblProductPropertyRel.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TblProperty.cs">
+      <DependentUpon>Heart.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ViewModel\KooyWebApp_MVC.Classes.cs" />
     <Content Include="Areas\Admin\Views\Home\Property.cshtml" />
     <Content Include="Areas\Admin\Views\Product_Groups\Create.cshtml" />
@@ -388,6 +451,13 @@
     <Content Include="Areas\Admin\Views\Product_Groups\CreateZirDate.cshtml" />
     <Content Include="Areas\Admin\Views\Product_Groups\EditZirCatagory.cshtml" />
     <None Include="Connected Services\ZarinPal\PaymentGatewayImplementationService.wsdl" />
+    <EntityDeploy Include="Models\Heart.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Heart.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Heart.edmx.diagram">
+      <DependentUpon>Heart.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Resources\Vector\Tile.png" />
     <Content Include="Scripts\ckeditor\adapters\jquery.js" />
@@ -1629,79 +1699,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Heart.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Heart.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Heart.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Heart.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Heart.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ObjectClass\OcProduct.cs" />
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblAd.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblBlog.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblBlogCommentRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblBlogKeywordRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblCatagory.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblClient.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblClientProductRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblComment.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblDiscount.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblImage.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblKeyword.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblOrder.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblProduct.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblProductCommentRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblProductImageRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblProductKeywordRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblProductPropertyRel.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TblProperty.cs">
-      <DependentUpon>Heart.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ViewModel\AccountViewModel.cs" />
     <Compile Include="Models\ViewModel\ImageResizer.cs" />
     <Compile Include="Models\ViewModel\LoginViewModel.cs" />
@@ -1820,7 +1818,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>31649</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>https://localhost:44316/</IISUrl>
+          <IISUrl>https://localhost:44314/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

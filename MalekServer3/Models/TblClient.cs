@@ -17,9 +17,9 @@ namespace MalekServer3.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public TblClient()
         {
+            this.TblClientProductRels = new HashSet<TblClientProductRel>();
             this.TblComments = new HashSet<TblComment>();
             this.TblOrders = new HashSet<TblOrder>();
-            this.TblClientProductRels = new HashSet<TblClientProductRel>();
         }
     
         public int id { get; set; }
@@ -34,10 +34,10 @@ namespace MalekServer3.Models
         public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<TblClientProductRel> TblClientProductRels { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblComment> TblComments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<TblOrder> TblOrders { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TblClientProductRel> TblClientProductRels { get; set; }
     }
 }

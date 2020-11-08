@@ -4,44 +4,42 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="17728ddeba364940800de17b3b6c7fec" Name="Diagram1">
-        <EntityTypeShape EntityType="malekser_MalekServerModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblAd" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblBlog" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblBlogCommentRel" Width="1.5" PointX="11" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblBlogKeywordRel" Width="1.5" PointX="11" PointY="10.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblCatagory" Width="1.5" PointX="1.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblClient" Width="1.5" PointX="1.5" PointY="15.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblComment" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblDiscount" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblImage" Width="1.5" PointX="0.75" PointY="20.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblKeyword" Width="1.5" PointX="3.75" PointY="13.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblOrder" Width="1.5" PointX="3.75" PointY="16.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblProduct" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblProductCommentRel" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblProductImageRel" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblProductKeywordRel" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblProductPropertyRel" Width="1.5" PointX="6" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblProperty" Width="1.5" PointX="3.75" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblBlogCommentRel_TblBlog" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblBlogKeywordRel_TblBlog" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblBlogCommentRel_TblComment" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblBlogKeywordRel_TblKeyword" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblCatagory_TblCatagory" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProduct_TblCatagory" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblComment_TblClient" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblOrder_TblClient" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductCommentRel_TblComment" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductImageRel_TblImage" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductKeywordRel_TblKeywords" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductCommentRel_TblProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductImageRel_TblProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductKeywordRel_TblProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductPropertyRel_TblProduct" ManuallyRouted="false" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblProductPropertyRel_TblProperty" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="malekser_MalekServerModel.TblClientProductRel" Width="1.5" PointX="6.375" PointY="10.75" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblClientProductRel_TblProduct" />
-        <AssociationConnector Association="malekser_MalekServerModel.FK_TblClientProductRel_TblClient" />
+      <Diagram DiagramId="f04a99619dbf46d4952e411fd9482fa3" Name="Diagram1">
+        <EntityTypeShape EntityType="MalekServerModel.TblAd" Width="1.5" PointX="5.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblBlog" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblBlogCommentRel" Width="1.5" PointX="11" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblBlogKeywordRel" Width="1.5" PointX="11" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblCatagory" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblClient" Width="1.5" PointX="1.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblClientProductRel" Width="1.5" PointX="3.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblComment" Width="1.5" PointX="0.75" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblDiscount" Width="1.5" PointX="5.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblImage" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblKeyword" Width="1.5" PointX="0.75" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblOrder" Width="1.5" PointX="3.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblProduct" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblProductCommentRel" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblProductImageRel" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblProductKeywordRel" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblProductPropertyRel" Width="1.5" PointX="6" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalekServerModel.TblProperty" Width="1.5" PointX="3.75" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="MalekServerModel.FK_TblBlogCommentRel_TblBlog" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblBlogKeywordRel_TblBlog" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblBlogCommentRel_TblComment" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblBlogKeywordRel_TblKeyword" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblCatagory_TblCatagory" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProduct_TblCatagory" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblClientProductRel_TblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblComment_TblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblOrder_TblClient" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductCommentRel_TblComment" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductImageRel_TblImage" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductKeywordRel_TblKeywords" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductCommentRel_TblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductImageRel_TblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductKeywordRel_TblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductPropertyRel_TblProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="MalekServerModel.FK_TblProductPropertyRel_TblProperty" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

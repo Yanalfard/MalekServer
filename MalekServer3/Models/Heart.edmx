@@ -4,17 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="malekser_MalekServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
-        </EntityType>
+      <Schema Namespace="MalekServerModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="TblAd">
           <Key>
             <PropertyRef Name="id" />
@@ -419,10 +409,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="malekser_MalekServerModelStoreContainer">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="MalekServerModelStoreContainer">
           <EntitySet Name="TblAd" EntityType="Self.TblAd" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblBlog" EntityType="Self.TblBlog" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TblBlogCommentRel" EntityType="Self.TblBlogCommentRel" Schema="dbo" store:Type="Tables" />
@@ -510,20 +497,11 @@
             <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRel" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="malekser_MalekServerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
+      <Schema Namespace="MalekServerModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="TblAd">
           <Key>
             <PropertyRef Name="id" />
@@ -572,10 +550,10 @@
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="CatagoryId" Type="Int32" />
+          <Property Name="IsOnFirstPage" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="TblCatagory1" Relationship="Self.FK_TblCatagory_TblCatagory" FromRole="TblCatagory" ToRole="TblCatagory1" />
           <NavigationProperty Name="TblCatagory2" Relationship="Self.FK_TblCatagory_TblCatagory" FromRole="TblCatagory1" ToRole="TblCatagory" />
           <NavigationProperty Name="TblProducts" Relationship="Self.FK_TblProduct_TblCatagory" FromRole="TblCatagory" ToRole="TblProduct" />
-          <Property Name="IsOnFirstPage" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="TblClient">
           <Key>
@@ -591,9 +569,27 @@
           <Property Name="Password" Type="String" MaxLength="64" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Auth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TblClientProductRels" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClient" ToRole="TblClientProductRel" />
           <NavigationProperty Name="TblComments" Relationship="Self.FK_TblComment_TblClient" FromRole="TblClient" ToRole="TblComment" />
           <NavigationProperty Name="TblOrders" Relationship="Self.FK_TblOrder_TblClient" FromRole="TblClient" ToRole="TblOrder" />
-          <NavigationProperty Name="TblClientProductRels" Relationship="malekser_MalekServerModel.FK_TblClientProductRel_TblClient" FromRole="TblClient" ToRole="TblClientProductRel" />
+        </EntityType>
+        <EntityType Name="TblClientProductRel">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClientId" Type="Int32" Nullable="false" />
+          <Property Name="ProductId" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Count" Type="Int32" Nullable="false" />
+          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Price" Type="Int64" Nullable="false" />
+          <Property Name="FactorId" Type="Int32" Nullable="false" />
+          <Property Name="Discount" Type="Int32" />
+          <Property Name="SumFactor" Type="Int32" Nullable="false" />
+          <Property Name="DiscountId" Type="Int32" />
+          <NavigationProperty Name="TblClient" Relationship="Self.FK_TblClientProductRel_TblClient" FromRole="TblClientProductRel" ToRole="TblClient" />
         </EntityType>
         <EntityType Name="TblComment">
           <Key>
@@ -664,7 +660,6 @@
           <NavigationProperty Name="TblProductImageRels" Relationship="Self.FK_TblProductImageRel_TblProduct" FromRole="TblProduct" ToRole="TblProductImageRel" />
           <NavigationProperty Name="TblProductKeywordRels" Relationship="Self.FK_TblProductKeywordRel_TblProduct" FromRole="TblProduct" ToRole="TblProductKeywordRel" />
           <NavigationProperty Name="TblProductPropertyRels" Relationship="Self.FK_TblProductPropertyRel_TblProduct" FromRole="TblProduct" ToRole="TblProductPropertyRel" />
-          <NavigationProperty Name="TblClientProductRels" Relationship="malekser_MalekServerModel.FK_TblClientProductRel_TblProduct" FromRole="TblProduct" ToRole="TblClientProductRel" />
         </EntityType>
         <EntityType Name="TblProductCommentRel">
           <Key>
@@ -792,6 +787,18 @@
             </Principal>
             <Dependent Role="TblProduct">
               <PropertyRef Name="CatagoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TblClientProductRel_TblClient">
+          <End Role="TblClient" Type="Self.TblClient" Multiplicity="1" />
+          <End Role="TblClientProductRel" Type="Self.TblClientProductRel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TblClient">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="TblClientProductRel">
+              <PropertyRef Name="ClientId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -934,13 +941,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Heart" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="TblAds" EntityType="Self.TblAd" />
           <EntitySet Name="TblBlogs" EntityType="Self.TblBlog" />
           <EntitySet Name="TblBlogCommentRels" EntityType="Self.TblBlogCommentRel" />
           <EntitySet Name="TblBlogKeywordRels" EntityType="Self.TblBlogKeywordRel" />
           <EntitySet Name="TblCatagories" EntityType="Self.TblCatagory" />
           <EntitySet Name="TblClients" EntityType="Self.TblClient" />
+          <EntitySet Name="TblClientProductRels" EntityType="Self.TblClientProductRel" />
           <EntitySet Name="TblComments" EntityType="Self.TblComment" />
           <EntitySet Name="TblDiscounts" EntityType="Self.TblDiscount" />
           <EntitySet Name="TblImages" EntityType="Self.TblImage" />
@@ -975,6 +982,10 @@
           <AssociationSet Name="FK_TblProduct_TblCatagory" Association="Self.FK_TblProduct_TblCatagory">
             <End Role="TblCatagory" EntitySet="TblCatagories" />
             <End Role="TblProduct" EntitySet="TblProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TblClientProductRel_TblClient" Association="Self.FK_TblClientProductRel_TblClient">
+            <End Role="TblClient" EntitySet="TblClients" />
+            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
           </AssociationSet>
           <AssociationSet Name="FK_TblComment_TblClient" Association="Self.FK_TblComment_TblClient">
             <End Role="TblClient" EntitySet="TblClients" />
@@ -1016,79 +1027,15 @@
             <End Role="TblProperty" EntitySet="TblProperties" />
             <End Role="TblProductPropertyRel" EntitySet="TblProductPropertyRels" />
           </AssociationSet>
-          <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="TblClientProductRels" EntityType="malekser_MalekServerModel.TblClientProductRel" />
-          <AssociationSet Name="FK_TblClientProductRel_TblProduct" Association="malekser_MalekServerModel.FK_TblClientProductRel_TblProduct">
-            <End Role="TblProduct" EntitySet="TblProducts" />
-            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TblClientProductRel_TblClient" Association="malekser_MalekServerModel.FK_TblClientProductRel_TblClient">
-            <End Role="TblClient" EntitySet="TblClients" />
-            <End Role="TblClientProductRel" EntitySet="TblClientProductRels" />
-          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="TblClientProductRel">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ClientId" Type="Int32" Nullable="false" />
-          <Property Name="ProductId" Type="Int32" Nullable="false" />
-          <Property Name="Date" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
-          <Property Name="Count" Type="Int32" Nullable="false" />
-          <Property Name="IsFinaly" Type="Boolean" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Int64" Nullable="false" />
-          <Property Name="FactorId" Type="Int32" Nullable="false" />
-          <Property Name="Discount" Type="Int32" />
-          <Property Name="SumFactor" Type="Int32" Nullable="false" />
-          <Property Name="DiscountId" Type="Int32" />
-          <NavigationProperty Name="TblProduct" Relationship="malekser_MalekServerModel.FK_TblClientProductRel_TblProduct" FromRole="TblClientProductRel" ToRole="TblProduct" />
-          <NavigationProperty Name="TblClient" Relationship="malekser_MalekServerModel.FK_TblClientProductRel_TblClient" FromRole="TblClientProductRel" ToRole="TblClient" />
-        </EntityType>
-        <Association Name="FK_TblClientProductRel_TblProduct">
-          <End Type="malekser_MalekServerModel.TblProduct" Role="TblProduct" Multiplicity="1" />
-          <End Type="malekser_MalekServerModel.TblClientProductRel" Role="TblClientProductRel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblProduct">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblClientProductRel">
-              <PropertyRef Name="ProductId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TblClientProductRel_TblClient">
-          <End Type="malekser_MalekServerModel.TblClient" Role="TblClient" Multiplicity="1" />
-          <End Type="malekser_MalekServerModel.TblClientProductRel" Role="TblClientProductRel" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="TblClient">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="TblClientProductRel">
-              <PropertyRef Name="ClientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="malekser_MalekServerModelStoreContainer" CdmEntityContainer="Heart">
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="MalekServerModelStoreContainer" CdmEntityContainer="Heart">
           <EntitySetMapping Name="TblAds">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblAd">
+            <EntityTypeMapping TypeName="MalekServerModel.TblAd">
               <MappingFragment StoreEntitySet="TblAd">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Link" ColumnName="Link" />
@@ -1098,7 +1045,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblBlogs">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblBlog">
+            <EntityTypeMapping TypeName="MalekServerModel.TblBlog">
               <MappingFragment StoreEntitySet="TblBlog">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="MainImage" ColumnName="MainImage" />
@@ -1109,7 +1056,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblBlogCommentRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblBlogCommentRel">
+            <EntityTypeMapping TypeName="MalekServerModel.TblBlogCommentRel">
               <MappingFragment StoreEntitySet="TblBlogCommentRel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="BlogId" ColumnName="BlogId" />
@@ -1118,7 +1065,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblBlogKeywordRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblBlogKeywordRel">
+            <EntityTypeMapping TypeName="MalekServerModel.TblBlogKeywordRel">
               <MappingFragment StoreEntitySet="TblBlogKeywordRel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="BlogId" ColumnName="BlogId" />
@@ -1127,17 +1074,17 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblCatagories">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblCatagory">
+            <EntityTypeMapping TypeName="MalekServerModel.TblCatagory">
               <MappingFragment StoreEntitySet="TblCatagory">
-                <ScalarProperty Name="IsOnFirstPage" ColumnName="IsOnFirstPage" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="CatagoryId" ColumnName="CatagoryId" />
+                <ScalarProperty Name="IsOnFirstPage" ColumnName="IsOnFirstPage" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblClients">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClient">
+            <EntityTypeMapping TypeName="MalekServerModel.TblClient">
               <MappingFragment StoreEntitySet="TblClient">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1152,8 +1099,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TblClientProductRels">
+            <EntityTypeMapping TypeName="MalekServerModel.TblClientProductRel">
+              <MappingFragment StoreEntitySet="TblClientProductRel">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="FactorId" ColumnName="FactorId" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SumFactor" ColumnName="SumFactor" />
+                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="TblComments">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblComment">
+            <EntityTypeMapping TypeName="MalekServerModel.TblComment">
               <MappingFragment StoreEntitySet="TblComment">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="FromId" ColumnName="FromId" />
@@ -1164,7 +1129,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblDiscounts">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblDiscount">
+            <EntityTypeMapping TypeName="MalekServerModel.TblDiscount">
               <MappingFragment StoreEntitySet="TblDiscount">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Discount" ColumnName="Discount" />
@@ -1174,7 +1139,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblImages">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblImage">
+            <EntityTypeMapping TypeName="MalekServerModel.TblImage">
               <MappingFragment StoreEntitySet="TblImage">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Image" ColumnName="Image" />
@@ -1182,7 +1147,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblKeywords">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblKeyword">
+            <EntityTypeMapping TypeName="MalekServerModel.TblKeyword">
               <MappingFragment StoreEntitySet="TblKeyword">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1190,7 +1155,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblOrders">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblOrder">
+            <EntityTypeMapping TypeName="MalekServerModel.TblOrder">
               <MappingFragment StoreEntitySet="TblOrder">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1200,7 +1165,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblProducts">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProduct">
+            <EntityTypeMapping TypeName="MalekServerModel.TblProduct">
               <MappingFragment StoreEntitySet="TblProduct">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1217,7 +1182,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblProductCommentRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductCommentRel">
+            <EntityTypeMapping TypeName="MalekServerModel.TblProductCommentRel">
               <MappingFragment StoreEntitySet="TblProductCommentRel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -1226,7 +1191,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblProductImageRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductImageRel">
+            <EntityTypeMapping TypeName="MalekServerModel.TblProductImageRel">
               <MappingFragment StoreEntitySet="TblProductImageRel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -1235,7 +1200,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblProductKeywordRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductKeywordRel">
+            <EntityTypeMapping TypeName="MalekServerModel.TblProductKeywordRel">
               <MappingFragment StoreEntitySet="TblProductKeywordRel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -1244,7 +1209,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblProductPropertyRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProductPropertyRel">
+            <EntityTypeMapping TypeName="MalekServerModel.TblProductPropertyRel">
               <MappingFragment StoreEntitySet="TblProductPropertyRel">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="ProductId" ColumnName="ProductId" />
@@ -1253,30 +1218,11 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TblProperties">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblProperty">
+            <EntityTypeMapping TypeName="MalekServerModel.TblProperty">
               <MappingFragment StoreEntitySet="TblProperty">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="malekser_MalekServerModel.Store.sp_upgraddiagrams" />
-          <EntitySetMapping Name="TblClientProductRels">
-            <EntityTypeMapping TypeName="malekser_MalekServerModel.TblClientProductRel">
-              <MappingFragment StoreEntitySet="TblClientProductRel">
-                <ScalarProperty Name="DiscountId" ColumnName="DiscountId" />
-                <ScalarProperty Name="SumFactor" ColumnName="SumFactor" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="FactorId" ColumnName="FactorId" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="IsFinaly" ColumnName="IsFinaly" />
-                <ScalarProperty Name="Count" ColumnName="Count" />
-                <ScalarProperty Name="Date" ColumnName="Date" />
-                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
-                <ScalarProperty Name="ClientId" ColumnName="ClientId" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

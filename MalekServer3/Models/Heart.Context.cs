@@ -12,8 +12,6 @@ namespace MalekServer3.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Core.Objects;
-    using System.Linq;
     
     public partial class Heart : DbContext
     {
@@ -27,13 +25,13 @@ namespace MalekServer3.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TblAd> TblAds { get; set; }
         public virtual DbSet<TblBlog> TblBlogs { get; set; }
         public virtual DbSet<TblBlogCommentRel> TblBlogCommentRels { get; set; }
         public virtual DbSet<TblBlogKeywordRel> TblBlogKeywordRels { get; set; }
         public virtual DbSet<TblCatagory> TblCatagories { get; set; }
         public virtual DbSet<TblClient> TblClients { get; set; }
+        public virtual DbSet<TblClientProductRel> TblClientProductRels { get; set; }
         public virtual DbSet<TblComment> TblComments { get; set; }
         public virtual DbSet<TblDiscount> TblDiscounts { get; set; }
         public virtual DbSet<TblImage> TblImages { get; set; }
@@ -45,11 +43,5 @@ namespace MalekServer3.Models
         public virtual DbSet<TblProductKeywordRel> TblProductKeywordRels { get; set; }
         public virtual DbSet<TblProductPropertyRel> TblProductPropertyRels { get; set; }
         public virtual DbSet<TblProperty> TblProperties { get; set; }
-        public virtual DbSet<TblClientProductRel> TblClientProductRels { get; set; }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
-        }
     }
 }
